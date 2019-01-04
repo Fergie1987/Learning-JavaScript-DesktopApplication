@@ -1,16 +1,19 @@
-const {app, BrowserWindow} = require('electron') 
-const url = require('url') 
-const path = require('path')  
+const electron = require('electron')
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow 
 
-let win  
+let mainWindow
+let childWindow 
 
 function createWindow() { 
-   win = new BrowserWindow({width: 800, height: 600}) 
-   win.loadURL(url.format ({ 
-      pathname: path.join(__dirname, 'index.html'), 
-      protocol: 'file:', 
-      slashes: true 
-   })) 
+mainWindow = new BrowserWindow({width: 1200, height: 600})
+//childWindow = new BrowserWindow({width: 600, height: 300})  
+
+mainWindow.loadURL(`file://${__dirname}/index.html`)
+
+mainWindow.on('closed', function() {
+mainWindow = null
+})
 }  
 
 app.on('ready', createWindow) 
