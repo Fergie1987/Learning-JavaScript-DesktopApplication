@@ -2,7 +2,6 @@
 float:right;   
 width:50%; 
 height:600px;  
-margin-top:80px; 
 }
 
 #text {
@@ -29,3 +28,22 @@ background-color: lightgray;
 margin-left:45%;
 font-size: 20px;
 }
+
+#nextTutorial {
+margin-left: 20%;    
+font-size: 20px;
+background-color: lightgreen;
+
+width: 200px;
+height: 100px;
+}
+
+#logo {
+margin-left: 40%;    
+width: 400px;
+height: 200px;     
+background-image: url("../assets/learnJavaScriptLogoCoding.png");    
+background-repeat: no-repeat;
+background-position: left; 
+}
+

@@ -4,58 +4,19 @@
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">   
 <link rel="stylesheet" href="./public/css/main.css"> 
 <script>window.$ = window.jQuery = require("jquery");</script>
+<script src="main.js"></script>
 </head>
 
 <body>
-    <script src="main.js"></script>
-    
-    <div id = "learningArea">
+    <div id= "logo"></div>
+
     <div>
-        <h1 id="appHeading">Learning JavaScript with Box2D: Pac-Man</h1> </br>
+        <button id="nextTutorial">Next Tutorial</button>  </br> </br> </br>
     </div>
+
     
-     <div id = "lesson1">
-     <h2 class="bg-primary" style = "color:white">Lesson 1</h2>
-     <label>
 
-    <h4>Step 1: </h4>
-    The first requirement is to add the box2D variables and to setup the Box2D world. </br></br>
-   
-    Please add the lines of code below into the code editor: </br></br>
-
-    var b2Vec2 = Box2D.Common.Math.b2Vec2;</br>
-    var b2BodyDef = Box2D.Dynamics.b2BodyDef;</br>
-    var b2Body = Box2D.Dynamics.b2Body;</br>
-    var b2FixtureDef = Box2D.Dynamics.b2FixtureDef;</br>
-    var b2Fixture = Box2D.Dynamics.b2Fixture;</br>
-    var b2World = Box2D.Dynamics.b2World;</br>
-    var b2MassData = Box2D.Collision.Shapes.b2MassData;</br>
-    var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;</br>
-    var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;</br>
-    var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;</br></br>
-
-    <h4>Step 2: </h4>
-    
-    The code below creates a box2D world with zero gravity. </br>
-    In a Pac-Man game, there should be no gravity because you do not want the object falling to the ground.  </br>
-    Please add the following code after the code above: </br></br>
-
-    world = new b2World( </br>
-		new b2Vec2(0, 0) //zero gravity </br>
-		, false     //allow sleep</br>	
-	);</br></br>
-    
-    <h4>Step 3: </h4>
-    The canvas width and height are set to the sizes used for the canvas in the HTML file. </br> 
-    The scale is used to transform pixel sizes in to Box2D world object sizes.</br></br>  
-    Please add the lines of code below after the code added in step 2</br></br>     
-
-    var CANVAS_WIDTH = 1000;</br>
-    var CANVAS_HEIGHT = 600;</br>
-    var SCALE = 30; </br>  
-     <label>   
-     </div>
-     </div>
+    <iframe id = "tutorials" style="width: 48%; height:1000px"; src='tutorials/tutorial1.html'></iframe>
 
     <div id = codingarea>
         <H2 class ="bg-info" style="color:white">Code Editor</H2> </br> </br>
