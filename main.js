@@ -21,9 +21,7 @@ mainWindow = null
 app.on('ready', createWindow) 
 
 
-function WriteFile(content) {
-    
-    
+function writeToFile(content) {
     fs.writeFile("./rungame/index.js", content, (err) => {
         if (err) {
             console.error(err);
