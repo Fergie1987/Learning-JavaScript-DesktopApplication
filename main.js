@@ -1,6 +1,7 @@
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow 
+const fs = require("fs");
 
 let mainWindow
 let childWindow 
@@ -16,4 +17,18 @@ mainWindow = null
 })
 }  
 
+
 app.on('ready', createWindow) 
+
+
+function WriteFile(content) {
+    
+    
+    fs.writeFile("./rungame/index.js", content, (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        };
+        console.log("File has been updated");
+    });
+    }
