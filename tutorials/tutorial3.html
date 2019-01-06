@@ -13,9 +13,28 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class="bg-primary" style = "color:white">Lesson 3</h2>
+     <h2 class = "tutorialHeading">Tutorial 3</h2>
      <label>
-        lesson 3
+     The code provided below is used to update the box2D world and make any changes required on the canvas. <br><br>
+     This function can also be used to check the status of boolean flag variables. <br><br>
+     This function is used later for deleting objects from the box2D world. <br><br>
+     
+     Add the code below after the code you have already inserted. <br><br>
+
+
+        function update() {<br>
+            world.Step (<br>
+            1/60    //frame-rate<br>
+            , 10    //velocity iterations<br>
+            , 10 	//position iterations<br>
+            );<br>
+            world.DrawDebugData();<br>
+            world.ClearForces();<br>
+            
+            window.requestAnimationFrame(update);<br>
+            }<br>
+            
+            window.requestAnimationFrame(update);  <br> 
         
      </label>   
      </div>

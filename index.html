@@ -4,13 +4,15 @@
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">   
 <link rel="stylesheet" href="./public/css/main.css"> 
 <script>window.$ = window.jQuery = require("jquery");</script>
-<script src="main.js"></script>
 </head>
 
-<body>
+<body id = "mainBody">
+    <script src="main.js"></script>
+
     <div id= "logo"></div>
 
     <div>
+        <button id="previousTutorial">Previous Tutorial</button> 
         <button id="nextTutorial">Next Tutorial</button>  </br> </br> </br>
     </div>
 
@@ -19,7 +21,7 @@
     <iframe id = "tutorials" style="width: 48%; height:1000px"; src='tutorials/tutorial1.html'></iframe>
 
     <div id = codingarea>
-        <H2 class ="bg-info" style="color:white">Code Editor</H2> </br> </br>
+        <H2 style="color:white; font-family: 'Nobile', Helvetica, Arial, sans-serif; background-color:#000080;">Code Editor</H2> </br> </br>
         <textarea id="text"></textarea>
         <button id="runCode">Run Code</button>
 

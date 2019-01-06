@@ -20,23 +20,43 @@ color: white;
 background-color: #000080;  
 }
 
-body {
+#mainBody {
 background-color: lightgray;
+font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
 #runCode {
 margin-left:45%;
 font-size: 20px;
+background-color: green;
+color: white;
+border-radius: 12px;
+font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
 #nextTutorial {
-margin-left: 20%;    
+margin-left: 10%;    
 font-size: 20px;
-background-color: lightgreen;
+background-color: green;
+color: white;
 
 width: 200px;
 height: 100px;
+border-radius: 12px;
+font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
+
+#previousTutorial {   
+    margin-left: 5%;  
+    font-size: 20px;
+    background-color:maroon;
+    color: white;
+    
+    width: 200px;
+    height: 100px;
+    border-radius: 12px;
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    }
 
 #logo {
 margin-left: 40%;    
@@ -45,5 +65,11 @@ height: 200px;
 background-image: url("../assets/learnJavaScriptLogoCoding.png");    
 background-repeat: no-repeat;
 background-position: left; 
+}
+
+.tutorialHeading {
+    color:white; 
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    background-color: #000080
 }
 

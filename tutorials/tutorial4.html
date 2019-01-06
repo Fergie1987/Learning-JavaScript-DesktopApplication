@@ -13,9 +13,94 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class="bg-primary" style = "color:white">Lesson 4</h2>
+     <h2 class = "tutorialHeading">Tutorial 4</h2>
      <label>
-        lesson 4
+      The box2D setup is now complete. You will not be able to create objects and run your code! </br> </br>  
+
+      The first stage is to draw the walls around the canvas: Left, Right, Top and Bottom </br> </br>
+      
+      The walls are added by creating two objects: b2FixtureDef and b2BodyDef. Values are then added to these objects. </br> </br>
+      
+      <b>FixtureDef:</b> </br> </br>
+      
+      Updating density, friction and restitution will change the object properties. </br> </br> 
+
+      var fixDef = new b2FixtureDef; //Object creation </br> 
+      fixDef.density = 1.0;  </br> 
+      fixDef.friction = 0.5; </br> 
+      fixDef.restitution = 0; </br> 
+      fixDef.shape = new b2PolygonShape; </br> 
+      fixDef.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2); //size of the object, scale is used to re-size to Box2D sizes.  </br> </br> 
+
+      <b>BodyDef:</b> </br> </br>
+
+      The type can either be static or dynamic. </br> The static type is preferred for walls as they don't move. </br> 
+      Adding b2Body.b2_dynamicBody will allow the object to move about the canvas. </br> 
+
+      The position of the object on the canvas is set by updating position.x and position.y.  </br> </br>  
+
+      var bodyDef = new b2BodyDef; </br>
+      bodyDef.type = b2Body.b2_staticBody; </br>
+      bodyDef.position.x = CANVAS_WIDTH/2/SCALE; </br>
+      bodyDef.position.y = CANVAS_HEIGHT/SCALE - (20/SCALE); </br> </br> 
+      
+      <b>Code to Add</b> </br> 
+      Include the code below below the update function to add the four walls: </br> 
+      Run the code after inserting and you should see the four created walls. </br> </br> 
+
+      var fixDef = new b2FixtureDef; </br>
+fixDef.density = 1.0; </br>
+fixDef.friction = 0.5; </br>
+fixDef.restitution = 0; </br>
+fixDef.shape = new b2PolygonShape; </br>
+fixDef.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2); </br>
+
+var bodyDef = new b2BodyDef; </br>
+bodyDef.type = b2Body.b2_staticBody; </br>
+bodyDef.position.x = CANVAS_WIDTH/2/SCALE; </br>
+bodyDef.position.y = CANVAS_HEIGHT/SCALE - (20/SCALE); </br>
+
+var bottom = world.CreateBody(bodyDef).CreateFixture(fixDef); </br>
+bottom.GetBody().SetUserData({id: "bottom"}) </br></br>
+
+
+var fixDefTop = new b2FixtureDef;</br>
+fixDefTop.density = 1.0;</br>
+fixDefTop.friction = 0.5;</br>
+fixDefTop.restitution = 0;</br>
+fixDefTop.shape = new b2PolygonShape;</br>
+fixDefTop.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2);</br>
+var bodyDefTop = new b2BodyDef;</br>
+bodyDefTop.type = b2Body.b2_staticBody;</br>
+bodyDefTop.position.x = (CANVAS_WIDTH/2/SCALE);</br>
+bodyDefTop.position.y = (CANVAS_HEIGHT/SCALE) - (580/SCALE);</br>
+var canvasTop = world.CreateBody(bodyDefTop).CreateFixture(fixDefTop);</br>
+canvasTop.GetBody().SetUserData({id: "canvasTop"}) </br></br>
+
+var fixDefSide = new b2FixtureDef; </br>
+fixDefSide.density = 1.0;</br>
+fixDefSide.friction = 0.5;</br>
+fixDefSide.restitution = 0;</br>
+fixDefSide.shape = new b2PolygonShape;</br>
+fixDefSide.shape.SetAsBox((200/SCALE)/2, (CANVAS_HEIGHT/SCALE)/2);</br> </br>
+
+var bodyDefRight = new b2BodyDef;</br>
+bodyDef.type = b2Body.b2_staticBody;</br>
+bodyDefRight.position.x = (CANVAS_WIDTH-20) / SCALE;</br>
+bodyDefRight.position.y = (CANVAS_HEIGHT/SCALE)/2;</br>
+var right = world.CreateBody(bodyDefRight).CreateFixture(fixDefSide);</br>
+right.GetBody().SetUserData({id: "right"})</br></br>
+
+var bodyDefLeft = new b2BodyDef;</br>
+bodyDef.type = b2Body.b2_staticBody;</br>
+bodyDefLeft.position.x = (20/SCALE);</br>
+bodyDefLeft.position.y = (CANVAS_HEIGHT/SCALE)/2; </br>
+
+var left = world.CreateBody(bodyDefLeft).CreateFixture(fixDefSide); </br>
+left.GetBody().SetUserData({id: "left"})</br>
+
+
+
         
      </label>   
      </div>
