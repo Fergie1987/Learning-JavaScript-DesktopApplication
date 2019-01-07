@@ -15,11 +15,11 @@
      <div id = "lessonArea">
      <h2 class = "tutorialHeading">Tutorial 4</h2>
      <label>
-      The box2D setup is now complete. You will not be able to create objects and run your code! </br> </br>  
+      The box2D setup is now complete. You will not be able to create Box2D world objects and run your code! </br> </br>  
 
-      The first stage is to draw the walls around the canvas: Left, Right, Top and Bottom </br> </br>
+      The first stage is to draw the four walls around the canvas: Left, Right, Top and Bottom </br> </br>
       
-      The walls are added by creating two objects: b2FixtureDef and b2BodyDef. Values are then added to these objects. </br> </br>
+      Box2D objects are created by initialising two objects: b2FixtureDef and b2BodyDef. </br> </br>
       
       <b>FixtureDef:</b> </br> </br>
       
@@ -43,10 +43,17 @@
       bodyDef.type = b2Body.b2_staticBody; </br>
       bodyDef.position.x = CANVAS_WIDTH/2/SCALE; </br>
       bodyDef.position.y = CANVAS_HEIGHT/SCALE - (20/SCALE); </br> </br> 
+
+      <b>Adding the Object to the world</b> </br> </br>
+
+      The created bodyDef and fixDef is added as shown below. The id is added to handle object collisions. </br>
+
+      var bottom = world.CreateBody(bodyDef).CreateFixture(fixDef); </br>
+      bottom.GetBody().SetUserData({id: "bottom"}) </br></br>
       
       <b>Code to Add</b> </br> 
-      Include the code below below the update function to add the four walls: </br> 
-      Run the code after inserting and you should see the four created walls. </br> </br> 
+      Include the code below before the update function to add the four walls: </br> 
+      Run the code after inserting and you should see the four created walls in the browser window. </br> </br> 
 
       var fixDef = new b2FixtureDef; </br>
 fixDef.density = 1.0; </br>

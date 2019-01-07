@@ -47,7 +47,8 @@ $("#nextTutorial").click(function() {
 
 $("#runCode").click(function() { 
     var content = $(text).val();
-    writeToFile(content);    
+    writeToFile(content); 
+    window.open("./rungame/index.html"," ", "width=1200, height=800"); 
 });
 
 
