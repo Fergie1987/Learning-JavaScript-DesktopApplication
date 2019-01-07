@@ -7,8 +7,7 @@ let mainWindow
 let childWindow 
 
 function createWindow() { 
-mainWindow = new BrowserWindow({width: 1200, height: 600})
-//childWindow = new BrowserWindow({width: 600, height: 300})  
+mainWindow = new BrowserWindow({width: 1400, height: 800})
 
 mainWindow.loadURL(`file://${__dirname}/index.html`)
 

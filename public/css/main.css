@@ -32,6 +32,8 @@ background-color: green;
 color: white;
 border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
+width: 180px;
+height: 60px;
 }
 
 #nextTutorial {
