@@ -12,7 +12,7 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 5</h2>
+     <h2 class = "tutorialHeading">Tutorial 5: Pac-Man Circle Box2D Object</h2>
      <label>
      The external walls have not been created, you will now create a dynamic circle object to represent Pac-Man. </br> </br> 
      The Box2D object is again created using a FixtureDef and BodyDef.  </br> </br> 
@@ -36,6 +36,7 @@ bodyDefCircle.type = b2Body.b2_dynamicBody;</br>
 bodyDefCircle.position.x = (500)/SCALE;</br> 
 bodyDefCircle.position.y = (CANVAS_HEIGHT-40)/SCALE;</br> 
 var pacman = world.CreateBody(bodyDefCircle).CreateFixture(fixDefCircle);</br> 
+pacman.GetBody().SetFixedRotation(true); //stops the circle object rotating when moving. 
 pacman.GetBody().SetUserData({id: "pacman"});</br> 
 
      

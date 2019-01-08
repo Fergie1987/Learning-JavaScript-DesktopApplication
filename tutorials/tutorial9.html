@@ -11,11 +11,25 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 9</h2>
+     <h2 class = "tutorialHeading">Tutorial 9: Destroying Box2D Objects</h2>
      <label>
+     You now have pellets within your maze, we will now work on destroying these when Pac-Man collides with a pellet. </br> </br>   
      
+     To destroy objects from the box2D world, objects are added to an array. A for loop within the update function then destroys the body from the world. </br> </br> 
 
-     
+     <b>Code to Add: </br> </br> 
+
+     Step 1: Create an Array after the SCALE variable. </b></br> </br> 
+
+    var destroy_list = [];</br> </br> 
+    </br>    
+    <b>Step 2: Add the For Loop into the update function and method to empty the array after the body has been deleted: </b> </br> </br> 
+    for(var i in destroy_list) {</br> 
+    world.DestroyBody(destroy_list[i]);</br> 
+    }</br> 
+</br> 
+    //reset the array</br> 
+    destroy_list.length = 0;    </br> 
      </label>   
      </div>
      </div>
