@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="../public/css/main.css"> 
+    <script
+    src="../public/js/jquery/dist/jquery.min.js"> </script>
+  
+</head>
+
+<body>
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 7</h2>
+     <label>
+     This tutorial is for adding static Box2D objects to the world to create a Pac-Man maze. </br> </br> 
+
+     You have already been through tutorials for creating a Box2D objects. </br> 
+     The objects will now need to be be positioned within the body of the canvas to create a maze. </br> </br> 
+     You should create rectangles and squares to create a maze. Finally, a square object should be positioned in the centre to complete the maze.  </br> </br>
+     There should be enough space for Pac-Man to move round the maze and remember pellets still need to be added to canvas too! </br> </br>  
+
+     <b>Code to Add: </br> </br> 
+
+     Please add the code below after the creation of the Pac-Man object: </b> </br> </br> 
+     
+var bodyDefRect1 = new b2BodyDef; </br>
+var fixDefRect1 = new b2FixtureDef; </br>
+fixDefRect1.shape = new b2PolygonShape; </br>
+fixDefRect1.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2); </br>
+fixDefRect1.density = 1.0; </br>
+fixDefRect1.friction = 0; </br>
+fixDefRect1.restitution = 0; </br>
+bodyDefRect1.position.x = (250) / SCALE; </br>
+bodyDefRect1.position.y = (CANVAS_HEIGHT-373)/SCALE; </br>
+var rect1 = world.CreateBody(bodyDefRect1).CreateFixture(fixDefRect1); </br>
+rect1.GetBody().SetUserData({id: "rect1"}); </br>
+</br></br>
+var bodyDefRect2 = new b2BodyDef; </br>
+var fixDefRect2 = new b2FixtureDef; </br>
+fixDefRect2.shape = new b2PolygonShape;</br>
+fixDefRect2.shape.SetAsBox((250/SCALE)/2, (50/SCALE)/2);</br>
+fixDefRect2.density = 1.0;</br>
+fixDefRect2.friction = 0;</br>
+fixDefRect2.restitution = 0;</br>
+bodyDefRect2.position.x = (325) / SCALE;</br>
+bodyDefRect2.position.y = (CANVAS_HEIGHT-440)/SCALE;</br>
+var rect2 = world.CreateBody(bodyDefRect2).CreateFixture(fixDefRect2);</br>
+rect2.GetBody().SetUserData({id: "rect2"});</br>
+</br>
+var bodyDefRect3 = new b2BodyDef; </br>
+var fixDefRect3 = new b2FixtureDef; </br>
+fixDefRect3.shape = new b2PolygonShape; </br>
+fixDefRect3.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2); </br>
+fixDefRect3.density = 1.0; </br>
+fixDefRect3.friction = 0; </br>
+fixDefRect3.restitution = 0;</br>
+bodyDefRect3.position.x = (250) / SCALE;</br>
+bodyDefRect3.position.y = (CANVAS_HEIGHT-220)/SCALE;</br>
+var rect3 = world.CreateBody(bodyDefRect3).CreateFixture(fixDefRect3);</br>
+rect3.GetBody().SetUserData({id: "rect3"});</br></br>
+
+var bodyDefRect4 = new b2BodyDef;</br>
+var fixDefRect4 = new b2FixtureDef;</br>
+fixDefRect4.shape = new b2PolygonShape;</br>
+fixDefRect4.shape.SetAsBox((250/SCALE)/2, (50/SCALE)/2);</br>
+fixDefRect4.density = 1.0;</br>
+fixDefRect4.friction = 0;</br>
+fixDefRect4.restitution = 0;</br>
+bodyDefRect4.position.x = (325) / SCALE;</br>
+bodyDefRect4.position.y = (CANVAS_HEIGHT-152)/SCALE;</br>
+var rect4 = world.CreateBody(bodyDefRect4).CreateFixture(fixDefRect4);</br>
+rect4.GetBody().SetUserData({id: "rect4"});</br>
+</br>
+var bodyDefRect5 = new b2BodyDef;</br>
+var fixDefRect5 = new b2FixtureDef;</br>
+fixDefRect5.shape = new b2PolygonShape;</br>
+fixDefRect5.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2);</br>
+fixDefRect5.density = 1.0;</br>
+fixDefRect5.friction = 0;</br>
+fixDefRect5.restitution = 0;</br>
+bodyDefRect5.position.x = (750) / SCALE;</br>
+bodyDefRect5.position.y = (CANVAS_HEIGHT-373)/SCALE;</br>
+var rect5 = world.CreateBody(bodyDefRect5).CreateFixture(fixDefRect5);</br>
+rect5.GetBody().SetUserData({id: "rect5"});</br>
+</br>
+var bodyDefRect6 = new b2BodyDef;</br>
+var fixDefRect6 = new b2FixtureDef;</br>
+fixDefRect6.shape = new b2PolygonShape;</br>
+fixDefRect6.shape.SetAsBox((250/SCALE)/2, (50/SCALE)/2);</br>
+fixDefRect6.density = 1.0;</br>
+fixDefRect6.friction = 0;</br>
+fixDefRect6.restitution = 0;</br>
+bodyDefRect6.position.x = (675) / SCALE;</br>
+bodyDefRect6.position.y = (CANVAS_HEIGHT-440)/SCALE;</br>
+var rect6 = world.CreateBody(bodyDefRect6).CreateFixture(fixDefRect6);</br>
+rect6.GetBody().SetUserData({id: "rect6"});</br>
+
+var bodyDefRect7 = new b2BodyDef;</br>
+var fixDefRect7 = new b2FixtureDef;</br>
+fixDefRect7.shape = new b2PolygonShape;</br>
+fixDefRect7.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2);</br>
+fixDefRect7.density = 1.0;</br>
+fixDefRect7.friction = 0;</br>
+fixDefRect7.restitution = 0;</br>
+bodyDefRect7.position.x = (750) / SCALE;</br>
+bodyDefRect7.position.y = (CANVAS_HEIGHT-220)/SCALE;</br>
+var rect7 = world.CreateBody(bodyDefRect7).CreateFixture(fixDefRect7);</br>
+rect7.GetBody().SetUserData({id: "rect7"});</br>
+</br>
+var bodyDefRect8 = new b2BodyDef;</br>
+var fixDefRect8 = new b2FixtureDef;</br>
+fixDefRect8.shape = new b2PolygonShape;</br>
+fixDefRect8.shape.SetAsBox((250/SCALE)/2, (50/SCALE)/2);</br>
+fixDefRect8.density = 1.0;</br>
+fixDefRect8.friction = 0;</br>
+fixDefRect8.restitution = 0;</br>
+bodyDefRect8.position.x = (675) / SCALE;</br>
+bodyDefRect8.position.y = (CANVAS_HEIGHT-152)/SCALE;</br>
+var rect8 = world.CreateBody(bodyDefRect8).CreateFixture(fixDefRect8);</br>
+rect8.GetBody().SetUserData({id: "rect8"});</br>
+</br>
+var bodyDefRect9 = new b2BodyDef;</br>
+var fixDefRect9 = new b2FixtureDef;</br>
+fixDefRect9.shape = new b2PolygonShape;</br>
+fixDefRect9.shape.SetAsBox((120/SCALE)/2, (120/SCALE)/2);</br>
+fixDefRect9.density = 1.0;</br>
+fixDefRect9.friction = 0;</br>
+fixDefRect9.restitution = 0;</br>
+bodyDefRect9.position.x = (500) / SCALE;</br>
+bodyDefRect9.position.y = (CANVAS_HEIGHT-300)/SCALE;</br>
+var rect9 = world.CreateBody(bodyDefRect9).CreateFixture(fixDefRect9);</br>
+rect9.GetBody().SetUserData({id: "rect9"});</br>
+     
+     </label>   
+     </div>
+     </div>
+
+</body>
+
+
+<script src="../public/js/custom.js"></script>
+
+
+</html>
