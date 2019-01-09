@@ -29,3 +29,8 @@ function writeToFile(content) {
         console.log("File has been updated");
     });
     }
+
+    function readFromFile() {
+        var data = fs.readFileSync("./rungame/index.js", 'utf8');
+        return data; 
+    }

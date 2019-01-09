@@ -7,7 +7,7 @@ margin-top: -150px;
 
 #text {
 width:100%; 
-height:600px; 
+height:750px; 
 resize: none;
 border-style: solid;
 border-color:blue;
@@ -29,14 +29,39 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
 #runCode {
-margin-left:45%;
+margin-top: 10px;    
+Margin-left: 5%;    
+margin-right: 5%;
 font-size: 20px;
 background-color: green;
 color: white;
 border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
-width: 180px;
+width: 250px;
 height: 60px;
+}
+
+#readInCode {
+    margin-top: 10px;   
+    Margin-right: 5%;
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    border-radius: 12px;
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    width: 250px;
+    height: 60px;
+    }
+
+#clearEditor {
+    margin-top: 10px;   
+    font-size: 20px;
+    background-color:maroon;
+    color: white;
+    border-radius: 12px;
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    width: 250px;
+    height: 60px;
 }
 
 #nextTutorial {
@@ -68,7 +93,7 @@ width: 100%;
 height: 150px;     
 background-image: url("../assets/learnJavaScriptLogoCoding.png");    
 background-repeat: no-repeat;
-background-color: white;
+background-color: whitesmoke; 
 background-position-x: 48%;
 margin-top: -50px;
 margin-bottom: 50px;

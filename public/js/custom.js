@@ -79,10 +79,29 @@ $("#nextTutorial").click(function() {
 
 
 $("#runCode").click(function() { 
+
+
     var content = $(text).val();
+    if(content != "") {
     writeToFile(content); 
     window.open("./rungame/index.html"," ", "width=1200, height=800"); 
+    } else {
+        alert("There is no code to Execute");  
+    }
+
 });
 
+$("#readInCode").click(function() {   
+  var content = readFromFile();
+  $('#text').val('');  
+  $('#text').val(content);   
+  });
+
+$("#clearEditor").click(function() {
+    if (confirm("Are you sure you wish to remove your code from the Editor?")) {
+        $('#text').val(''); 
+  } 
+ 
+});
 
 
