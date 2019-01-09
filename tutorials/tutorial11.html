@@ -11,11 +11,77 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 11</h2>
+     <h2 class = "tutorialHeading">Tutorial 11: Adding the Ghost enemy objects </h2>
      <label>
-     
+     In this tutorial you will add enemy Ghost objects to the maze. </br> </br>
 
-     
+     The isSensor property is set to true. This allows the ghost object to pass through other objects such as pellets but the collision is still registered. </br> </br>
+
+     You will see three objects (although there are four), but one object looks brighter than the others. This happens when a object is placed on top of another object. </br> </br>
+
+     In the next tutorial you will add code to move the ghost objects. </br> </br>
+
+     <b> Code to Add: </br>
+
+     Add the four ghost objects after the creation of the Pac-Man object. </b> </br> </br>
+
+    var bodyDefEnemy1 = new b2BodyDef; </br>
+    bodyDefEnemy1.type = b2Body.b2_dynamicBody;</br>
+    var fixDefEnemy1 = new b2FixtureDef;</br>
+    fixDefEnemy1.shape = new b2PolygonShape;</br>
+    fixDefEnemy1.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);</br>
+    fixDefEnemy1.density = 1.0;</br>
+    fixDefEnemy1.friction = 0;</br>
+    fixDefEnemy1.restitution = 0;</br>
+    fixDefEnemy1.isSensor = true;</br>
+    bodyDefEnemy1.position.x = (250) / SCALE;</br>
+    bodyDefEnemy1.position.y = (CANVAS_HEIGHT-95)/SCALE;</br>
+    var enemy1 = world.CreateBody(bodyDefEnemy1).CreateFixture(fixDefEnemy1);</br>
+    enemy1.GetBody().SetUserData({id: "enemy1"});</br>
+</br>
+    var bodyDefEnemy2 = new b2BodyDef;</br>
+    bodyDefEnemy2.type = b2Body.b2_dynamicBody;</br>
+    var fixDefEnemy2 = new b2FixtureDef;</br>
+    fixDefEnemy2.shape = new b2PolygonShape;</br>
+    fixDefEnemy2.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);</br>
+    fixDefEnemy2.density = 1.0;</br>
+    fixDefEnemy2.friction = 0;</br>
+    fixDefEnemy2.restitution = 0;</br>
+    fixDefEnemy2.isSensor = true;</br>
+    bodyDefEnemy2.position.x = (840) / SCALE;</br>
+    bodyDefEnemy2.position.y = (CANVAS_HEIGHT-500)/SCALE;</br>
+    var enemy2 = world.CreateBody(bodyDefEnemy2).CreateFixture(fixDefEnemy2);</br>
+    enemy2.GetBody().SetUserData({id: "enemy2"});</br>
+</br>
+    var bodyDefEnemy3 = new b2BodyDef;</br>
+    bodyDefEnemy3.type = b2Body.b2_dynamicBody;</br>
+    var fixDefEnemy3 = new b2FixtureDef;</br>
+    fixDefEnemy3.shape = new b2PolygonShape;</br>
+    fixDefEnemy3.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);</br>
+    fixDefEnemy3.density = 1.0;</br>
+    fixDefEnemy3.friction = 0;</br>
+    fixDefEnemy3.restitution = 0;</br>
+    fixDefEnemy3.isSensor = true;</br>
+    bodyDefEnemy3.position.x = (160) / SCALE;</br>
+    bodyDefEnemy3.position.y = (CANVAS_HEIGHT-500)/SCALE;</br>
+    var enemy3 = world.CreateBody(bodyDefEnemy3).CreateFixture(fixDefEnemy3);</br>
+    enemy3.GetBody().SetUserData({id: "enemy3"});</br>
+</br>
+    var bodyDefEnemy4 = new b2BodyDef; </br>
+    bodyDefEnemy4.type = b2Body.b2_dynamicBody;</br>
+    var fixDefEnemy4 = new b2FixtureDef;</br>
+    fixDefEnemy4.shape = new b2PolygonShape;</br>
+    fixDefEnemy4.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);</br>
+    fixDefEnemy4.density = 1.0;</br>
+    fixDefEnemy4.friction = 0;</br>
+    fixDefEnemy4.restitution = 0;</br>
+    fixDefEnemy4.isSensor = true;</br>
+    bodyDefEnemy4.position.x = (160) / SCALE;</br>
+    bodyDefEnemy4.position.y = (CANVAS_HEIGHT-500)/SCALE;</br>
+    var enemy4 = world.CreateBody(bodyDefEnemy4).CreateFixture(fixDefEnemy4);</br>
+    enemy4.GetBody().SetUserData({id: "enemy4"});</br>
+
+
      </label>   
      </div>
      </div>

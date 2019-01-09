@@ -29,14 +29,21 @@ $("#previousTutorial").click(function() {
         document.getElementById('tutorials').src = "./tutorials/tutorial10.html";
     }  else if (lessonNumber == 11) {
         document.getElementById('tutorials').src = "./tutorials/tutorial11.html";
+    }  else if (lessonNumber == 12) {
+        document.getElementById('tutorials').src = "./tutorials/tutorial12.html";
+    }  else if (lessonNumber == 13) {
+        document.getElementById('tutorials').src = "./tutorials/tutorial13.html";
+    } else if (lessonNumber == 14) {
+        document.getElementById('tutorials').src = "./tutorials/tutorial14.html";
     } 
 });
 
 
 $("#nextTutorial").click(function() { 
 
+    if(lessonNumber < 14){
     lessonNumber = lessonNumber + 1;
-
+    }   
     if (lessonNumber == 1) {
         document.getElementById('tutorials').src = "./tutorials/tutorial1.html";
     }  else if (lessonNumber == 2) {
@@ -59,16 +66,16 @@ $("#nextTutorial").click(function() {
         document.getElementById('tutorials').src = "./tutorials/tutorial10.html";
     }  else if (lessonNumber == 11) {
         document.getElementById('tutorials').src = "./tutorials/tutorial11.html";
+    }  else if (lessonNumber == 12) {
+        document.getElementById('tutorials').src = "./tutorials/tutorial12.html";
+    }  else if (lessonNumber == 13) {
+        document.getElementById('tutorials').src = "./tutorials/tutorial13.html";
+    }  else if (lessonNumber == 14) {
+        document.getElementById('tutorials').src = "./tutorials/tutorial14.html";
     } 
 
 
 });
-
-
-
-
-
-
 
 
 $("#runCode").click(function() { 

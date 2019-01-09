@@ -9,7 +9,7 @@ var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
 
-world = new b2World(
+world = new b2World( 
 new b2Vec2(0, 0) //zero gravity 
 , false //allow sleep
 );
@@ -17,6 +17,19 @@ new b2Vec2(0, 0) //zero gravity
 var CANVAS_WIDTH = 1000;
 var CANVAS_HEIGHT = 600;
 var SCALE = 30; 
+
+var enemyRight = true; 
+var enemyRight2 = true; 
+var enemyDown = true; 
+var enemyDown2 = true; 
+
+var score = 0;
+
+var numPellets = 58;
+
+var destroy_list = [];
+
+var gameComplete = false;
 
 $(window).keydown(function(e) { 
 if(e.keyCode == 37) {
@@ -183,6 +196,62 @@ var pacman = world.CreateBody(bodyDefCircle).CreateFixture(fixDefCircle);
 pacman.GetBody().SetFixedRotation(true);
 pacman.GetBody().SetUserData({id: "pacman"});
 
+var bodyDefEnemy1 = new b2BodyDef; 
+bodyDefEnemy1.type = b2Body.b2_dynamicBody;
+var fixDefEnemy1 = new b2FixtureDef;
+fixDefEnemy1.shape = new b2PolygonShape;
+fixDefEnemy1.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);
+fixDefEnemy1.density = 1.0;
+fixDefEnemy1.friction = 0;
+fixDefEnemy1.restitution = 0;
+fixDefEnemy1.isSensor = true;
+bodyDefEnemy1.position.x = (250) / SCALE;
+bodyDefEnemy1.position.y = (CANVAS_HEIGHT-95)/SCALE;
+var enemy1 = world.CreateBody(bodyDefEnemy1).CreateFixture(fixDefEnemy1);
+enemy1.GetBody().SetUserData({id: "enemy1"});
+
+var bodyDefEnemy2 = new b2BodyDef;
+bodyDefEnemy2.type = b2Body.b2_dynamicBody;
+var fixDefEnemy2 = new b2FixtureDef;
+fixDefEnemy2.shape = new b2PolygonShape;
+fixDefEnemy2.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);
+fixDefEnemy2.density = 1.0;
+fixDefEnemy2.friction = 0;
+fixDefEnemy2.restitution = 0;
+fixDefEnemy2.isSensor = true;
+bodyDefEnemy2.position.x = (840) / SCALE;
+bodyDefEnemy2.position.y = (CANVAS_HEIGHT-500)/SCALE;
+var enemy2 = world.CreateBody(bodyDefEnemy2).CreateFixture(fixDefEnemy2);
+enemy2.GetBody().SetUserData({id: "enemy2"});
+
+var bodyDefEnemy3 = new b2BodyDef;
+bodyDefEnemy3.type = b2Body.b2_dynamicBody;
+var fixDefEnemy3 = new b2FixtureDef;
+fixDefEnemy3.shape = new b2PolygonShape;
+fixDefEnemy3.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);
+fixDefEnemy3.density = 1.0;
+fixDefEnemy3.friction = 0;
+fixDefEnemy3.restitution = 0;
+fixDefEnemy3.isSensor = true;
+bodyDefEnemy3.position.x = (160) / SCALE;
+bodyDefEnemy3.position.y = (CANVAS_HEIGHT-500)/SCALE;
+var enemy3 = world.CreateBody(bodyDefEnemy3).CreateFixture(fixDefEnemy3);
+enemy3.GetBody().SetUserData({id: "enemy3"});
+
+var bodyDefEnemy4 = new b2BodyDef; 
+bodyDefEnemy4.type = b2Body.b2_dynamicBody;
+var fixDefEnemy4 = new b2FixtureDef;
+fixDefEnemy4.shape = new b2PolygonShape;
+fixDefEnemy4.shape.SetAsBox((50/SCALE)/2, (50/SCALE)/2);
+fixDefEnemy4.density = 1.0;
+fixDefEnemy4.friction = 0;
+fixDefEnemy4.restitution = 0;
+fixDefEnemy4.isSensor = true;
+bodyDefEnemy4.position.x = (160) / SCALE;
+bodyDefEnemy4.position.y = (CANVAS_HEIGHT-500)/SCALE;
+var enemy4 = world.CreateBody(bodyDefEnemy4).CreateFixture(fixDefEnemy4);
+enemy4.GetBody().SetUserData({id: "enemy4"});
+
 var bodyDefRect1 = new b2BodyDef; 
 var fixDefRect1 = new b2FixtureDef; 
 fixDefRect1.shape = new b2PolygonShape; 
@@ -291,6 +360,8 @@ bodyDefRect9.position.y = (CANVAS_HEIGHT-300)/SCALE;
 var rect9 = world.CreateBody(bodyDefRect9).CreateFixture(fixDefRect9);
 rect9.GetBody().SetUserData({id: "rect9"});
 
+
+
 addPellet(160, 500); 
 addPellet(160, 450); 
 addPellet(160, 400);
@@ -374,6 +445,146 @@ world.Step (
 );
 world.DrawDebugData();
 world.ClearForces();
+
+if (numPellets == 0 && gameComplete == false) { 
+alert("You have finished the game - Your Score is:" + score);
+gameComplete = true; //required to re-load the game, will continue to display the alert message if not used. 
+location.reload();
+}
+
+console.log(numPellets);
+
+for(var i in destroy_list) {
+world.DestroyBody(destroy_list[i]);
+}
+
+//reset the array
+destroy_list.length = 0; 
+
+if(enemyRight) {
+enemy1.GetBody().SetLinearVelocity(new b2Vec2(5, enemy1.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy1.GetBody().SetLinearVelocity(new b2Vec2(-5, enemy1.GetBody().GetLinearVelocity().y));
+};
+
+if(enemyRight2) {
+enemy4.GetBody().SetLinearVelocity(new b2Vec2(5, enemy4.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy4.GetBody().SetLinearVelocity(new b2Vec2(-5, enemy4.GetBody().GetLinearVelocity().y));
+};
+
+if(enemyDown) {
+enemy2.GetBody().SetLinearVelocity(new b2Vec2(0, 5, enemy2.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy2.GetBody().SetLinearVelocity(new b2Vec2(0, -5, enemy2.GetBody().GetLinearVelocity().y));
+};
+
+if(enemyDown2) {
+enemy3.GetBody().SetLinearVelocity(new b2Vec2(0, 5, enemy3.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy3.GetBody().SetLinearVelocity(new b2Vec2(0, -5, enemy3.GetBody().GetLinearVelocity().y)); 
+};
+
+var scoreboard = document.getElementById('score').innerHTML = score; 
+
 window.requestAnimationFrame(update);
 }
 window.requestAnimationFrame(update); 
+
+var listener = new Box2D.Dynamics.b2ContactListener;
+
+listener.BeginContact = function(contact) {
+
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureB().GetBody().GetUserData().id == "right") {	
+enemyRight = false;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureA().GetBody().GetUserData().id == "right") { 
+enemyRight = false;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureB().GetBody().GetUserData().id == "left") {	
+enemyRight = true;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureA().GetBody().GetUserData().id == "left") {
+enemyRight = true;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureB().GetBody().GetUserData().id == "canvasTop") {	
+enemyDown = true;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureA().GetBody().GetUserData().id == "canvasTop") {
+enemyDown = true;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureB().GetBody().GetUserData().id == "bottom") {	
+enemyDown = false;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureA().GetBody().GetUserData().id == "bottom") { 
+enemyDown = false;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureB().GetBody().GetUserData().id == "canvasTop") {	
+enemyDown2 = true;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureA().GetBody().GetUserData().id == "canvasTop") { 
+enemyDown2 = true; 
+}; 
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureB().GetBody().GetUserData().id == "bottom") {	
+enemyDown2 = false;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureA().GetBody().GetUserData().id == "bottom") {
+enemyDown2 = false;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureB().GetBody().GetUserData().id == "right") {	
+enemyRight2 = false;
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureA().GetBody().GetUserData().id == "right") {
+enemyRight2 = false; 
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureB().GetBody().GetUserData().id == "left") {	
+enemyRight2 = true;	
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureA().GetBody().GetUserData().id == "left") { 
+enemyRight2 = true;
+};
+
+
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "pellet") {
+destroy_list.push(contact.GetFixtureB().GetBody());
+score = score + 100; 
+numPellets = numPellets - 1;
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "pellet") {
+destroy_list.push(contact.GetFixtureB().GetBody());
+score = score + 100; 
+numPellets = numPellets - 1;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy1") { 
+score = score - 100; 
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy1") {
+score = score - 100;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy2") {
+score = score - 100; 
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy2") { 
+score = score - 100; 
+}; 
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy3") { 
+score = score - 100; 
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy3") { 
+score = score - 100; 
+}; 
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy4") { 
+score = score - 100; 
+console.log("SCORE" + score); 
+} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy4") { 
+score = score - 100; 
+console.log("SCORE" + score); 
+}; 
+};
+
+this.world.SetContactListener(listener);
