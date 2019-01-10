@@ -77,7 +77,8 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
 #pacmanMenu {
-    margin-left: 43%; 
+    margin-left: 150%;
+    margin-top:20px; 
     margin-bottom: 50px;  
     font-size: 20px;
     background-color: green;
@@ -141,13 +142,14 @@ margin-bottom: -50px;
     height: 200px;     
     background-image: url("../assets/tutorialMenulogo.png");    
     background-repeat: no-repeat;
-    margin-top: -250px;
     margin-bottom: 50px;
-    margin-left: 43%;    
+    margin-left: 10%;    
     background-color: white;
     border-style: solid;
-                border-color: navy; 
+    border-color: navy; 
+    margin-top: 20px;
 }
+
 
 #menu {
 
@@ -164,18 +166,19 @@ margin-bottom: -50px;
         background-repeat: no-repeat;
         margin-top: 50px;
         margin-bottom: 50px;
-        margin-left: 43%;
+        margin-left: 10%;
         border-style: solid;
         border-color: navy; 
         }
 
         #developmentCommunicate {
-            margin-left: 35.5%; 
+            margin-top:20px;
+            margin-left: 150%; 
             margin-bottom: 50px;  
             font-size: 20px;
             background-color: green;
             color: white;   
-            width: 500px;
+            width: 400px;
             height: 150px;
             border-radius: 12px;
             font-family: 'Nobile', Helvetica, Arial, sans-serif;
@@ -186,7 +189,7 @@ margin-bottom: -50px;
             background-position-x: 50%;
             background-position-y: 10px;
             border-style: solid;
-                border-color: navy; 
+            border-color: navy; 
             }
 
             #returnMainMenu {
@@ -225,6 +228,10 @@ margin-bottom: -50px;
             margin-left: 50px;    
             font-family: 'Nobile', Helvetica, Arial, sans-serif;
             color: navy;
+            background-color: white;
+            width: 80%;
+            margin-top: 30px;
+            margin-bottom: 30px;
             }
 
             #pacmanGameImage {
@@ -275,4 +282,14 @@ margin-bottom: -50px;
             border-color: navy;
             border-style: solid;    
             margin-bottom: 30px;
+            }
+
+            #optionsArea {
+                background-color: white;
+                width: 60%;
+                 height: 50%;
+                margin-left: 22%;
+                margin-top: -250px;
+                border-color: navy;
+            border-style: solid;
             }
