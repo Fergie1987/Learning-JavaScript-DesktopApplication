@@ -116,6 +116,7 @@ background-color: whitesmoke;
 background-position-x: 48%;
 border-bottom: solid;
 border-color: navy;
+margin-top: -20px;
 }
 
 .tutorialHeading {
@@ -165,7 +166,7 @@ margin-bottom: -50px;
         margin-bottom: 50px;
         margin-left: 43%;
         border-style: solid;
-                border-color: navy; 
+        border-color: navy; 
         }
 
         #developmentCommunicate {
@@ -257,4 +258,10 @@ margin-bottom: -50px;
                 background-color: none; 
                 border-style: solid;
                 border-color: navy;   
+            }
+
+            #developmentOption {
+                border-bottom: solid;
+                border-color: navy;    
+                margin-bottom: 50px;
             }
