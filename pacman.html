@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">   
+<link rel="stylesheet" href="./public/css/main.css"> 
+<script>window.$ = window.jQuery = require("jquery");</script>
+</head>
+
+<body id = "mainBody">
+    <script src="main.js"></script>
+
+    <div id= "logo"></div>
+
+    <div>
+    <button id="returnMainMenu">Return to Main Menu</button>     
+    </div>
+
+    <div>
+        <button id="previousTutorial">&laquo; Previous Tutorial</button> 
+        <button id="nextTutorial">Next Tutorial &raquo; </button>  </br> </br> </br>
+    </div>
+
+    
+
+    <iframe id = "tutorials" style="width: 48%; height:1000px"; src='tutorials/tutorial1.html'></iframe>
+
+    <div id = codingarea>
+        <img id="codeHeading" src="./public/assets/jscodeeditorlogo.png">
+        <textarea id="text"></textarea>
+        <button id="runCode">Execute and Save Code</button>
+        <button id="readInCode">Read in Index.js File</button>
+        <button id="clearEditor">Remove all code</button>
+    </div>
+
+</body>
+
+
+<script src="public/js/custom.js"></script>
+
+
+</html>

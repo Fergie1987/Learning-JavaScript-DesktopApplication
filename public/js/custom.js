@@ -104,4 +104,22 @@ $("#clearEditor").click(function() {
  
 });
 
+$("#pacmanMenu").click(function() {
+  location.href='pacmanintro.html' 
+});
 
+$("#returnMainMenu").click(function() {
+    if (confirm("Have you remembered to save a copy of your code? Do you wish to continue?")) { 
+        location.href='index.html'       
+  } 
+  });
+
+  $("#continueToPacman").click(function() {
+        location.href='pacman.html'       
+  });
+
+  $("#returnMainMenuNoCode").click(function() {
+    if (confirm("Are you sure? Click Ok to return to the Main Menu")) { 
+        location.href='index.html'       
+  } 
+  });

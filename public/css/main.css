@@ -76,6 +76,23 @@ border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
+#pacmanMenu {
+    margin-left: 820px;  
+    margin-bottom: 50px;  
+    font-size: 20px;
+    background-color: green;
+    color: white;   
+    width: 200px;
+    height: 150px;
+    border-radius: 12px;
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    background-image: url("../assets/pacmanlogo.png");
+    background-size: 60px 30px;
+    background-repeat: no-repeat;
+    background-position-x: 48%;
+    background-position-y: 10px;
+    }
+
 #previousTutorial {   
     margin-left: 5%;  
     font-size: 20px;
@@ -96,9 +113,9 @@ background-repeat: no-repeat;
 background-color: whitesmoke; 
 background-position-x: 48%;
 margin-top: -50px;
-margin-bottom: 50px;
+margin-bottom: 30px;
 border-bottom: solid;
-border-color: blue;
+border-color: navy;
 }
 
 .tutorialHeading {
@@ -114,6 +131,116 @@ margin-bottom: -50px;
 
 #tutorials {
     border-style: solid;
-    border-color:blue;
+    border-color:navy;
 
 }
+
+#tutorialLogoMenu {   
+    width: 200px;
+    height: 170px;     
+    background-image: url("../assets/tutorialMenulogo.png");    
+    background-repeat: no-repeat;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    margin-left: 43%;    
+    background-color: white;
+}
+
+#menu {
+
+    border-bottom: solid;
+    border-color: navy;    
+    margin-bottom: 50px;
+    }
+
+    #developmentArea {   
+        width: 200px;
+        height: 200px;  
+        background-color: white;
+        background-image: url("../assets/developmentarealogo.png");    
+        background-repeat: no-repeat;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 43%;
+        }
+
+        #developmentCommunicate {
+            margin-left: 670px;  
+            margin-bottom: 50px;  
+            font-size: 20px;
+            background-color: green;
+            color: white;   
+            width: 500px;
+            height: 150px;
+            border-radius: 12px;
+            font-family: 'Nobile', Helvetica, Arial, sans-serif;
+            background-size: 60px 30px;
+            background-image: url("../assets/keyboardlogo.png");
+            background-size: 60px 30px;
+            background-repeat: no-repeat;
+            background-position-x: 50%;
+            background-position-y: 10px;
+            }
+
+            #returnMainMenu {
+            margin-left: 40%; 
+            margin-bottom: 50px;   
+            font-size: 20px;
+            background-color: green;
+            color: white;
+            width: 300px;
+            height: 50px;
+            border-radius: 12px;
+            font-family: 'Nobile', Helvetica, Arial, sans-serif;    
+            }
+
+            #returnMainMenuNoCode {
+                margin-left: 40%; 
+                margin-bottom: 50px;   
+                font-size: 20px;
+                background-color: green;
+                color: white;
+                width: 300px;
+                height: 50px;
+                border-radius: 12px;
+                font-family: 'Nobile', Helvetica, Arial, sans-serif;    
+                }
+
+            #pacmanintroheading {
+            margin-left: 50px;    
+            color: navy;   
+            }
+
+            #pacmanintro {
+            margin-left: 50px;    
+            font-family: 'Nobile', Helvetica, Arial, sans-serif;
+            color: navy;
+            }
+
+            #pacmanGameImage {
+            margin-left: 50px;    
+            }
+
+            #continueToPacman {
+                margin-left: 10%; 
+                font-size: 20px;
+            background-color: green;
+            color: white;
+            width: 300px;
+            height: 200px;
+            border-radius: 12px;
+            font-family: 'Nobile', Helvetica, Arial, sans-serif;     
+            }
+
+            #homeHeading {
+            margin-left: 30px;    
+            margin-bottom: 50px; 
+            width: 350px;
+            height: 50px;
+            background-color: white;
+            }
+            #applicationHome {
+            color: navy;   
+            margin-left: 10px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            }
