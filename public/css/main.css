@@ -109,13 +109,11 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
 
 #logo {   
 width: 100%;
-height: 150px;     
+height: 200px;     
 background-image: url("../assets/learnJavaScriptLogoCoding.png");    
 background-repeat: no-repeat;
 background-color: whitesmoke; 
 background-position-x: 48%;
-margin-top: -50px;
-margin-bottom: 30px;
 border-bottom: solid;
 border-color: navy;
 }
@@ -142,7 +140,7 @@ margin-bottom: -50px;
     height: 200px;     
     background-image: url("../assets/tutorialMenulogo.png");    
     background-repeat: no-repeat;
-    margin-top: -50px;
+    margin-top: -250px;
     margin-bottom: 50px;
     margin-left: 43%;    
     background-color: white;
@@ -254,6 +252,7 @@ margin-bottom: -50px;
                 height: 200px;        
                 background-image: url("../assets/homelogo.png");    
                 background-repeat: no-repeat;
+                margin-top: 20px;
                 margin-left: 100px;
                 background-color: none; 
                 border-style: solid;
