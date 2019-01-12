@@ -2,12 +2,14 @@ const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow 
 const fs = require("fs");
+const nativeImage = require('electron').nativeImage;
+var image = nativeImage.createFromPath(__dirname + '/public/assets/logoicon.ico')
 
 let mainWindow
 let childWindow 
 
 function createWindow() { 
-mainWindow = new BrowserWindow({width: 1600, height: 800})
+mainWindow = new BrowserWindow({width: 1600, height: 800, title: "Learning JavaScript Application", icon: image})
 
 mainWindow.loadURL(`file://${__dirname}/index.html`)
 

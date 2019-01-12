@@ -225,7 +225,7 @@ margin-bottom: -50px;
             }
 
             #pacmanintro {
-            margin-left: 50px;    
+            margin-left: 10%;    
             font-family: 'Nobile', Helvetica, Arial, sans-serif;
             color: navy;
             background-color: white;
@@ -292,4 +292,8 @@ margin-bottom: -50px;
                 margin-top: -250px;
                 border-color: navy;
             border-style: solid;
+            }
+
+            #pacmanintrop {
+            margin-left: 50px;    
             }
