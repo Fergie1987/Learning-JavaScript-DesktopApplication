@@ -1,4 +1,3 @@
-
 var lessonNumber = 1;
 
 $("#previousTutorial").click(function() { 
@@ -8,33 +7,33 @@ $("#previousTutorial").click(function() {
     }
 
     if (lessonNumber == 1) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial1.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial1";
     }  else if (lessonNumber == 2) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial2.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial2";
     } else if (lessonNumber == 3) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial3.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial3";
     } else if (lessonNumber == 4) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial4.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial4";
     } else if (lessonNumber == 5) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial5.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial5";
     }  else if (lessonNumber == 6) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial6.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial6";
     }  else if (lessonNumber == 7) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial7.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial7";
     }  else if (lessonNumber == 8) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial8.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial8";
     }  else if (lessonNumber == 9) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial9.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial9";
     }  else if (lessonNumber == 10) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial10.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial10";
     }  else if (lessonNumber == 11) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial11.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial11";
     }  else if (lessonNumber == 12) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial12.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial12";
     }  else if (lessonNumber == 13) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial13.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial13";
     } else if (lessonNumber == 14) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial14.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial14";
     } 
 });
 
@@ -45,33 +44,33 @@ $("#nextTutorial").click(function() {
     lessonNumber = lessonNumber + 1;
     }   
     if (lessonNumber == 1) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial1.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial1";
     }  else if (lessonNumber == 2) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial2.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial2";
     } else if (lessonNumber == 3) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial3.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial3";
     } else if (lessonNumber == 4) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial4.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial4";
     } else if (lessonNumber == 5) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial5.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial5";
     }  else if (lessonNumber == 6) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial6.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial6";
     }  else if (lessonNumber == 7) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial7.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial7";
     }  else if (lessonNumber == 8) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial8.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial8";
     }  else if (lessonNumber == 9) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial9.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial9";
     }  else if (lessonNumber == 10) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial10.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial10";
     }  else if (lessonNumber == 11) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial11.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial11";
     }  else if (lessonNumber == 12) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial12.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial12";
     }  else if (lessonNumber == 13) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial13.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial13";
     }  else if (lessonNumber == 14) {
-        document.getElementById('tutorials').src = "./tutorials/tutorial14.html";
+        document.getElementById('tutorials').src = "http://localhost:3000/tutorial14";
     } 
 
 
@@ -104,22 +103,53 @@ $("#clearEditor").click(function() {
  
 });
 
+
+
 $("#pacmanMenu").click(function() {
-  location.href='pacmanintro.html' 
+  location.href='http://localhost:3000/pacmanintro' 
 });
 
 $("#returnMainMenu").click(function() {
     if (confirm("Have you remembered to save a copy of your code? Do you wish to continue?")) { 
-        location.href='index.html'       
+        location.href='http://localhost:3000/'       
   } 
   });
 
   $("#continueToPacman").click(function() {
-        location.href='pacman.html'       
+        location.href='http://localhost:3000/pacman'       
   });
 
   $("#returnMainMenuNoCode").click(function() {
     if (confirm("Are you sure? Click Ok to return to the Main Menu")) { 
-        location.href='index.html'       
+        location.href='http://localhost:3000/'       
   } 
   });
+
+  $("#developmentCommunicate").click(function() {
+    location.href='http://localhost:3000/communicateanddevelop'  
+  });
+
+  
+$("#runCodeDev").click(function() { 
+    var content = $(codingAreaText).val();
+    if(content != "") {
+    writeToFile(content); 
+    window.open("./rungame/index.html"," ", "width=1200, height=800"); 
+    } else {
+        alert("There is no code to Execute");  
+    }
+
+});
+
+$("#readInCodeDev").click(function() {   
+  var content = readFromFile();
+  $('#codingAreaText').val('');  
+  $('#codingAreaText').val(content);   
+  });
+
+$("#clearEditorDev").click(function() {
+    if (confirm("Are you sure you wish to remove your code from the Editor?")) {
+        $('#codingAreaText').val(''); 
+  } 
+ 
+});

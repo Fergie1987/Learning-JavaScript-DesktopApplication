@@ -2,7 +2,6 @@
 float:right;   
 width:50%; 
 height:600px; 
-margin-top: -150px; 
 }
 
 #text {
@@ -39,6 +38,7 @@ border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 width: 250px;
 height: 60px;
+border-color: navy;
 }
 
 #readInCode {
@@ -51,6 +51,7 @@ height: 60px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     width: 250px;
     height: 60px;
+    border-color: navy;
     }
 
 #clearEditor {
@@ -62,6 +63,7 @@ height: 60px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     width: 250px;
     height: 60px;
+    border-color: navy;
 }
 
 #nextTutorial {
@@ -74,6 +76,7 @@ width: 200px;
 height: 100px;
 border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
+border-color: navy;
 }
 
 #pacmanMenu {
@@ -106,6 +109,7 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
     height: 100px;
     border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    border-color: navy;
     }
 
 #logo {   
@@ -201,7 +205,8 @@ margin-bottom: -50px;
             width: 300px;
             height: 50px;
             border-radius: 12px;
-            font-family: 'Nobile', Helvetica, Arial, sans-serif;    
+            font-family: 'Nobile', Helvetica, Arial, sans-serif;  
+            border-color: navy;  
             }
 
             #returnMainMenuNoCode {
@@ -235,7 +240,7 @@ margin-bottom: -50px;
             }
 
             #pacmanGameImage {
-            margin-left: 50px;    
+            margin-left: 50px;  
             }
 
             #continueToPacman {
@@ -248,7 +253,8 @@ margin-bottom: -50px;
             border-radius: 12px;
             font-family: 'Nobile', Helvetica, Arial, sans-serif; 
             border-style: solid;
-                border-color: navy;     
+                border-color: navy;  
+                margin-bottom: 50px;   
             }
 
             #homeHeading {
@@ -280,8 +286,8 @@ margin-bottom: -50px;
 
             #pacmanGameImage {
             border-color: navy;
-            border-style: solid;    
-            margin-bottom: 30px;
+            border-style: solid;  
+            margin-bottom: -100px;  
             }
 
             #optionsArea {
@@ -297,3 +303,273 @@ margin-bottom: -50px;
             #pacmanintrop {
             margin-left: 50px;    
             }
+
+            #devCodingArea {
+                float:right;   
+                width:50%; 
+                height:600px;     
+                margin-top: -80px;    
+            }
+
+            #codingAreaText {
+                width:100%; 
+                height:750px; 
+                resize: none;
+                border-style: solid;
+                border-color:blue; 
+                margin-top: 20px;   
+            }
+
+            #runCodeDev {
+                margin-top: 10px;    
+                Margin-left: 5%;    
+                margin-right: 5%;
+                font-size: 20px;
+                background-color: green;
+                color: white;
+                border-radius: 12px;
+                font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                width: 250px;
+                height: 60px;
+                border-color: navy;
+                }
+                
+                #readInCodeDev {
+                    margin-top: 10px;   
+                    Margin-right: 5%;
+                    font-size: 20px;
+                    background-color: green;
+                    color: white;
+                    border-radius: 12px;
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                    width: 250px;
+                    height: 60px;
+                    border-color: navy;
+                    }
+                
+                #clearEditorDev {
+                    margin-top: 10px;   
+                    font-size: 20px;
+                    background-color:maroon;
+                    color: white;
+                    border-radius: 12px;
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                    width: 250px;
+                    height: 60px;
+                    border-color: navy;
+                }
+
+                /* #devLogo {
+                    width: 200px;
+                    height: 200px;        
+                    background-image: url("../assets/developmentarealogo.png");    
+                    background-repeat: no-repeat;
+                    margin-top: -80px;
+                    margin-left: 20px;
+                    background-color: white; 
+                    border-style: solid;
+                    border-color: navy;   
+                } */
+
+                #onlineNames {
+                 margin-top: -80px;  
+                }
+
+                #onlineHeading {
+                    margin-left: 50px;    
+                    color: navy;  
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                    font-size: 26px;
+                }
+
+                #onlineDiv {
+                    background-color: white;
+                    border-style: solid;
+                    border-color: navy;  
+                    width: 350px;
+                    height: 200px;
+                    overflow: auto;   
+                    margin-left: 50px;  
+                    font-size: 20px;
+                    color: navy
+                    
+                }
+
+
+                  #onlineDiv li {
+                    padding: 5px 10px;
+                    margin-left: -40px;
+                  }
+
+                  #onlineDiv li:nth-child(odd) {
+                    background: #eee;
+                    color: blue;
+                  }
+
+                  #onlineDiv {
+                    list-style-type: none;
+                  }
+
+                  #selectUser {
+                    background-color: white;
+                    border-style: solid;
+                    border-color: navy;  
+                    width: 390px;
+                    height: 50px;  
+                    margin-left: 50px;   
+                    font-size: 40px;  
+                  }
+
+                  #leftSide {
+                    float:left    
+                  }
+
+                  #onlineHeading2 {
+                    margin-left: 50px;    
+                    color: navy;
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                    font-size: 26px;     
+                }
+
+                #codeSharingRequest {
+                    font-size: 20px;
+                    background-color: green;
+                    color: white;
+                    border-radius: 12px;
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                    width: 290px;
+                    height: 130px; 
+                    float: right;
+                    margin-top: -145px;
+                    margin-left: 470px;  
+                    border-color: navy;
+                    background-image: url("../assets/sharingarrow.png");    
+                    background-repeat: no-repeat; 
+                    background-size: 30px 30px;
+                    background-position-x: 125px;
+                }
+
+               
+                    #privateMessage {
+                        width: 85%;
+                        padding: 12px 20px;
+                        margin: 8px 0;
+                        box-sizing: border-box;
+                        border-style:solid;
+                        border-color: navy;  
+                      }    
+
+                      #sendMessage {
+                      margin-top: 50px;    
+                      margin-left: 50px;   
+                      }
+                
+                      #sendMessageHeader {   
+                    color: navy; 
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                    font-size: 26px;    
+                      }
+
+                      #selectBox {
+                          margin-top: 8px;
+                      margin-left: 10px; 
+                      font-size: 30px;
+                      color: navy; 
+
+                      }
+
+                      #privButton {
+                        font-size: 20px;
+                        background-color: green;
+                        color: white;
+                        border-radius: 12px;
+                        font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                        width: 200px;
+                        height: 60px; 
+                        margin-left: 200px;  
+                        border-color: navy; 
+                      }
+
+                      #messages {
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+                      }
+                  
+                      #messages li {
+                        padding: 5px 10px;
+                      }
+                  
+                      #messages li:nth-child(odd) {
+                        background: #eee;
+                      }
+                  
+                      #messages {
+                        margin-bottom: 40px
+                      }
+
+                      #messageAreaName {
+                        color: navy;  
+                        margin-left: 50px; 
+                        font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                        font-size: 26px;  
+                      }
+
+                      #messages {
+                        background-color: white;
+                        border-style: solid;
+                        border-color: navy;  
+                        width: 85%;
+                        height: 400px;
+                        overflow: auto;   
+                        margin-left: 50px;  
+                        font-size: 20px;
+                        color: navy
+                    }
+
+                    #connectedWith {
+                        color: navy;  
+                        margin-left: 150px; 
+                        font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                        font-size: 26px;  
+                    }
+
+                    #leftSideLogin {
+                        float:left;
+                        margin-left: 40px;
+                    }
+
+                    #loginHeader {
+                        color: navy;  
+                        margin-left: 50px; 
+                        font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                        font-size: 26px;    
+                    }
+
+                    #name {
+                    width: 400px;
+                    margin-left: 170px;
+                    height: 50px;
+                    font-size: 26px;
+                    color: Navy;
+                    margin-top: 30px;    
+                    }
+
+                    #nameButton {
+                        font-size: 20px;
+                        background-color: green;
+                        color: white;
+                        border-radius: 12px;
+                        font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                        width: 200px;
+                        height: 60px; 
+                        margin-left: 200px;  
+                        border-color: navy;  
+                        margin-top: 30px;  
+                        margin-left: 270px;
+                    }
+
+                    #learningPage {
+                    background-color: white;    
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                    }

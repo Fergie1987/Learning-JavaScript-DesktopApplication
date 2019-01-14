@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">   
-<link rel="stylesheet" href="./public/css/main.css"> 
-<script>window.$ = window.jQuery = require("jquery");</script>
+<head> 
+<link rel="stylesheet" href="/css/main.css"> 
+<script src="/jquery/jquery.js"></script>
+<script src="/js/jquery-1.11.1.js"></script>
 </head>
 
 <body id = "mainBody">
-    <script src="main.js"></script>
+        <script src="/js/main.js"></script>
 
     <div id= "logo"></div>
-
     <div>
     <button id="returnMainMenu">Return to Main Menu</button>     
     </div>
@@ -22,10 +21,10 @@
 
     
 
-    <iframe id = "tutorials" style="width: 48%; height:1000px"; src='tutorials/tutorial1.html'></iframe>
+    <iframe id = "tutorials" style="width: 48%; height:1000px"; src='http://localhost:3000/tutorial1'></iframe>
 
     <div id = codingarea>
-        <img id="codeHeading" src="./public/assets/jscodeeditorlogo.png">
+        <img id="codeHeading" src="/assets/jscodeeditorlogo.png">
         <textarea id="text"></textarea>
         <button id="runCode">Execute and Save Code</button>
         <button id="readInCode">Read in Index.js File</button>
@@ -35,7 +34,7 @@
 </body>
 
 
-<script src="public/js/custom.js"></script>
+<script src="/js/custom.js"></script>
 
 
 </html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<link rel="stylesheet" href="/css/main.css"> 
+<script src="/js/main.js"></script>
+<script src="/jquery/jquery.js"></script>
+<script src="/js/jquery-1.11.1.js"></script>
+</head>
+
+<body id = "mainBody">
+    
+
+    <div id= "logo">
+     <div id= "devLogo"></div>    
+     <img src="/assets/developmentarealogo.png" width="200" height="180" style = "margin-top: 20px" > 
+    </div>
+
+    <div>
+            <button id="returnMainMenu">Return to Main Menu</button>     
+            </div>
+     
+    <div id = "leftSideLogin"> 
+    <div id="nkndiv">
+    <Label id ="loginHeader">Please Enter Your Name to Connect With Other Users </Label>
+    <br>
+    <input type="text" name="name" id="name">
+    <br>
+    <button id="nameButton">Submit Name</button>
+    </div>   
+
+    </div>        
+    
+
+     <div id ="leftSide">   
+    <div id="onlineNames">
+    <label id="onlineHeading"> Users Online  </label>
+    <img id="onlineimage" src="/assets/usersonlinesymbol.png" width="70" height="70" > 
+    <ul id="onlineDiv"></ul>   
+    <button id="codeSharingRequest">Submit Code Sharing Request with the Selected User</button>
+    </div>
+
+    <label id="onlineHeading2">Online Users Select List</label>
+    <img id="onlineclickimage" src="/assets/selectlistlogo.png" width="30" height="30" style = "margin-left: 10px;" > 
+    <div id="selectUser">
+              <select id='selectBox'>
+              <option value="" selected disabled hidden>Choose here</option>    
+              </select>
+    </div>  
+
+    <div id = "sendMessage">
+            <form action="" id="private">
+            <label id="sendMessageHeader">Send Message to Selected User</label>
+            <img id="emailimage" src="/assets/emaillogo.png" width="50" height="50" style = "margin-left: 10px;" > 
+            <input id="privateMessage"/>
+            </form>
+            <button id="privButton">Submit Message</button>
+        </br>
+    </br>
+
+    </div>
+
+    <div id="messageArea">
+            <label id="messageAreaName">Message Area</label>
+            <img id="messageimage" src="/assets/messageareaimage.png" width="50" height="50" style = "margin-left: 10px;" > 
+            <ul id="messages"></ul>
+          </div>    
+ 
+</div>  
+
+    <div id = devCodingArea>
+        <img id="codeHeading" src="/assets/jscodeeditorlogo.png">
+        <Label id="connectedWith">You are Connected With:</Label>
+        <textarea id="codingAreaText"></textarea>
+        <button id="runCodeDev">Execute and Save Code</button>
+        <button id="readInCodeDev">Read in Index.js File</button>
+        <button id="clearEditorDev">Remove all code</button>
+    </div>
+  
+</body>
+
+
+<script src="/js/custom.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+
+<script>
+
+
+
+        $(function () {
+
+        $('#leftSide').hide(); 
+
+    
+          //variable to the hold the nickname once submitted
+    
+          var nickName;
+    
+          //socket IO link to the server index.js file. 
+    
+          var socket = io();
+    
+          //private messaging, once submitted, the message and who the message should be sent to is emitted to the server. 
+          $('#privButton').click(function () {
+            $('#messages').append($('<li>').text($('#privateMessage').val() + " - " + 'Private Message Sent From Your Account'));
+            socket.emit('private Message', { name: $('#selectBox').val(), message: $('#privateMessage').val() });
+            $('#m').val('');
+            return false;
+          });
+    
+    
+          //Nickname, other fields show and the name of the user is appended to the header of the page.
+          $('#nameButton').click (function () {
+            socket.emit('user nickname', $('#name').val());
+            $('#leftSideLogin').hide();
+            $('#leftSide').show();
+            nickName = $('#name').val();
+           // document.getElementById("loggedInName").innerHTML = nickName;
+            return false;
+          });
+    
+         
+          //userid of the connected user is added to the console. 
+          socket.on('user connected', function (userid) {
+            console.log(userid)
+          });
+    
+    
+          //private message is added to the message area once received from the server. 
+          socket.on('privateNewMessage', function (privMsg) {
+            $('#userTyping').empty();
+            var message = privMsg.message;
+            console.log("MESSAGE IS " + message);
+            var from = privMsg.userPrivfrom;
+            $('#messages').append($('<li>').text("Private Message: " + " " + message + " " + "From User" + " " + from));
+          });
+    
+    
+          //variable to hold the key down state. 
+          //user is typing will disappear after the message has been sent 
+          //user is typing will only show up once. 
+          var keyPressed = false;
+    
+          $(window).keydown(function (e) {
+            if (keyPressed == false) {
+              socket.emit('user typing', "is typing");
+              keyPressed = true;
+            }
+            if (e.keyCode == 13) {
+              keyPressed = false;
+            };
+          });
+    
+          var loggedNname = $('#n').val();
+    
+          $('#nickButton').click(function () {
+            keyPressed = false;
+    
+          });
+    
+          $('#broadButton').click(function () {
+            keyPressed = false;
+          });
+    
+          $('#privateButton').click(function () {
+            keyPressed = false;
+          });
+    
+          //user is typing field is updated when user starts to type a message. 
+          socket.on('user typing', function (msg) {
+            $('#userTyping').append($('<li>').text(msg));
+          });
+    
+          //online users, and users available to private message
+          //returned array is looped through and the select drop down and the online users list is updated. 
+          //The update happens every time a user enters or disconnects from the room. 
+          socket.on('online users', function (online) {
+            $('#selectBox').empty();
+            $('#onlineDiv').empty();
+            for (x in online) {
+              if (online[x] != nickName) {
+                $("#selectBox").append('<option value=' + online[x] + '>' + online[x] + '</option>');
+                $('#onlineDiv').append($('<li>').text(online[x]));
+              }
+            }
+          });
+    
+    
+        });
+      </script>
+
+
+</html>
