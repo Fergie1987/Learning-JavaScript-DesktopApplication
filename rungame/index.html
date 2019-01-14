@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Learning JavaScript Application Canvas </title>
-<script src ="Box2dWeb-2.1.a.3.min.js"> </script>
-<script> window.$ = window.jQuery = require('./jquery-1.11.3.min.js') </script>
+<script src ="/js/Box2dWeb-2.1.a.3.min.js"> </script>
+<script src="/js/jquery-1.11.3.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+
+
+
+
+
 <style> canvas { background-color:black; } </style>
 </head>
 
@@ -14,7 +19,9 @@
 
 <canvas id="can" width="1000" height="600"> </canvas>
 
-<script src="index.js"> </script>
+
+<script src="/js/index.js" > </script>
+
 </body>
 
 </html>

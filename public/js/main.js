@@ -18,12 +18,12 @@ mainWindow = null
 })
 }  
 
-
 app.on('ready', createWindow) 
 
 
+
 function writeToFile(content) {
-    fs.writeFile("./rungame/index.js", content, (err) => {
+    fs.writeFile("./public/js/index.js", content, (err) => {
         if (err) {
             console.error(err);
             return;
@@ -33,6 +33,6 @@ function writeToFile(content) {
     }
 
     function readFromFile() {
-        var data = fs.readFileSync("./rungame/index.js", 'utf8');
+        var data = fs.readFileSync("./public/js/index.js", 'utf8');
         return data; 
     }

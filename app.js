@@ -73,6 +73,14 @@ app.get('/tutorial14', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial14.html');
 });
 
+app.get('/rungame', function (req, res) {
+  res.sendFile(__dirname + '/rungame/index.html');
+});
+
+
+
+
+
 
 //socket connection
 io.on('connection', function (socket) {
