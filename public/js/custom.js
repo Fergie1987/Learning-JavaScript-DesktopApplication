@@ -134,7 +134,7 @@ $("#runCodeDev").click(function() {
     var content = $(codingAreaText).val();
     if(content != "") {
     writeToFile(content); 
-    window.open("./rungame/index.html"," ", "width=1200, height=800"); 
+    window.open("/rungame"," ", "width=1200, height=800"); 
     } else {
         alert("There is no code to Execute");  
     }
