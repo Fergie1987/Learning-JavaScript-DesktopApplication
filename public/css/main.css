@@ -574,3 +574,41 @@ margin-bottom: -50px;
                     background-color: white;    
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     }
+
+                    #statusDiv {
+                    background-color: white;
+                    width: 700px;
+                    height: 100px;
+                    float: right;  
+                    border-style: solid;
+                    border-color: navy;
+                    margin-top:-80px;
+                    }
+
+                    #status {
+                    width: 400px;
+                    margin-left: 20px;
+                    height: 50px;
+                    font-size: 26px;
+                    color: Navy;   
+                    }
+
+                    #statusHeading {
+                        width: 400px;
+                        margin-left: 20px;
+                        height: 50px;
+                        font-size: 26px;
+                        color: Navy;      
+                    }
+
+                    #loggedInNameDiv {
+                        width: 400px;
+                        margin-left: 20px;
+                        height: 50px;
+                        font-size: 26px;
+                        color: Navy;    
+                        margin-bottom: 85px;
+                        margin-top: -65px;  
+                       
+                    }
+                    

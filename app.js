@@ -141,6 +141,31 @@ io.on('connection', function (socket) {
     io.to(userSocket).emit('privateNewMessage', { message: userMessage, userPrivfrom: userFrom })
   });
 
+  socket.on('sharing Request', function (sharingRequest) {
+    
+    var dt = new Date();
+    var utcDate = dt.toUTCString();
+
+    userFrom = users[socket.id];
+    console.log(userFrom);
+    userSocket = sockets[sharingRequest.name];
+    io.to(userSocket).emit('newSharingRequest', {userShareFrom: userFrom, sentTo:sharingRequest.name, timeSent: utcDate }) 
+  });
+
+  socket.on('Request Accepted', function (sharingRequest) {   
+    var dt = new Date();
+    var utcDate = dt.toUTCString();
+    userSocket = sockets[sharingRequest.respondTo];
+    io.to(userSocket).emit('acceptedRequest', {acceptedBy: sharingRequest.acceptedBy, timeSent: utcDate }) 
+  });
+
+  socket.on('Send Code', function (sendCode) {   
+    userSocket = sockets[sendCode.sendCodeTo];
+    console.log("SEND CODE TO" + userSocket)
+    io.to(userSocket).emit('updateCodeEditor', {codeToAdd: sendCode.code}) 
+  });
+
+  
 });
 
 //port the server will open on, localhost:3000.
