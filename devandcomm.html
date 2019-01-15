@@ -176,6 +176,7 @@
           //The update happens every time a user enters or disconnects from the room. 
           socket.on('online users', function (online) {
             $('#selectBox').empty();
+            $("#selectBox").append('<option value=' + " " + '>' + "No User Selected" + '</option>');       
             $('#onlineDiv').empty();
             for (x in online) {
               if (online[x] != nickName) {
