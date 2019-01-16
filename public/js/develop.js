@@ -107,10 +107,11 @@ $('#privButton').click(function () {
   });
 
   socket.on('disconnectConnection', function (data) {  
+    $('#status').html("You are not code sharing");
+    alert(communicatingName + " disconnected the code sharing connection at this time: " + data.timeDisconnected); 
     currentlySharing = false;
     communicatingName = null;
-    $('#status').html("You are not code sharing");
-    alert(data.name + " disconnected the code sharing connection at this time: " + data.timeDisconnected); 
+   
   });
 
     socket.on('Sharing Declined', function (data) {  

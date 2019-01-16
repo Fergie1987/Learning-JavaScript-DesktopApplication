@@ -160,7 +160,7 @@ io.on('connection', function (socket) {
     var dt = new Date();
     var utcDate = dt.toUTCString();
     userSocket = sockets[send.name];
-    io.to(userSocket).emit('disconnectConnection', {name: send.name, timeDisconnected: utcDate}) 
+    io.to(userSocket).emit('disconnectConnection', {timeDisconnected: utcDate}) 
   });
 
    socket.on('Request Declined', function (data) {   
