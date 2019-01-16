@@ -308,7 +308,7 @@ margin-bottom: -50px;
             #devCodingArea {
                 float:right;   
                 width:50%; 
-                height:600px;     
+                height:1050px;     
                 margin-top: -80px;    
             }
 
@@ -333,6 +333,7 @@ margin-bottom: -50px;
                 width: 250px;
                 height: 60px;
                 border-color: navy;
+                margin-bottom: 30px;
                 }
                 
                 #readInCodeDev {
@@ -476,7 +477,7 @@ margin-bottom: -50px;
                           margin-top: 8px;
                       margin-left: 10px; 
                       font-size: 30px;
-                      color: navy; 
+                      color: blue; 
 
                       }
 
@@ -622,3 +623,16 @@ margin-bottom: -50px;
                        
                     }
                     
+                    #disconnectButton {
+                      float: right;  
+                      margin-top: 90px;
+                      margin-right: 50px; 
+                      font-size: 20px;
+                      background-color: red;
+                      color: white;
+                      border-radius: 12px;
+                      font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                      width: 220px;
+                      height: 60px; 
+                      border-color: navy;  
+                    }

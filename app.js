@@ -2,8 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || 3000;//holds connected users and socket id's
-var path = require('path');
+var port = process.env.PORT || 3000;
 
 var users = {};
 var sockets = {};
@@ -100,9 +99,8 @@ io.on('connection', function (socket) {
 
   });
 
-  //user nickname and socket id stored in the array. 
-  socket.on('user nickname', function (nkn) {
-    console.log('nickname:' + nkn);
+  socket.on('userName', function (nkn) {
+    console.log('userName:' + nkn);
     id = socket.id;
 
     users[id] = nkn;
@@ -115,8 +113,7 @@ io.on('connection', function (socket) {
     io.emit('online users', online);
 
   });
-
-  //when user is typing the name of the user appears on the page to show this to others. 
+ 
   socket.on('user typing', function (typmessage) {
 
     name = users[socket.id];
@@ -125,8 +122,7 @@ io.on('connection', function (socket) {
       socket.broadcast.emit('user typing', name + " " + typmessage);
     }
   })
-
-  //emits a private message to a user, only 1 user will receive this message. 
+ 
   socket.on('private Message', function (privateMessage) {
 
     userSocket = sockets[privateMessage.name];
@@ -160,9 +156,27 @@ io.on('connection', function (socket) {
     io.to(userSocket).emit('sendCodeKeyPress', {codeToUpdate: send.codeNew}) 
   });
 
-  
-  
+  socket.on('disconnected', function (send) {   
+    var dt = new Date();
+    var utcDate = dt.toUTCString();
+    userSocket = sockets[send.name];
+    io.to(userSocket).emit('disconnectConnection', {name: send.name, timeDisconnected: utcDate}) 
+  });
 
+   socket.on('Request Declined', function (data) {   
+    var dt = new Date();
+    var utcDate = dt.toUTCString();
+    userSocket = sockets[data.respondTo];
+    io.to(userSocket).emit('Sharing Declined', {declinedBy: data.declinedBy,  timeDeclined: utcDate}) 
+  });
+
+  socket.on('Request Declined After Accept', function (data) {   
+    var dt = new Date();
+    var utcDate = dt.toUTCString();
+    userSocket = sockets[data.userToUpdate];
+    io.to(userSocket).emit('Declined Sharing Update', {declinedBy: data.declinedName,  timeDeclined: utcDate}) 
+  }); 
+  
 });
 
 //port the server will open on, localhost:3000.

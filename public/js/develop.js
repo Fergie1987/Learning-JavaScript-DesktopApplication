@@ -1,6 +1,6 @@
 $('#leftSide').hide();
 
-var nickName;
+var userName;
 var currentlySharing = false;
 var communicatingName;
  
@@ -8,14 +8,26 @@ $('#privButton').click(function () {
     $('#messages').append($('<li>').text($('#privateMessage').val() + " - " + 'Private Message Sent From Your Account to' + " " + $('#selectBox').text()));
     socket.emit('private Message', { name: $('#selectBox').text(), message: $('#privateMessage').val() });
   });
-  
-  
+
+  $('#disconnectButton').click(function () {
+    console.log("Button Clicked");  
+    if(currentlySharing == false) {
+    alert("There is no connection to disconnect, you are not code sharing at this time");    
+    } else {
+    $('#status').html("You are not code sharing");    
+    currentlySharing = false;
+    socket.emit('disconnected', { name: communicatingName});
+    communicatingName = null;
+    }
+  });
+
+
   $('#nameButton').click (function () {
-    socket.emit('user nickname', $('#name').val());
+    socket.emit('userName', $('#name').val());
     $('#leftSideLogin').hide();
     $('#leftSide').show();
-    nickName = $('#name').val();
-    document.getElementById("loggedInName").innerHTML = "You are logged in as: " + nickName;
+    userName = $('#name').val();
+    document.getElementById("loggedInName").innerHTML = "You are logged in as: " + userName;
   });
   
   
@@ -43,7 +55,9 @@ $('#privButton').click(function () {
     socket.emit('Request Accepted', {acceptedBy: receivedShare.sentTo, respondTo: receivedShare.userShareFrom});  
     currentlySharing = true;
   } else {
-    socket.emit('Request Declined', { declinedBy: receivedShare.userShareFrom, respondTo: receivedShare.userShareFrom});  
+     socket.emit('Request Declined', { declinedBy: receivedShare.sentTo, respondTo: receivedShare.userShareFrom});  
+    console.log("DECLINED BY", receivedShare.sentTo)
+    console.log("RESPOND TO", receivedShare.userShareFrom) 
   }
   });
   
@@ -55,15 +69,16 @@ $('#privButton').click(function () {
     currentlySharing = true;
     communicatingName = receivedShare.acceptedBy;
     console.log("1", communicatingName);
-    socket.emit('Send Code', {code: $('#codingAreaText').val(), sendCodeTo: receivedShare.acceptedBy, nameToUpdate: nickName});  
+    socket.emit('Send Code', {code: $('#codingAreaText').val(), sendCodeTo: receivedShare.acceptedBy, nameToUpdate: userName});  
   } else {
-    $('#status').html("Code Sharing Declined");
+     $('#status').html("You are not code Sharing");
+    socket.emit('Request Declined After Accept', { userToUpdate: receivedShare.acceptedBy, declinedName: userName}); 
   }
   });
   
   
   socket.on('updateCodeEditor', function (data) {  
-    $('#codingAreaText').html(data.codeToAdd); 
+    $('#codingAreaText').val(data.codeToAdd); 
     alert("Code Added to Editor");
     communicatingName = data.nameToAddToVar;
     console.log("2", communicatingName);
@@ -74,7 +89,7 @@ $('#privButton').click(function () {
     $('#selectBox').empty();      
     $('#onlineDiv').empty();
     for (x in online) {
-      if (online[x] != nickName) {  
+      if (online[x] != userName) {  
         $("#selectBox").append('<option value=' + online[x] + '>' + online[x] + '</option>');
         $('#onlineDiv').append($('<li>').text(online[x]));
       }
@@ -82,11 +97,30 @@ $('#privButton').click(function () {
   });
 
   $( "#codingAreaText" ).keyup(function() {
-   
+    if(currentlySharing == true) {
     socket.emit('Code Updated', {codeNew: $('#codingAreaText').val(), userToUpdate: communicatingName});   
-    console.log("User To Send To: ", communicatingName);
+    }
   });
 
   socket.on('sendCodeKeyPress', function (data) {  
     $('#codingAreaText').val(data.codeToUpdate);  
   });
+
+  socket.on('disconnectConnection', function (data) {  
+    currentlySharing = false;
+    communicatingName = null;
+    $('#status').html("You are not code sharing");
+    alert(data.name + " disconnected the code sharing connection at this time: " + data.timeDisconnected); 
+  });
+
+    socket.on('Sharing Declined', function (data) {  
+    $('#status').html("You are not code sharing");
+    alert(data.declinedBy + " declined your code sharing request. Time declined: " + data.timeDeclined); 
+  });
+
+  socket.on('Declined Sharing Update', function (data) {  
+    $('#status').html("You are not code sharing");
+    alert(data.declinedBy + " has since cancelled their sharing request. Time declined: " + data.timeDeclined);  
+  }); 
+
+  

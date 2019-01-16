@@ -13,6 +13,7 @@
     <div id= "logo">
      <div id= "devLogo"></div>    
      <img src="/assets/developmentarealogo.png" width="200" height="180" style = "margin-top: 20px" > 
+     <button id="disconnectButton">Disconnect Code Sharing Connection</button>   
     </div>
 
     <div>
@@ -69,11 +70,11 @@
           </div>    
  
 </div>  
-
     <div id = "statusDiv">
-    <Label id = statusHeading>Status:</Label>     
+
+    <label id = statusHeading>Status:</label>     
     </br>   
-    <Label id="status"></Label>    
+    <label id="status">You are not code sharing</Label>  
     </div>
 
     <div id = devCodingArea>
@@ -89,13 +90,9 @@
 
 <script src="/js/custom.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-
-
-
 <script> 
 var socket = io();
+
 </script>
-
 <script src="/js/develop.js"></script>
-
 </html>
