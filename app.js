@@ -79,9 +79,6 @@ app.get('/rungame', function (req, res) {
 
 
 
-
-
-
 //socket connection
 io.on('connection', function (socket) {
 
@@ -132,20 +129,23 @@ io.on('connection', function (socket) {
   //emits a private message to a user, only 1 user will receive this message. 
   socket.on('private Message', function (privateMessage) {
 
+    console.log("")
+
     userSocket = sockets[privateMessage.name];
     userMessage = privateMessage.message;
     userFrom = users[socket.id];
 
-    console.log(userSocket);
+    console.log("USER FROM", userFrom)
+    console.log("USER MESSAGE", userMessage)
+
+    console.log("The socket is", userSocket);
 
     io.to(userSocket).emit('privateNewMessage', { message: userMessage, userPrivfrom: userFrom })
   });
 
-  socket.on('sharing Request', function (sharingRequest) {
-    
+  socket.on('sharing Request', function (sharingRequest) {  
     var dt = new Date();
     var utcDate = dt.toUTCString();
-
     userFrom = users[socket.id];
     console.log(userFrom);
     userSocket = sockets[sharingRequest.name];
@@ -162,10 +162,18 @@ io.on('connection', function (socket) {
   socket.on('Send Code', function (sendCode) {   
     userSocket = sockets[sendCode.sendCodeTo];
     console.log("SEND CODE TO" + userSocket)
-    io.to(userSocket).emit('updateCodeEditor', {codeToAdd: sendCode.code}) 
+    io.to(userSocket).emit('updateCodeEditor', {codeToAdd: sendCode.code, nameToAddToVar: sendCode.nameToUpdate}) 
+  });
+
+  socket.on('Code Updated', function (send) {   
+    userSocket = sockets[send.userToUpdate];
+    console.log("THE SOCKET IS", userSocket)
+    io.to(userSocket).emit('sendCodeKeyPress', {codeToUpdate: send.codeNew}) 
   });
 
   
+  
+
 });
 
 //port the server will open on, localhost:3000.
