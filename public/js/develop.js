@@ -3,34 +3,26 @@ $('#leftSide').hide();
 var nickName;
 var currentlySharing = false;
 var communicatingName;
-
-//private messaging, once submitted, the message and who the message should be sent to is emitted to the server. 
+ 
 $('#privButton').click(function () {
-    $('#messages').append($('<li>').text($('#privateMessage').val() + " - " + 'Private Message Sent From Your Account'));
+    $('#messages').append($('<li>').text($('#privateMessage').val() + " - " + 'Private Message Sent From Your Account to' + " " + $('#selectBox').text()));
     socket.emit('private Message', { name: $('#selectBox').text(), message: $('#privateMessage').val() });
-  //  $('#privateMessage').val('');
-    return false;
   });
   
   
-  //Nickname, other fields show and the name of the user is appended to the header of the page.
   $('#nameButton').click (function () {
     socket.emit('user nickname', $('#name').val());
     $('#leftSideLogin').hide();
     $('#leftSide').show();
     nickName = $('#name').val();
     document.getElementById("loggedInName").innerHTML = "You are logged in as: " + nickName;
-    return false;
   });
   
   
-  //userid of the connected user is added to the console. 
   socket.on('user connected', function (userid) {
     console.log(userid)
   });
-  
-  
-  //private message is added to the message area once received from the server. 
+   
   socket.on('privateNewMessage', function (privMsg) {
     var dt = new Date();
     var utcDate = dt.toUTCString();  
@@ -38,42 +30,6 @@ $('#privButton').click(function () {
     var message = privMsg.message;
     var from = privMsg.userPrivfrom;
     $('#messages').append($('<li>').text("Private Message from:"+from+ "  Message: " + message));
-  });
-  
-  
-  //variable to hold the key down state. 
-  //user is typing will disappear after the message has been sent 
-  //user is typing will only show up once. 
-  var keyPressed = false;
-  
-  $(window).keydown(function (e) {
-    if (keyPressed == false) {
-      socket.emit('user typing', "is typing");
-      keyPressed = true;
-    }
-    if (e.keyCode == 13) {
-      keyPressed = false;
-    };
-  });
-  
-  var loggedNname = $('#n').val();
-  
-  $('#nickButton').click(function () {
-    keyPressed = false;
-  
-  });
-  
-  $('#broadButton').click(function () {
-    keyPressed = false;
-  });
-  
-  $('#privateButton').click(function () {
-    keyPressed = false;
-  });
-  
-  //user is typing field is updated when user starts to type a message. 
-  socket.on('user typing', function (msg) {
-    $('#userTyping').append($('<li>').text(msg));
   });
   
   $('#codeSharingRequest').click(function () {  
@@ -114,11 +70,6 @@ $('#privButton').click(function () {
   });
   
   
-  
-  
-  //online users, and users available to private message
-  //returned array is looped through and the select drop down and the online users list is updated. 
-  //The update happens every time a user enters or disconnects from the room. 
   socket.on('online users', function (online) {
     $('#selectBox').empty();      
     $('#onlineDiv').empty();
@@ -133,7 +84,7 @@ $('#privButton').click(function () {
   $( "#codingAreaText" ).keyup(function() {
    
     socket.emit('Code Updated', {codeNew: $('#codingAreaText').val(), userToUpdate: communicatingName});   
-    console.log("THE NAME IS", communicatingName);
+    console.log("User To Send To: ", communicatingName);
   });
 
   socket.on('sendCodeKeyPress', function (data) {  
