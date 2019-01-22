@@ -8,8 +8,8 @@ cd Learning-JavaScript-DesktopApplication
 
 Open a command prompt window and start the server: node app.js
 
-Open new command prompt windows and cd in to Learning-JavaScript-DesktopApplication to run new instances of the desktop application: 
-npm start
+Open new command prompt windows and cd in to Learning-JavaScript-DesktopApplication to run new instances of the desktop application. 
+The command to create each desktop application instance is: npm start
 
 Note: Create more than 1 instance of the application to use the Development and Communication area. This is required for the private messaging and code sharing functions. 
 
