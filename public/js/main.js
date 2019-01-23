@@ -8,8 +8,10 @@ var image = nativeImage.createFromPath(__dirname + '/../assets/logoicon.ico')
 let mainWindow
 let childWindow 
 
+
 function createWindow() { 
-mainWindow = new BrowserWindow({width: 1600, height: 800, title: "Learning JavaScript Application", icon: image})
+const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize    
+mainWindow = new BrowserWindow({width, height, title: "Learning JavaScript Application", icon: image})
 
 mainWindow.loadURL('http://localhost:3000/')
 
