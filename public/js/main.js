@@ -12,7 +12,7 @@ let childWindow
 function createWindow() { 
 const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize    
 mainWindow = new BrowserWindow({width, height, title: "Learning JavaScript Application", icon: image})
-
+mainWindow.maximize()
 mainWindow.loadURL('http://localhost:3000/')
 
 mainWindow.on('closed', function() {
