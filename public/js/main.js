@@ -1,26 +1,34 @@
 const electron = require('electron')
 const app = electron.app
-const BrowserWindow = electron.BrowserWindow 
+const BrowserWindow = electron.BrowserWindow
 const fs = require("fs");
 const nativeImage = require('electron').nativeImage;
 var image = nativeImage.createFromPath(__dirname + '/../assets/logoicon.ico')
 
 let mainWindow
-let childWindow 
+let childWindow
 
 
-function createWindow() { 
-const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize    
-mainWindow = new BrowserWindow({width, height, title: "Learning JavaScript Application", icon: image})
-mainWindow.maximize()
-mainWindow.loadURL('http://localhost:3000/')
+function createWindow() {
+    const {
+        width,
+        height
+    } = electron.screen.getPrimaryDisplay().workAreaSize
+    mainWindow = new BrowserWindow({
+        width,
+        height,
+        title: "Learning JavaScript Application",
+        icon: image
+    })
+    mainWindow.maximize()
+    mainWindow.loadURL('http://localhost:3000/')
 
-mainWindow.on('closed', function() {
-mainWindow = null
-})
-}  
+    mainWindow.on('closed', function() {
+        mainWindow = null
+    })
+}
 
-app.on('ready', createWindow) 
+app.on('ready', createWindow)
 
 
 
@@ -32,9 +40,9 @@ function writeToFile(content) {
         };
         console.log("File has been updated");
     });
-    }
+}
 
-    function readFromFile() {
-        var data = fs.readFileSync("./public/js/index.js", 'utf8');
-        return data; 
-    }
+function readFromFile() {
+    var data = fs.readFileSync("./public/js/index.js", 'utf8');
+    return data;
+}
