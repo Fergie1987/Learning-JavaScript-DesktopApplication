@@ -18,7 +18,7 @@
      The update function is used to check the status of the boolean variable. </br></br> 
 
      <b> Step 1: Code to Add: </br></br>
-    Add these variables before the destroy_list array. </b>
+    Add these variables near to line 21 of the code editor. </b>
     </br>
     var enemyRight = true; </br>
     var enemyRight2 = true; </br>
@@ -28,7 +28,7 @@
     You will now add four if statements into the update function to control the direction and speed of the ghost objects. </br> </br>
 
     <b> Step 2: Code to Add: </br></br>
-    Add these if statements into the update function </b> </br> </br>
+    Add these if statements near to line 111 of the code editor </b> </br> </br>
     </br>
     if(enemyRight) {</br>
     enemy1.GetBody().SetLinearVelocity(new b2Vec2(5, enemy1.GetBody().GetLinearVelocity().y));</br>
@@ -63,7 +63,7 @@
     Info: Updating the status of an object within the contact listener can cause the game to crash. This is why the boolean variable update method is used. </br></br>
 
     <b> Code to Add: </br></br>
-    Add this code in to the BeginContact Listener. The four ghost objects should move between walls when your code is executed </b> </br> </br>
+    Add this code in to the BeginContact Listener (should be inserted near to line 446 of the code editor). The four ghost objects should move between walls when your code is executed </b> </br> </br>
 
     if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureB().GetBody().GetUserData().id == "right") {	</br>
 	enemyRight = false;	 </br>
