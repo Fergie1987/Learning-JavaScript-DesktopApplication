@@ -245,6 +245,7 @@ margin-bottom: -50px;
             }
 
             #continueToPacman {
+                margin-top: 100px;
                 margin-left: 10%; 
                 font-size: 20px;
             background-color: green;
@@ -586,14 +587,14 @@ margin-bottom: -50px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     }
 
-                    #statusDiv {
+                    #statusDiv {    
                     background-color: white;
                     width: 700px;
                     height: 100px;
                     float: right;  
                     border-style: solid;
                     border-color: navy;
-                    margin-top:-80px;
+                    margin-bottom: 40px;
                     }
 
                     #status {
