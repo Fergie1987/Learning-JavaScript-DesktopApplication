@@ -30,16 +30,16 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
 
 #runCode {
 margin-top: 10px;    
-Margin-left: 5%;    
+Margin-left: -150px;    
 margin-right: 5%;
 font-size: 20px;
 background-color: green;
 color: white;
-border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 width: 250px;
 height: 60px;
 border-color: navy;
+margin-bottom: 20px;
 }
 
 #readInCode {
@@ -48,7 +48,6 @@ border-color: navy;
     font-size: 20px;
     background-color: green;
     color: white;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     width: 250px;
     height: 60px;
@@ -60,7 +59,6 @@ border-color: navy;
     font-size: 20px;
     background-color:maroon;
     color: white;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     width: 250px;
     height: 60px;
@@ -133,7 +131,7 @@ margin-top: -20px;
 }
 
 #codeHeading {
-margin-bottom: -50px;
+margin-top: -38px;
 }
 
 #tutorials {
@@ -324,12 +322,11 @@ margin-bottom: -50px;
 
             #runCodeDev {
                 margin-top: 10px;    
-                Margin-left: 5%;    
+                Margin-left: -150px;    
                 margin-right: 5%;
                 font-size: 20px;
                 background-color: green;
                 color: white;
-                border-radius: 12px;
                 font-family: 'Nobile', Helvetica, Arial, sans-serif;
                 width: 250px;
                 height: 60px;
@@ -343,7 +340,6 @@ margin-bottom: -50px;
                     font-size: 20px;
                     background-color: green;
                     color: white;
-                    border-radius: 12px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 250px;
                     height: 60px;
@@ -355,7 +351,6 @@ margin-bottom: -50px;
                     font-size: 20px;
                     background-color:maroon;
                     color: white;
-                    border-radius: 12px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 250px;
                     height: 60px;
@@ -394,15 +389,49 @@ margin-bottom: -50px;
                     overflow: auto;   
                     margin-left: 50px;  
                     font-size: 20px;
-                    color: navy
-                    
+                    color: navy                  
                 }
 
+                #debugHeading {
+                    color: navy;  
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                    font-size: 24px;    
+                }
 
-                  #onlineDiv li {
+                #debugDiv {
+                    background-color: white;
+                    border-style: solid;
+                    border-color: navy;  
+                    width: 450px;
+                    height: 500px;
+                    overflow: auto;                      
+                    font-size: 20px;
+                    color: navy;    
+                    float: right; 
+                    padding-left: 0px;                               
+                }
+
+                #debugDiv li {
                     padding: 5px 10px;
-                    margin-left: -40px;
+                    margin-left: -5px;
                   }
+
+                  #debugDiv p:nth-child(even) {
+                    background: lightyellow;
+                    color: navy;
+                  }
+
+                  #debugDiv p:nth-child(odd) {
+                    background:lightcyan;
+                    color: navy;
+                  }
+
+                  #debugDiv {
+                    list-style-type: none;
+                  }
+
+
+                
 
                   #onlineDiv li:nth-child(odd) {
                     background: #eee;
@@ -412,6 +441,9 @@ margin-bottom: -50px;
                   #onlineDiv {
                     list-style-type: none;
                   }
+
+                  
+               
 
                   #selectUser {
                     background-color: white;
@@ -438,7 +470,6 @@ margin-bottom: -50px;
                     font-size: 20px;
                     background-color: green;
                     color: white;
-                    border-radius: 12px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 170px;
                     height: 100px; 
@@ -486,7 +517,6 @@ margin-bottom: -50px;
                         font-size: 20px;
                         background-color: green;
                         color: white;
-                        border-radius: 12px;
                         font-family: 'Nobile', Helvetica, Arial, sans-serif;
                         width: 100px;
                         height: 60px; 
@@ -572,7 +602,6 @@ margin-bottom: -50px;
                         font-size: 20px;
                         background-color: green;
                         color: white;
-                        border-radius: 12px;
                         font-family: 'Nobile', Helvetica, Arial, sans-serif;
                         width: 200px;
                         height: 60px; 
@@ -596,6 +625,7 @@ margin-bottom: -50px;
                     border-style: solid;
                     border-color: navy;
                     margin-bottom: 40px;
+                    margin-top: -50px;
                     }
 
                     #status {
@@ -632,9 +662,12 @@ margin-bottom: -50px;
                       font-size: 20px;
                       background-color: red;
                       color: white;
-                      border-radius: 12px;
                       font-family: 'Nobile', Helvetica, Arial, sans-serif;
                       width: 220px;
                       height: 60px; 
                       border-color: navy;  
+                    }
+
+                    #nextButtons {
+                    margin-top: -35px;    
                     }

@@ -9,6 +9,9 @@ var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
 
+console.log("HELLO DAVE")
+
+
 world = new b2World( 
 new b2Vec2(0, 0) //zero gravity 
 , false //allow sleep
@@ -17,6 +20,8 @@ new b2Vec2(0, 0) //zero gravity
 var CANVAS_WIDTH = 1000;
 var CANVAS_HEIGHT = 600;
 var SCALE = 30;
+
+console.log(SCALE)
 
 var enemyRight = true; 
 var enemyRight2 = true; 

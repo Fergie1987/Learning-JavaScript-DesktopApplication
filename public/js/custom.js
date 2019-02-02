@@ -1,5 +1,7 @@
 var lessonNumber = 1;
 
+
+
 $("#previousTutorial").click(function() {
 
     if (lessonNumber > 1) {
@@ -129,7 +131,7 @@ $("#developmentCommunicate").click(function() {
 $("#runCodeDev").click(function() {
     if (editor.getValue() != "") {
         writeToFile(editor.getValue());
-        window.open("/rungame", " ", "width=1200, height=800");
+        window.open("/rungame", " ", "width=1700, height=1000");
     } else {
         alert("There is no code to Execute");
     }
@@ -148,3 +150,5 @@ $("#clearEditorDev").click(function() {
     }
 
 });
+
+
