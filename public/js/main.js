@@ -46,3 +46,8 @@ function readFromFile() {
     var data = fs.readFileSync("./public/js/index.js", 'utf8');
     return data;
 }
+
+function readBox2Dcode() {
+    var data = fs.readFileSync("./public/js/box2dstartingcode.js", 'utf8');
+    return data;   
+}

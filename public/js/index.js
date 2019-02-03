@@ -1,4 +1,8 @@
-var b2Vec2 = Box2D.Common.Math.b2Vec2; 
+ //Author: David Ferguson
+//Student ID: 083321
+//Title: PacMan
+
+var b2Vec2 = Box2D.Common.Math.b2Vec2;
 var b2BodyDef = Box2D.Dynamics.b2BodyDef;
 var b2Body = Box2D.Dynamics.b2Body;
 var b2FixtureDef = Box2D.Dynamics.b2FixtureDef;
@@ -9,34 +13,36 @@ var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
 
-console.log("HELLO DAVE")
+//AnimationFrame
 
-
-world = new b2World( 
-new b2Vec2(0, 0) //zero gravity 
-, false //allow sleep
-);
+world = new b2World(
+		new b2Vec2(0, 0) //zero gravity
+		, false     //allow sleep	
+	);
 
 var CANVAS_WIDTH = 1000;
 var CANVAS_HEIGHT = 600;
-var SCALE = 30;
+var SCALE = 30;  
 
-console.log(SCALE)
 
-var enemyRight = true; 
-var enemyRight2 = true; 
-var enemyDown = true; 
-var enemyDown2 = true; 
 
-var destroy_list = [];
+var left = false;
+var right = false;
 
+var gravity = 0;
 var score = 0;
 
 var numPellets = 58;
 
-var gameComplete = false;
+var enemyRight = true;
+var enemyRight2 = true;
+var enemyDown2 = true;
+var enemyDown3 = true;
 
-$(window).keydown(function(e) { 
+var destroy_list = [];
+
+$(window).keydown(function(e) {
+
 if(e.keyCode == 37) {
 console.log("left-down");
 lefts();
@@ -53,7 +59,9 @@ if(e.keyCode == 40) {
 console.log("down-down");
 down();
 }
+
 });
+
 
 $(window).keyup(function(e) {
 console.log(e.keyCode);
@@ -68,130 +76,51 @@ stop();
 if(e.keyCode == 38) {
 console.log("up-up");
 stop();
-} if(e.keyCode == 40){
+}
+if(e.keyCode == 40){
 console.log("down-up");
 stop();
 }
-}); 
+});
 
-function lefts() {
-left = true;
-pacman.GetBody().ApplyImpulse(new b2Vec2(-5, 0), pacman.GetBody().GetWorldCenter());
-};
 
-function rights() {
-pacman.GetBody().ApplyImpulse(new b2Vec2(5, 0), pacman.GetBody().GetWorldCenter()); 
-};
 
-function up() {
-pacman.GetBody().ApplyImpulse(new b2Vec2(0, -5), pacman.GetBody().GetWorldCenter());
-};
+//Creating the world objects
 
-function down() {
-pacman.GetBody().ApplyImpulse(new b2Vec2(0, 5), pacman.GetBody().GetWorldCenter());
-};
+var fixDef = new b2FixtureDef;
+fixDef.density = 1.0;
+fixDef.friction = 0.5;
+fixDef.restitution = 0;
 
-function stop() {
-pacman.GetBody().SetLinearVelocity(new b2Vec2(0, 0));
-};
+var bodyDef = new b2BodyDef;
+bodyDef.type = b2Body.b2_staticBody;
+bodyDef.position.x = CANVAS_WIDTH/2/SCALE;
+bodyDef.position.y = CANVAS_HEIGHT/SCALE - (20/SCALE);
+fixDef.shape = new b2PolygonShape;
+fixDef.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2);
+var ground = world.CreateBody(bodyDef).CreateFixture(fixDef);
+ground.GetBody().SetUserData({id: "ground"})
 
-var debugDraw = new b2DebugDraw(); 
-debugDraw.SetSprite(document.getElementById("can").getContext("2d")); 
-debugDraw.SetDrawScale(SCALE); 
-debugDraw.SetFillAlpha(0.3); 
-debugDraw.SetLineThickness(1.0); 
-debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit); 
-world.SetDebugDraw(debugDraw); 
 
-function update() {
-world.Step (
-1/60 //frame-rate
-, 10 //velocity iterations
-, 10 //position iterations
-);
-world.DrawDebugData();
-world.ClearForces();
+var fixDefRoof = new b2FixtureDef;
+fixDefRoof.density = 1.0;
+fixDefRoof.friction = 0.5;
+fixDefRoof.restitution = 0;
+fixDefRoof.shape = new b2PolygonShape;
+fixDefRoof.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2);
+var bodyDefRoof = new b2BodyDef;
+bodyDef.type = b2Body.b2_staticBody;
+bodyDefRoof.position.x = (CANVAS_WIDTH/2/SCALE);
+bodyDefRoof.position.y = (CANVAS_HEIGHT/SCALE) - (580/SCALE);
+var roof = world.CreateBody(bodyDefRoof).CreateFixture(fixDefRoof);
+roof.GetBody().SetUserData({id: "roof"})
 
-for(var i in destroy_list) {
-world.DestroyBody(destroy_list[i]);
-}
-
-//reset the array
-destroy_list.length = 0; 
-
-if(enemyRight) {
-enemy1.GetBody().SetLinearVelocity(new b2Vec2(5, enemy1.GetBody().GetLinearVelocity().y));
-
-} else {
-enemy1.GetBody().SetLinearVelocity(new b2Vec2(-5, enemy1.GetBody().GetLinearVelocity().y));
-};
-
-if(enemyRight2) {
-enemy4.GetBody().SetLinearVelocity(new b2Vec2(5, enemy4.GetBody().GetLinearVelocity().y));
-
-} else {
-enemy4.GetBody().SetLinearVelocity(new b2Vec2(-5, enemy4.GetBody().GetLinearVelocity().y));
-};
-
-if(enemyDown) {
-enemy2.GetBody().SetLinearVelocity(new b2Vec2(0, 5, enemy2.GetBody().GetLinearVelocity().y));
-
-} else {
-enemy2.GetBody().SetLinearVelocity(new b2Vec2(0, -5, enemy2.GetBody().GetLinearVelocity().y));
-};
-
-if(enemyDown2) {
-enemy3.GetBody().SetLinearVelocity(new b2Vec2(0, 5, enemy3.GetBody().GetLinearVelocity().y));
-
-} else {
-enemy3.GetBody().SetLinearVelocity(new b2Vec2(0, -5, enemy3.GetBody().GetLinearVelocity().y)); 
-};
-
-var scoreboard = document.getElementById('score').innerHTML = score;
-
-if (numPellets == 0 && gameComplete == false) { 
-alert("You have finished the game - Your Score is: " + score);
-gameComplete = true; //required to re-load the game, will continue to display the alert message if not used. 
-location.reload();
-}
-
-window.requestAnimationFrame(update);
-}
-window.requestAnimationFrame(update);
-
-var fixDef = new b2FixtureDef; 
-fixDef.density = 1.0; 
-fixDef.friction = 0.5; 
-fixDef.restitution = 0; 
-fixDef.shape = new b2PolygonShape; 
-fixDef.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2); 
-var bodyDef = new b2BodyDef; 
-bodyDef.type = b2Body.b2_staticBody; 
-bodyDef.position.x = CANVAS_WIDTH/2/SCALE; 
-bodyDef.position.y = CANVAS_HEIGHT/SCALE - (20/SCALE); 
-var bottom = world.CreateBody(bodyDef).CreateFixture(fixDef); 
-bottom.GetBody().SetUserData({id: "bottom"}) 
-
-var fixDefTop = new b2FixtureDef;
-fixDefTop.density = 1.0;
-fixDefTop.friction = 0.5;
-fixDefTop.restitution = 0;
-fixDefTop.shape = new b2PolygonShape;
-fixDefTop.shape.SetAsBox((CANVAS_WIDTH/SCALE)/2, (100/SCALE)/2);
-var bodyDefTop = new b2BodyDef;
-bodyDefTop.type = b2Body.b2_staticBody;
-bodyDefTop.position.x = (CANVAS_WIDTH/2/SCALE);
-bodyDefTop.position.y = (CANVAS_HEIGHT/SCALE) - (580/SCALE);
-var canvasTop = world.CreateBody(bodyDefTop).CreateFixture(fixDefTop);
-canvasTop.GetBody().SetUserData({id: "canvasTop"}) 
-
-var fixDefSide = new b2FixtureDef; 
+var fixDefSide = new b2FixtureDef;
 fixDefSide.density = 1.0;
 fixDefSide.friction = 0.5;
 fixDefSide.restitution = 0;
 fixDefSide.shape = new b2PolygonShape;
 fixDefSide.shape.SetAsBox((200/SCALE)/2, (CANVAS_HEIGHT/SCALE)/2);
-
 var bodyDefRight = new b2BodyDef;
 bodyDef.type = b2Body.b2_staticBody;
 bodyDefRight.position.x = (CANVAS_WIDTH-20) / SCALE;
@@ -202,24 +131,25 @@ right.GetBody().SetUserData({id: "right"})
 var bodyDefLeft = new b2BodyDef;
 bodyDef.type = b2Body.b2_staticBody;
 bodyDefLeft.position.x = (20/SCALE);
-bodyDefLeft.position.y = (CANVAS_HEIGHT/SCALE)/2; 
-var left = world.CreateBody(bodyDefLeft).CreateFixture(fixDefSide); 
+bodyDefLeft.position.y = (CANVAS_HEIGHT/SCALE)/2;
+var left = world.CreateBody(bodyDefLeft).CreateFixture(fixDefSide);
 left.GetBody().SetUserData({id: "left"})
 
 var fixDefCircle = new b2FixtureDef;
 fixDefCircle.density = 1.0;
 fixDefCircle.friction = 0.5;
 fixDefCircle.restitution = 0;
-fixDefCircle.shape = new b2CircleShape(0.6);
 var bodyDefCircle = new b2BodyDef;
+fixDefCircle.shape = new b2CircleShape(0.6);
 bodyDefCircle.type = b2Body.b2_dynamicBody;
-bodyDefCircle.position.x = (500)/SCALE;
+bodyDefCircle.position.x = (500) / SCALE;
 bodyDefCircle.position.y = (CANVAS_HEIGHT-40)/SCALE;
 var pacman = world.CreateBody(bodyDefCircle).CreateFixture(fixDefCircle);
-pacman.GetBody().SetFixedRotation(true); //stops the circle object rotating when moving. 
+pacman.GetBody().SetFixedRotation(true);
 pacman.GetBody().SetUserData({id: "pacman"});
 
-var bodyDefEnemy1 = new b2BodyDef; 
+// 4 Enemy's: 100 points deducted if pacman collides with the enemy
+var bodyDefEnemy1 = new b2BodyDef;
 bodyDefEnemy1.type = b2Body.b2_dynamicBody;
 var fixDefEnemy1 = new b2FixtureDef;
 fixDefEnemy1.shape = new b2PolygonShape;
@@ -261,7 +191,7 @@ bodyDefEnemy3.position.y = (CANVAS_HEIGHT-500)/SCALE;
 var enemy3 = world.CreateBody(bodyDefEnemy3).CreateFixture(fixDefEnemy3);
 enemy3.GetBody().SetUserData({id: "enemy3"});
 
-var bodyDefEnemy4 = new b2BodyDef; 
+var bodyDefEnemy4 = new b2BodyDef;
 bodyDefEnemy4.type = b2Body.b2_dynamicBody;
 var fixDefEnemy4 = new b2FixtureDef;
 fixDefEnemy4.shape = new b2PolygonShape;
@@ -275,21 +205,20 @@ bodyDefEnemy4.position.y = (CANVAS_HEIGHT-500)/SCALE;
 var enemy4 = world.CreateBody(bodyDefEnemy4).CreateFixture(fixDefEnemy4);
 enemy4.GetBody().SetUserData({id: "enemy4"});
 
-var bodyDefRect1 = new b2BodyDef; 
-var fixDefRect1 = new b2FixtureDef; 
-fixDefRect1.shape = new b2PolygonShape; 
-fixDefRect1.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2); 
-fixDefRect1.density = 1.0; 
-fixDefRect1.friction = 0; 
-fixDefRect1.restitution = 0; 
-bodyDefRect1.position.x = (250) / SCALE; 
-bodyDefRect1.position.y = (CANVAS_HEIGHT-373)/SCALE; 
-var rect1 = world.CreateBody(bodyDefRect1).CreateFixture(fixDefRect1); 
-rect1.GetBody().SetUserData({id: "rect1"}); 
+var bodyDefRect1 = new b2BodyDef;
+var fixDefRect1 = new b2FixtureDef;
+fixDefRect1.shape = new b2PolygonShape;
+fixDefRect1.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2);
+fixDefRect1.density = 1.0;
+fixDefRect1.friction = 0;
+fixDefRect1.restitution = 0;
+bodyDefRect1.position.x = (250) / SCALE;
+bodyDefRect1.position.y = (CANVAS_HEIGHT-373)/SCALE;
+var rect1 = world.CreateBody(bodyDefRect1).CreateFixture(fixDefRect1);
+rect1.GetBody().SetUserData({id: "rect1"});
 
-
-var bodyDefRect2 = new b2BodyDef; 
-var fixDefRect2 = new b2FixtureDef; 
+var bodyDefRect2 = new b2BodyDef;
+var fixDefRect2 = new b2FixtureDef;
 fixDefRect2.shape = new b2PolygonShape;
 fixDefRect2.shape.SetAsBox((250/SCALE)/2, (50/SCALE)/2);
 fixDefRect2.density = 1.0;
@@ -300,12 +229,12 @@ bodyDefRect2.position.y = (CANVAS_HEIGHT-440)/SCALE;
 var rect2 = world.CreateBody(bodyDefRect2).CreateFixture(fixDefRect2);
 rect2.GetBody().SetUserData({id: "rect2"});
 
-var bodyDefRect3 = new b2BodyDef; 
-var fixDefRect3 = new b2FixtureDef; 
-fixDefRect3.shape = new b2PolygonShape; 
-fixDefRect3.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2); 
-fixDefRect3.density = 1.0; 
-fixDefRect3.friction = 0; 
+var bodyDefRect3 = new b2BodyDef;
+var fixDefRect3 = new b2FixtureDef;
+fixDefRect3.shape = new b2PolygonShape;
+fixDefRect3.shape.SetAsBox((100/SCALE)/2, (85/SCALE)/2);
+fixDefRect3.density = 1.0;
+fixDefRect3.friction = 0;
 fixDefRect3.restitution = 0;
 bodyDefRect3.position.x = (250) / SCALE;
 bodyDefRect3.position.y = (CANVAS_HEIGHT-220)/SCALE;
@@ -347,6 +276,7 @@ bodyDefRect6.position.x = (675) / SCALE;
 bodyDefRect6.position.y = (CANVAS_HEIGHT-440)/SCALE;
 var rect6 = world.CreateBody(bodyDefRect6).CreateFixture(fixDefRect6);
 rect6.GetBody().SetUserData({id: "rect6"});
+
 var bodyDefRect7 = new b2BodyDef;
 var fixDefRect7 = new b2FixtureDef;
 fixDefRect7.shape = new b2PolygonShape;
@@ -383,8 +313,10 @@ bodyDefRect9.position.y = (CANVAS_HEIGHT-300)/SCALE;
 var rect9 = world.CreateBody(bodyDefRect9).CreateFixture(fixDefRect9);
 rect9.GetBody().SetUserData({id: "rect9"});
 
-addPellet(160, 500); 
-addPellet(160, 450); 
+//Adding Pellets to the world, 100 points added everytime pacman collides with a pellet. 
+
+addPellet(160, 500);
+addPellet(160, 450);
 addPellet(160, 400);
 addPellet(160, 350);
 addPellet(160, 300);
@@ -442,110 +374,250 @@ addPellet(660, 210);
 addPellet(500, 440);
 addPellet(500, 150);
 
+var debugDraw = new b2DebugDraw();
+debugDraw.SetSprite(document.getElementById("can").getContext("2d"));
+debugDraw.SetDrawScale(SCALE);
+debugDraw.SetFillAlpha(0.3);
+debugDraw.SetLineThickness(1.0);
+debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
+world.SetDebugDraw(debugDraw);
+
+function update() {
+world.Step (
+1/60    //frame-rate
+, 10    //velocity iterations
+, 10 	//position iterations
+);
+world.DrawDebugData();
+world.ClearForces();
+
+//IF statements for the enemy positions (left, right, up or down)
+if(enemyRight) {
+enemy1.GetBody().SetLinearVelocity(new b2Vec2(5, enemy1.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy1.GetBody().SetLinearVelocity(new b2Vec2(-5, enemy1.GetBody().GetLinearVelocity().y));
+};
+
+if(enemyRight2) {
+enemy4.GetBody().SetLinearVelocity(new b2Vec2(5, enemy4.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy4.GetBody().SetLinearVelocity(new b2Vec2(-5, enemy4.GetBody().GetLinearVelocity().y));
+};
+
+if(enemyDown2) {
+enemy2.GetBody().SetLinearVelocity(new b2Vec2(0, 5, enemy2.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy2.GetBody().SetLinearVelocity(new b2Vec2(0, -5, enemy2.GetBody().GetLinearVelocity().y));
+};
+
+if(enemyDown3) {
+enemy3.GetBody().SetLinearVelocity(new b2Vec2(0, 5, enemy3.GetBody().GetLinearVelocity().y));
+
+} else {
+enemy3.GetBody().SetLinearVelocity(new b2Vec2(0, -5, enemy3.GetBody().GetLinearVelocity().y));
+};
+
+//destroys the pellets from the world
+for(var i in destroy_list) {
+world.DestroyBody(destroy_list[i]);
+}
+
+//reset the array
+destroy_list.length = 0;
+
+//Score board update
+var scoreboard = document.getElementById('score').innerHTML = score;
+//gameover function, outputs the final result in a dialog box and refreshes the game after the box is closed
+gameOver();
+
+window.requestAnimationFrame(update);
+}
+
+window.requestAnimationFrame(update);
+
+
+function lefts() {
+left = true;
+pacman.GetBody().ApplyImpulse(new b2Vec2(-5, 0), pacman.GetBody().GetWorldCenter());
+};
+
+function rights() {
+pacman.GetBody().ApplyImpulse(new b2Vec2(5, 0), pacman.GetBody().GetWorldCenter());
+};
+
+function up() {
+pacman.GetBody().ApplyImpulse(new b2Vec2(0, -1), pacman.GetBody().GetWorldCenter());
+};
+
+function down() {
+pacman.GetBody().ApplyImpulse(new b2Vec2(0, 1), pacman.GetBody().GetWorldCenter());
+};
+
+function stop() {
+pacman.GetBody().SetLinearVelocity(new b2Vec2(0, pacman.GetBody().GetLinearVelocity().y));
+};
+
+
 function addPellet(posX, posY) {
 var fixDefPellet = new b2FixtureDef;
 fixDefPellet.density = 1.0;
 fixDefPellet.friction = 0.5;
 fixDefPellet.restitution = 0;
-fixDefPellet.shape = new b2CircleShape(0.4);
 
 var bodyDefPellet = new b2BodyDef;
+fixDefPellet.shape = new b2CircleShape(0.4);
 bodyDefPellet.type = b2Body.b2_staticBody;
 bodyDefPellet.position.x = (posX) / SCALE;
 bodyDefPellet.position.y = (CANVAS_HEIGHT-posY)/SCALE;
 
 var pellet = world.CreateBody(bodyDefPellet).CreateFixture(fixDefPellet);
+pellet.GetBody().SetFixedRotation(true);
 pellet.GetBody().SetUserData({id: "pellet"});
 };
+
+function gameOver() {
+if (numPellets == 0) {
+alert("You have finished the game - Your Score is:" + score);
+	location.reload();
+}
+};
+
 
 var listener = new Box2D.Dynamics.b2ContactListener;
 
 listener.BeginContact = function(contact) {
 
-if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy1") { 
-score = score - 100; 
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy1") {
-score = score - 100;
-};
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy2") {
-score = score - 100; 
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy2") { 
-score = score - 100; 
-}; 
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy3") { 
-score = score - 100; 
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy3") { 
-score = score - 100; 
-}; 
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy4") { 
-score = score - 100; 
-console.log("SCORE" + score); 
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy4") { 
-score = score - 100; 
-console.log("SCORE" + score); 
-};
+//enemy collision, updates the boolean variable and results in the enemy changing direction. 
 
 if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureB().GetBody().GetUserData().id == "right") {	
-enemyRight = false;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureA().GetBody().GetUserData().id == "right") { 
-enemyRight = false;
+	enemyRight = false;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureA().GetBody().GetUserData().id == "right") {
+	enemyRight = false;
 };
 
 if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureB().GetBody().GetUserData().id == "left") {	
-enemyRight = true;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureA().GetBody().GetUserData().id == "left") {
-enemyRight = true;
-};
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureB().GetBody().GetUserData().id == "canvasTop") {	
-enemyDown = true;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureA().GetBody().GetUserData().id == "canvasTop") {
-enemyDown = true;
-};
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureB().GetBody().GetUserData().id == "bottom") {	
-enemyDown = false;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureA().GetBody().GetUserData().id == "bottom") { 
-enemyDown = false;
-};
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureB().GetBody().GetUserData().id == "canvasTop") {	
-enemyDown2 = true;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureA().GetBody().GetUserData().id == "canvasTop") { 
-enemyDown2 = true; 
-}; 
-
-if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureB().GetBody().GetUserData().id == "bottom") {	
-enemyDown2 = false;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureA().GetBody().GetUserData().id == "bottom") {
-enemyDown2 = false;
+	enemyRight = true;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy1" && contact.GetFixtureA().GetBody().GetUserData().id == "left") {
+	enemyRight = true;
 };
 
 if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureB().GetBody().GetUserData().id == "right") {	
-enemyRight2 = false;
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureA().GetBody().GetUserData().id == "right") {
-enemyRight2 = false; 
+	enemyRight2 = false;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureA().GetBody().GetUserData().id == "right") {
+	enemyRight2 = false;
 };
 
 if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureB().GetBody().GetUserData().id == "left") {	
-enemyRight2 = true;	
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureA().GetBody().GetUserData().id == "left") { 
-enemyRight2 = true;
+	enemyRight2 = true;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy4" && contact.GetFixtureA().GetBody().GetUserData().id == "left") {
+	enemyRight2 = true;
 };
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureB().GetBody().GetUserData().id == "roof") {	
+	enemyDown3 = true;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureA().GetBody().GetUserData().id == "roof") {
+	enemyDown3 = true;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureB().GetBody().GetUserData().id == "ground") {	
+	enemyDown3 = false;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy3" && contact.GetFixtureA().GetBody().GetUserData().id == "ground") {
+	enemyDown3 = false;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureB().GetBody().GetUserData().id == "roof") {	
+	enemyDown2 = true;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureA().GetBody().GetUserData().id == "roof") {
+	enemyDown2 = true;
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureB().GetBody().GetUserData().id == "ground") {	
+	enemyDown2 = false;	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "enemy2" && contact.GetFixtureA().GetBody().GetUserData().id == "ground") {
+	enemyDown2 = false;
+};
+
+//Score Update occurs when collision with pacman and pellet occurs
 
 if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "pellet") {
-destroy_list.push(contact.GetFixtureB().GetBody());
-score = score + 100;
-numPellets = numPellets - 1; 
-} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "pellet") {
-destroy_list.push(contact.GetFixtureB().GetBody());
-score = score + 100;
-numPellets = numPellets - 1; 
-};
+	
+	score = score + 100;
+	console.log("SCORE" + score);
+	numPellets = numPellets - 1;
+	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "pellet") {
+	score = score + 100;
+	console.log("SCORE" + score);
+	numPellets = numPellets - 1;
 };
 
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy1") {
+	
+	score = score - 100;
+	console.log("SCORE" + score);	
+	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy1") {
+	score = score - 100;
+	console.log("SCORE" + score);	
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy2") {
+	
+	score = score - 100;
+	console.log("SCORE" + score);	
+	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy2") {
+	score = score - 100;
+	console.log("SCORE" + score);	
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy3") {
+	
+	score = score - 100;
+	console.log("SCORE" + score);	
+	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy3") {
+	score = score - 100;
+	console.log("SCORE" + score);	
+};
+
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "enemy4") {
+	
+	score = score - 100;
+	console.log("SCORE" + score);	
+	
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "enemy4") {
+	score = score - 100;
+	console.log("SCORE" + score);	
+};
+
+//Adds the hit pellet to the array so it can be destroyed from the world. 
+if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "pellet") {
+	destroy_list.push(contact.GetFixtureB().GetBody());
+	} else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "pellet") {
+destroy_list.push(contact.GetFixtureB().GetBody());
+};
+
+};
+
+listener.PreSolve = function(contact) {
+};
+
+listener.EndContact = function(contact) {
+};
+
+listener.PostSolve = function(contact) {
+};
+
+
 this.world.SetContactListener(listener);
+
+
+
+
+
+
 

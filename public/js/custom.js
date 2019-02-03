@@ -82,7 +82,7 @@ $("#nextTutorial").click(function() {
 $("#runCode").click(function() {
     if (pacmanEditor.getValue() != "") {
         writeToFile(pacmanEditor.getValue());
-        window.open("/rungame", " ", "width=1200, height=800");
+        window.open("/rungame", " ","width="+screen.availWidth+",height="+screen.availHeight);
     } else {
         alert("There is no code to Execute");
     }
@@ -148,6 +148,9 @@ $("#clearEditorDev").click(function() {
     if (confirm("Are you sure you wish to remove your code from the Editor?")) {
         editor.setValue(" ");
     }
+
+    
+    
 
 });
 

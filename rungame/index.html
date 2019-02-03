@@ -10,12 +10,12 @@
 <style> canvas { background-color:black; } </style>
 </head>
 
-<body>
+<body id = "mainBody">
    
         <div>
                 
                 <ul id="debugDiv">
-                <label id = "debugHeading"><b>Debugging Area - Console.Log</b></label>    
+                <label id = "debugHeading"><b>Console for Debugging</b></label>    
                 </ul>    
         </div>
 <div> <H1>ScoreBoard:</H1> </div>
@@ -27,11 +27,12 @@
 
 
 <script>
-  console.olog = function() {};
+  
 
 console.log = function(message) {
-  $('#debugDiv').append('<p>' + message + '</p>');
+  $('#debugDiv').append('<p id = "consoleOutput">'+ "log:" + message + '</p>');
 };
+
 
 
 

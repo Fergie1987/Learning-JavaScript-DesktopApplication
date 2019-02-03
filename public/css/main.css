@@ -73,7 +73,6 @@ color: white;
 
 width: 200px;
 height: 100px;
-border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 border-color: navy;
 }
@@ -87,7 +86,6 @@ border-color: navy;
     color: white;   
     width: 200px;
     height: 150px;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     background-image: url("../assets/pacmanlogo.png");
     background-size: 60px 30px;
@@ -106,7 +104,6 @@ border-color: navy;
     
     width: 200px;
     height: 100px;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     border-color: navy;
     }
@@ -183,7 +180,6 @@ margin-top: -38px;
             color: white;   
             width: 400px;
             height: 150px;
-            border-radius: 12px;
             font-family: 'Nobile', Helvetica, Arial, sans-serif;
             background-size: 60px 30px;
             background-image: url("../assets/keyboardlogo.png");
@@ -250,7 +246,6 @@ margin-top: -38px;
             color: white;
             width: 300px;
             height: 200px;
-            border-radius: 12px;
             font-family: 'Nobile', Helvetica, Arial, sans-serif; 
             border-style: solid;
                 border-color: navy;  
@@ -395,40 +390,32 @@ margin-top: -38px;
                 #debugHeading {
                     color: navy;  
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;   
-                    font-size: 24px;    
+                    font-size: 30px;
+                    color: white;  
+                    margin-left: 60px;  
                 }
 
                 #debugDiv {
                     background-color: white;
                     border-style: solid;
-                    border-color: navy;  
+                    border-color: white;  
                     width: 450px;
-                    height: 500px;
+                    height: 590px;
                     overflow: auto;                      
                     font-size: 20px;
-                    color: navy;    
+                    color: white;    
                     float: right; 
-                    padding-left: 0px;                               
+                    padding-left: 0px; 
+                    background-color: navy; 
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif; 
+                    margin-top: 110px;
+                    margin-right: 120px;                             
                 }
 
-                #debugDiv li {
-                    padding: 5px 10px;
-                    margin-left: -5px;
-                  }
-
-                  #debugDiv p:nth-child(even) {
-                    background: lightyellow;
-                    color: navy;
-                  }
-
-                  #debugDiv p:nth-child(odd) {
-                    background:lightcyan;
-                    color: navy;
-                  }
-
-                  #debugDiv {
-                    list-style-type: none;
-                  }
+                #consoleOutput {
+                margin-left: 30px;
+                }
+                
 
 
                 
