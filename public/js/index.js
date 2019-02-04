@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 //Box2D Setup Variables
+=======
+ //Author: David Ferguson
+//Student ID: 083321
+//Title: PacMan
+
+>>>>>>> de1ea1d387a239c6e9602289b7c8844a4aad241d
 var b2Vec2 = Box2D.Common.Math.b2Vec2;
 var b2BodyDef = Box2D.Dynamics.b2BodyDef;
 var b2Body = Box2D.Dynamics.b2Body;
