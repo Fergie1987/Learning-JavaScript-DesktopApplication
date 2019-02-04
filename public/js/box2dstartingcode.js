@@ -10,18 +10,14 @@ var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> de1ea1d387a239c6e9602289b7c8844a4aad241d
 //Creating the box2D world with zero gravity
 world = new b2World( 
 new b2Vec2(0, 0) //zero gravity 
 , false //allow sleep
 );
 
-<<<<<<< HEAD
 
 
 //Setting the width and height of the HTML Canvas. 
@@ -32,14 +28,6 @@ var SCALE = 30;
 
 
 
-=======
-//Setting the width and height of the HTML Canvas. 
-//The box2D Scale is set to 30 - Pixels converted to Box2D world sizes. 
-var CANVAS_WIDTH = 1000;
-var CANVAS_HEIGHT = 600;
-var SCALE = 30; 
-
->>>>>>> de1ea1d387a239c6e9602289b7c8844a4aad241d
 //Enables object drawing on the canvas.
 var debugDraw = new b2DebugDraw(); 
 debugDraw.SetSprite(document.getElementById("can").getContext("2d")); 
@@ -49,11 +37,8 @@ debugDraw.SetLineThickness(1.0);
 debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit); 
 world.SetDebugDraw(debugDraw); 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> de1ea1d387a239c6e9602289b7c8844a4aad241d
 //update the box2D world on the canvas
 function update() {
 world.Step (
@@ -65,7 +50,6 @@ world.DrawDebugData();
 world.ClearForces();
 window.requestAnimationFrame(update);
 }
-<<<<<<< HEAD
 window.requestAnimationFrame(update); 
 
 
@@ -87,6 +71,3 @@ listener.PostSolve = function(contact) {
 
 
 this.world.SetContactListener(listener);
-=======
-window.requestAnimationFrame(update); 
->>>>>>> de1ea1d387a239c6e9602289b7c8844a4aad241d
