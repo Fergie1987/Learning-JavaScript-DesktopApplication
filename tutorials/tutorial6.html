@@ -2,8 +2,7 @@
 <html>
 <head> 
     <link rel="stylesheet" href="/css/main.css"> 
-    <script
-    src="/js/jquery/dist/jquery.min.js"> </script>
+    <script src="/js/jquery.min.js"> </script>
 
 </head>
 
@@ -11,95 +10,23 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 6: JQuery keydown and keyup Methods </h2>
+     <h2 class = "tutorialHeading">Tutorial 6: Contact Listeners  </h2>
+
      <label>
-     This tutorial relates to using the JQUERY $(window).keydown and $(window).keyup methods to move Pac-Man. </br></br>
+          You should now have pellets within your maze and also methods to destroy objects from your canvas. <br><br>
 
-     The four arrow keys on your keyboard will be used to move Pac-Man. <br>
-     Each key on the keyboard has an allocated code and this code is used to register which key has been pressed by the player. <br><br>
-     The $(window).keyup function is used to register when the player releases the key. In the example below, when a key is released, the stop function will set the object speed to zero. <br><br>
-     The keyboard JavaScript codes used in this tutorial are: left arrow key = 37, right arrow key = 39, up arrow key = 38 and down arrow key = 40. <br><br>
+          You next task will involve including actions when collisions between objects occur. <br><br>
 
-     <b>Step 1: Code to Add:  </br></br>
+          You will create an action that will destroy a Pellet when there is a Pac-Man and Pellet collision registered within the game.  <br><br>
+          <video style = "margin-left: 140px" width="500" height="370" controls>
+           
+                <source src="assets/T6video.mp4" type="video/mp4">
+              
+              </video> <br><br><br>
 
-     Please add this code after the SCALE variable. </b> </br></br>
-
-     $(window).keydown(function(e) { </br>
-        if(e.keyCode == 37) {</br>
-        console.log("left-down");</br>
-        lefts();</br>
-        }</br>
-        if(e.keyCode == 39) {</br>
-        console.log("right-down");</br>
-        rights();</br>
-        }</br>
-        if(e.keyCode == 38) {</br>
-        console.log("up-up");</br>
-        up();</br>
-        }</br>
-        if(e.keyCode == 40) {</br>
-        console.log("down-down");</br>
-        down();</br>
-        }</br>      
-        });</br></br>
-        
-        
-        $(window).keyup(function(e) {</br>
-        console.log(e.keyCode);</br>
-        if(e.keyCode == 37) {</br>
-        console.log("left-up");</br>
-        stop();</br>
-        }</br>
-        if(e.keyCode == 39) {</br>
-        console.log("right-up");</br>
-        stop();</br>
-        }</br>
-        if(e.keyCode == 38) {</br>
-        console.log("up-up");</br>
-        stop();</br>
-        }
-        if(e.keyCode == 40){</br>
-        console.log("down-up");</br>
-        stop();</br>
-        }</br>
-        }); </br></br>
-
-        <b>Step 2: Functions and Applying an Impulse to move the object</b> </br></br>
-
-        The functions below are used to move Pac-Man. </br> The positive and negative number 5 is the size of the impulse on the X or Y axis (object movement speed). Please try to decrease or increase the speed and test the speed of Pac-Man. </br>
-        The stop function is called when the player releases a key (used within the keyup function). </br> </br>
-
-        <b>Code to Add:  </br></br>
-
-        Add this code after the keydown function. Execute your code and you should be able to move the Pac-Man object around the canvas using the keyboard arrow keys. </b> </br></br>
-
-        function lefts() {</br>
-            left = true;</br>
-            pacman.GetBody().ApplyImpulse(new b2Vec2(-5, 0), pacman.GetBody().GetWorldCenter());</br>
-            };</br>
-            </br>
-            function rights() {</br>
-            pacman.GetBody().ApplyImpulse(new b2Vec2(5, 0), pacman.GetBody().GetWorldCenter()); </br>
-            };</br>
-        </br>
-            function up() {</br>
-            pacman.GetBody().ApplyImpulse(new b2Vec2(0, -5), pacman.GetBody().GetWorldCenter());</br>
-            };</br>
-        </br>
-            function down() {</br>
-            pacman.GetBody().ApplyImpulse(new b2Vec2(0, 5), pacman.GetBody().GetWorldCenter());</br>
-            };</br>
-        </br>
-            function stop() {</br>
-            pacman.GetBody().SetLinearVelocity(new b2Vec2(0, 0));</br>
-            };
-
-
-
-
-
-     
-     </label>   
+         <h1 style = "margin-left: 60px; color: navy"> Click on next to continue on to your next task</h1>  <br><br>
+        </label> 
+    
      </div>
      </div>
 

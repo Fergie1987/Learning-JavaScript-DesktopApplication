@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="/css/main.css"> 
+    <script src="/js/jquery.min.js"> </script>
+            
+
+</head>
+
+<body id = "learningPage">
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 7: Task</h2>
+
+     <label>
+     In this task, you will be adding ghost objects to the Pac-Man maze. <br><br>
+
+     The challenge is to add the objects into the correct positions within the maze. <br><br>
+
+     We discussed at the beginning why we included numbers up to 11 within the gameGrid Array. These numbers were added to create walls with different ID's for moving ghosts. Please keep this in mind during this task! <br><br>
+
+     We have given you the code to start this task but you are responsible for: <br><br> 
+     
+     1: Adding the size of the object. <br><br> 
+     2: The x and y object starting positions. <br><br> 
+
+     The code to get you started is below: <br><br> 
+     
+
+     <code>
+            var bodyDefghost = new b2BodyDef; <br> 
+            bodyDefghost.type = b2Body.b2_dynamicBody; <br> 
+            var fixDefghost = new b2FixtureDef; <br> 
+            fixDefghost.shape = new b2PolygonShape; <br> 
+            fixDefghost.shape.SetAsBox(( / SCALE), ( / SCALE)); //size of object <br>
+            fixDefghost.density = 1.0;<br> 
+            fixDefghost.friction = 0;<br> 
+            fixDefghost.restitution = 0.001;<br> 
+            bodyDefghost.position.x = () / SCALE;<br> 
+            bodyDefghost.position.y = () / SCALE;<br> 
+            ghost1 = world.CreateBody(bodyDefghost).CreateFixture(fixDefghost);<br> 
+            ghost1.GetBody().SetUserData({<br> 
+                id: "ghost1"<br> 
+            });<br> 
+            ghost1.GetBody().SetFixedRotation(true);   <br>   
+    </code>
+     </label> 
+
+     </div>
+     </div>
+
+</body>
+
+
+<script src="/js/custom.js"></script>
+
+
+</html>

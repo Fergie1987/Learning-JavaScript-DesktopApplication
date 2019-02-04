@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
     <link rel="stylesheet" href="/css/main.css"> 
-    <script
-    src="/js/jquery/dist/jquery.min.js"> </script>
+    <script src="/js/jquery.min.js"> </script>
 
 </head>
 
@@ -11,35 +10,24 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 5: Pac-Man Circle Box2D Object</h2>
+     <h2 class = "tutorialHeading">Tutorial 5: Destroying Objects from the Box2D World  </h2>
+
      <label>
-     The external walls have not been created, you will now create a dynamic circle object to represent Pac-Man. </br> </br> 
-     The Box2D object is again created using a FixtureDef and BodyDef.  </br> </br> 
-     The lines of code below are added to create a dynamic circle object. </br>  </br>  
-     fixDefCircle.shape = new b2CircleShape(0.6);   </br>
-     bodyDefCircle.type = b2Body.b2_dynamicBody; </br> </br> 
-     The next tutorial will teach you how to register keypresses to move the Pac-Man object around the canvas.</br>  </br> 
-     
-     Add the code below after the code for creating the four walls. The code below will create the Pac-Man object. </br>  
-     You can experiment with the size of the circle object or you can try updating the starting X and Y positions. </br>  </br> 
-     
-     <b> Code to Add: </b> </br>  </br> 
+          Now that we have objects within our world and canvas, we now need to setup our code so that objects such as pellets can be destroyed and points can be scored! <br><br>
 
-     var fixDefCircle = new b2FixtureDef;</br> 
-fixDefCircle.density = 1.0;</br> 
-fixDefCircle.friction = 0.5;</br> 
-fixDefCircle.restitution = 0;</br> 
-fixDefCircle.shape = new b2CircleShape(0.6);</br> 
-var bodyDefCircle = new b2BodyDef;</br> 
-bodyDefCircle.type = b2Body.b2_dynamicBody;</br> 
-bodyDefCircle.position.x = (500)/SCALE;</br> 
-bodyDefCircle.position.y = (CANVAS_HEIGHT-40)/SCALE;</br> 
-var pacman = world.CreateBody(bodyDefCircle).CreateFixture(fixDefCircle);</br> 
-pacman.GetBody().SetFixedRotation(true); //stops the circle object rotating when moving. </br>
-pacman.GetBody().SetUserData({id: "pacman"});</br> 
+          You will now be adding code that will destory the bodies of Box2D object when a collision occurs. <br><br>
+          
+          We require an Array of bodies to be destroyed and a for loop to destory bodies held within the array. <br><br>
 
-     
-     </label>   
+          <video style = "margin-left: 140px" width="500" height="370" controls>
+           
+                <source src="assets/T5video.mp4" type="video/mp4">
+              
+              </video> <br><br><br>
+
+         <h1 style = "margin-left: 60px; color: navy"> Click on next to continue on to your next task</h1>  <br><br>
+        </label> 
+       
      </div>
      </div>
 

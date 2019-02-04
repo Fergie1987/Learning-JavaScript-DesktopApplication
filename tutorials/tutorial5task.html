@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="/css/main.css"> 
+    <script src="/js/jquery.min.js"> </script>
+
+</head>
+
+<body id = "learningPage">
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 5: Task</h2>
+
+     <label>
+     The creation of an Array is required to hold box2d bodies that will be destroyed and removed from the world and canvas. <br><br>
+     
+    Your first task is to create an Array and name it: <code>destroy_list <br><br>
+    </code>   
+     Once you have created the Array, the for loop code below should be added into the update function. The update function was provided to you at the beginning. <br><br> 
+     
+     
+
+     <code>
+     for(var i in destroy_list) {</br> 
+        world.DestroyBody(destroy_list[i]);</br> 
+        }</br> 
+    </br> 
+        //reset the array after destroying object bodies</br> 
+        destroy_list.length = 0;    </br> </br> 
+    </code>
+     </label> 
+
+     </div>
+     </div>
+
+</body>
+
+
+<script src="/js/custom.js"></script>
+
+
+</html>

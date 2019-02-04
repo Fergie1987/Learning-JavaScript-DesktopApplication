@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="/css/main.css"> 
+    <script src="/js/jquery.min.js"> </script>
+
+</head>
+
+<body id = "learningPage">
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 3: Task 2/2 </h2>
+
+     <label>
+        You now require functions that will be called when an keypress is registered within your keydown and keyup methods. <br> <br> 
+
+        The function names included should match the function names included within your keypress if statements. <br> <br> 
+
+        The challenge in this task is to correctly name the functions. <br> <br> 
+
+        Once you have completed this task, execute your code and Pac-Man should move at the speed included within the function.  <br> <br> 
+
+        <code>
+        function left() {</br>
+            pacman.GetBody().ApplyImpulse(new b2Vec2(-5, 0), pacman.GetBody().GetWorldCenter());</br>
+            };</br>
+            </br>
+            function () {</br>
+            pacman.GetBody().ApplyImpulse(new b2Vec2(5, 0), pacman.GetBody().GetWorldCenter()); </br>
+            };</br>
+        </br>
+            function () {</br>
+            pacman.GetBody().ApplyImpulse(new b2Vec2(0, -5), pacman.GetBody().GetWorldCenter());</br>
+            };</br>
+        </br>
+            function () {</br>
+            pacman.GetBody().ApplyImpulse(new b2Vec2(0, 5), pacman.GetBody().GetWorldCenter());</br>
+            };</br>
+        </br>
+            function stop() {</br>
+            pacman.GetBody().SetLinearVelocity(new b2Vec2(0, 0));</br>
+            };
+        </code>
+     </label> 
+
+
+    
+     </div>
+     </div>
+
+</body>
+
+
+<script src="/js/custom.js"></script>
+
+
+</html>

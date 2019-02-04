@@ -5,19 +5,39 @@
 <title>Learning JavaScript Application Canvas </title>
 <script src ="/js/Box2dWeb-2.1.a.3.min.js"> </script>
 <script src="/js/jquery-1.11.3.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+<link rel="stylesheet" href="/css/main.css"> 
 
 <style> canvas { background-color:black; } </style>
 </head>
 
-<body>
+<body id = "mainBody">
+   
+        <div>
+                
+                <ul id="debugDiv">
+                <label id = "debugHeading"><b>Console for Debugging</b></label>    
+                </ul>    
+        </div>
 <div> <H1>ScoreBoard:</H1> </div>
 <div> <H2 id="score"> </H2> </div>
 
-<canvas id="can" width="1000" height="600"> </canvas>
+<canvas id="can" width="500" height="560"> </canvas>
 
 
+
+
+<script>
+  
+
+console.log = function(message) {
+  $('#debugDiv').append('<p id = "consoleOutput">'+ "log:" + message + '</p>');
+};
+
+
+
+
+</script>
 <script src="/js/index.js" > </script>
-
 </body>
 
 </html>

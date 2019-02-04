@@ -2,53 +2,31 @@
 <html>
 <head>
     <link rel="stylesheet" href="/css/main.css"> 
-    <script src="/jquery/jquery.js"></script>
+    <script src="/js/jquery.min.js"> </script>
 </head>
 
 <body id = "learningPage">
     
     <div id = "learningArea">
      <div id = "tutorialArea">
-     <h2 class = "tutorialHeading" >Tutorial 1: Setup Box2D within the index.js File</h2>
+     <h2 class = "tutorialHeading" >Tutorial 1: Create the Pac-Man Maze</h2>
      <label>
+     The Pac-Man Maze is created by creating a grid of number which are used to build different Box2D objects. <br><br>
 
-    <h4>Step 1: </h4>
-    The first requirement is to add the box2D variables and setup the Box2D world. </br></br>
-   
-    Please add the lines of code below into the code editor: </br></br>
+     Each number represents a box2D object such as a wall, portal or open space <br><br>
 
-    var b2Vec2 = Box2D.Common.Math.b2Vec2;</br>
-    var b2BodyDef = Box2D.Dynamics.b2BodyDef;</br>
-    var b2Body = Box2D.Dynamics.b2Body;</br>
-    var b2FixtureDef = Box2D.Dynamics.b2FixtureDef;</br>
-    var b2Fixture = Box2D.Dynamics.b2Fixture;</br>
-    var b2World = Box2D.Dynamics.b2World;</br>
-    var b2MassData = Box2D.Collision.Shapes.b2MassData;</br>
-    var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;</br>
-    var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;</br>
-    var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;</br></br>
+     The code for the Pac-Man grid is provided to you. This code will get you started with this tutorial. <br><br>
 
-    <h4>Step 2: </h4>
-    
-    The code below creates a box2D world with zero gravity. </br>
-    In a Pac-Man game, there should be no gravity because you do not want the object falling to the ground.  </br>
-    Please add the following code after the code above: </br></br>
+     For loops are used with the Array and function to draw the Pac-Man Maze on to the canvas<br> <br> 
 
-    world = new b2World( </br>
-		new b2Vec2(0, 0) //zero gravity </br>
-		, false     //allow sleep</br>	
-	);</br></br>
-    
-    <h4>Step 3: </h4>
-    The canvas width and height are set to the sizes used for the canvas in the HTML file. </br> 
-    The scale is used to transform pixel sizes in to Box2D world object sizes.</br></br>  
-    Please add the lines of code below after the code added in step 2</br></br>     
+     Click the next button to view the task for tutorial 1 <br> <br> 
 
-    var CANVAS_WIDTH = 1000;</br>
-    var CANVAS_HEIGHT = 600;</br>
-    var SCALE = 30; </br>  
-     </label>   
+    You will be creating the maze shown below: <br> <br> 
+
+     <img src="/assets/maze.jpg" alt="Trulli" width="500" height="400" style = "margin-left: 150px"> 
+
      
+     </label>   
      </div>
      </div>
 

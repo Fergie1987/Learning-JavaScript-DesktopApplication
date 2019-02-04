@@ -2,56 +2,29 @@
 <html>
 <head>  
     <link rel="stylesheet" href="/css/main.css"> 
-    <script
-    src="/js/jquery/dist/jquery.min.js"> </script>
+    <script src="/js/jquery.min.js"> </script>
 </head>
 
 <body id = "learningPage">
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 10: Adding a Collision Listener</h2>
+     <h2 class = "tutorialHeading">Final Tutorial, Ending the Game</h2>
      <label>
-    There are four listeners that can be used within the Box2D world: BeginContact, PreSolve, EndContact and PostSolve </br></br>
+     You have now reached the final tutorial, well done! <br><br>
 
-    The listener we will use within this tutorial is BeginContact. </br></br>
+     In this final task, you will be coding how the game ends. <br><br>
 
-    The code below is used to add a BeginContact listener: </br></br>
-
-    var listener = new Box2D.Dynamics.b2ContactListener; </br></br>
-
-    listener.BeginContact = function(contact) {</br>
-    //Include what action should occur, destroy body or add to points total etc.</br>     
-    };</br>
-
-    this.world.SetContactListener(listener);  </br><br>
-
-    In this example, we will destroy the pellet when a Pac-Man and Pellet collision is registered </br></br>
-
-    The pellet is added to the destroy_list using the push method and the object body is destroyed within the update function.  </br></br>
-
-    <b>Code to Add: </br></br>
-        Add this code at the end then execute your code. Pellets should destroy from the world when a Pac-Man and Pellet collision occurs. </b></br></br>
-
-        var listener = new Box2D.Dynamics.b2ContactListener;</br></br>
-
-        listener.BeginContact = function(contact) {</br>        
-            if(contact.GetFixtureA().GetBody().GetUserData().id == "pacman" && contact.GetFixtureB().GetBody().GetUserData().id == "pellet") {</br>
-                destroy_list.push(contact.GetFixtureB().GetBody());</br>
-            }           else if (contact.GetFixtureB().GetBody().GetUserData().id == "pacman" && contact.GetFixtureA().GetBody().GetUserData().id == "pellet") {</br>
-                destroy_list.push(contact.GetFixtureB().GetBody());</br>
-                    };</br>
-        };</br>
-    </br>
-        this.world.SetContactListener(listener); 
-
-    
-
-    
-    
-    
-
+     The game will end after Pac-Man eats all of the pellets. The final score should then be shown to the player. <br>
      
+     <video style = "margin-left: 140px" width="500" height="370" controls>
+           
+            <source src="assets/T10video.mp4" type="video/mp4">
+          
+          </video> 
+
+          <h1 style = "margin-left: 60px; color: navy"> Click on next to continue on to your next task</h1>  <br><br>
+
      </label>   
      </div>
      </div>

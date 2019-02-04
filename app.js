@@ -29,47 +29,83 @@ app.get('/pacman', function (req, res) {
   res.sendFile(__dirname + '/pacman.html');
 });
 
+app.get('/starttutorial', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/introduction.html');
+});
+
 app.get('/tutorial1', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial1.html');
 });
+
+app.get('/tutorial1task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial1task.html');
+});
+
+
 app.get('/tutorial2', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial2.html');
 });
+
+app.get('/tutorial2task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial2task.html');
+});
+
+
 app.get('/tutorial3', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial3.html');
 });
+
+app.get('/tutorial3task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial3task.html');
+});
+app.get('/tutorial3task2', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial3task2.html');
+});
+
 app.get('/tutorial4', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial4.html');
+});
+app.get('/tutorial4task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial4task.html');
+});
+app.get('/tutorial4task2', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial4task2.html');
 });
 app.get('/tutorial5', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial5.html');
 });
+app.get('/tutorial5task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial5task.html');
+});
 app.get('/tutorial6', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial6.html');
+});
+app.get('/tutorial6task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial6task.html');
 });
 app.get('/tutorial7', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial7.html');
 });
+app.get('/tutorial7task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial7task.html');
+});
 app.get('/tutorial8', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial8.html');
+});
+app.get('/tutorial8task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial8task.html');
 });
 app.get('/tutorial9', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial9.html');
 });
+app.get('/tutorial9task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial9task.html');
+});
 app.get('/tutorial10', function (req, res) {
   res.sendFile(__dirname + '/tutorials/tutorial10.html');
 });
-app.get('/tutorial11', function (req, res) {
-  res.sendFile(__dirname + '/tutorials/tutorial11.html');
-});
-app.get('/tutorial12', function (req, res) {
-  res.sendFile(__dirname + '/tutorials/tutorial12.html');
-});
-app.get('/tutorial13', function (req, res) {
-  res.sendFile(__dirname + '/tutorials/tutorial13.html');
-});
-app.get('/tutorial14', function (req, res) {
-  res.sendFile(__dirname + '/tutorials/tutorial14.html');
+app.get('/tutorial10task', function (req, res) {
+  res.sendFile(__dirname + '/tutorials/tutorial10task.html');
 });
 
 app.get('/rungame', function (req, res) {

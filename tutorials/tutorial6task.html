@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="/css/main.css"> 
+    <script src="/js/jquery.min.js"> </script>
+
+</head>
+
+<body id = "learningPage">
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 6: Task</h2>
+
+     <label>
+     
+     Within the code editor, we provided you with collision listener code at the beginning of this tutorial, you will be using the BeginContact listener. <br><br>
+
+     The challenge for you is to add the ID's to the code provided and include the code within the BeginContact listener. <br><br>
+
+     Once you have the correct ID's added, you should see the pellets remove from the canvas when a collision occurs between Pac-Man and a Pellet <br><br>
+
+     Remember to challenge your dedugging skills and log object ID's to the console by using the console.log function. <br><br>
+
+     <b>Hint:</b>  We have given you one of the required ID's</b> <br><br>
+
+     The code to be included within the contact listener is provided below. <br><br>
+
+     <code>
+            if(contact.GetFixtureA().GetBody().GetUserData().id == "" && contact.GetFixtureB().GetBody().GetUserData().id == "") {</br>
+                destroy_list.push(contact.GetFixtureB().GetBody());</br>
+            }           else if (contact.GetFixtureB().GetBody().GetUserData().id == "pellet" && contact.GetFixtureA().GetBody().GetUserData().id == "") {</br>
+                destroy_list.push(contact.GetFixtureB().GetBody());</br>
+                    };</br>    
+    </code>
+     </label> 
+
+     </div>
+     </div>
+
+</body>
+
+
+<script src="/js/custom.js"></script>
+
+
+</html>

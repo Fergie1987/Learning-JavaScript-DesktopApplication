@@ -2,8 +2,7 @@
 <html>
 <head> 
     <link rel="stylesheet" href="/css/main.css"> 
-    <script
-    src="/js/jquery/dist/jquery.min.js"> </script>
+    <script src="/js/jquery.min.js"> </script>
 
 </head>
 
@@ -11,30 +10,22 @@
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 3: Update Function</h2>
+     <h2 class = "tutorialHeading">Tutorial 3: JQUERY keydown and keyup for moving the Pac-Man object </h2>
+
      <label>
-     The code provided below is used to update the box2D world and make any changes required on the canvas. <br><br>
-     This function can also be used to check the status of boolean flag variables. <br><br>
-     This function is used later for deleting objects from the box2D world. <br><br>
-     
-     Add the code below after the code you have already inserted. <br><br>
+            You will be using the JQUERY to register keypresses on your keyboard <br><br>
 
+            The four arrow keys can be used for this and each arrow key has a JavaScript number attached  <br><br>
 
-        function update() {<br>
-            world.Step (<br>
-            1/60    //frame-rate<br>
-            , 10    //velocity iterations<br>
-            , 10 	//position iterations<br>
-            );<br>
-            world.DrawDebugData();<br>
-            world.ClearForces();<br>
-            
-            window.requestAnimationFrame(update);<br>
-            }<br>
-            
-            window.requestAnimationFrame(update);  <br> 
-        
-     </label>   
+     <video style = "margin-left: 140px" width="500" height="370" controls>
+           
+            <source src="assets/T3video.mp4" type="video/mp4">
+          
+          </video> <br><br><br>
+
+         <h1 style = "margin-left: 60px; color: navy"> Click on continue to move on to your next task</h1>  <br><br>
+        </label> 
+    
      </div>
      </div>
 

@@ -2,33 +2,29 @@
 <html>
 <head> 
     <link rel="stylesheet" href="/css/main.css"> 
-    <script
-    src="../public/js/jquery/dist/jquery.min.js"> </script>
+    <script src="/js/jquery.min.js"> </script>
 </head>
 
 <body id = "learningPage">
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 9: Destroying Box2D Objects</h2>
+     <h2 class = "tutorialHeading">Tutorial 9: Collecting and Losing Points</h2>
      <label>
-     You now have pellets within your maze, we will now work on destroying these when Pac-Man collides with a pellet. </br> </br>   
+     In this task you will be adding and deducting points after Pac-Man collides with pellets or ghosts. <br><br>
+
+     You will be re-using methods you have already used throughout this tutorial such as collision handling and updating variables. <br><br> 
      
-     To destroy objects from the box2D world, objects are added to an array. A for loop within the update function then destroys the body from the world. </br> </br> 
+     You will learn how to update a HTML element using JavaScript code. <br><br>
 
-     <b>Code to Add: </br> </br> 
+     <video style = "margin-left: 140px" width="500" height="370" controls>
+           
+            <source src="assets/T9video.mp4" type="video/mp4">
+          
+          </video> <br><br><br>
 
-     Step 1: Create an Array after the SCALE variable. </b></br> </br> 
+     <h1 style = "margin-left: 60px; color: navy"> Click on next to continue on to your next task</h1>  <br><br>
 
-    var destroy_list = [];</br> </br> 
-    </br>    
-    <b>Step 2: Add the For Loop into the update function and method to empty the array after the body has been deleted: </b> </br> </br> 
-    for(var i in destroy_list) {</br> 
-    world.DestroyBody(destroy_list[i]);</br> 
-    }</br> 
-</br> 
-    //reset the array</br> 
-    destroy_list.length = 0;    </br> 
      </label>   
      </div>
      </div>

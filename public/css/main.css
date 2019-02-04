@@ -2,7 +2,7 @@
 float:right;   
 width:50%; 
 height:600px; 
-margin-top: -155px;
+margin-top: -50px;
 }
 
 #text {
@@ -30,16 +30,16 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
 
 #runCode {
 margin-top: 10px;    
-Margin-left: 5%;    
+Margin-left: -150px;    
 margin-right: 5%;
 font-size: 20px;
 background-color: green;
 color: white;
-border-radius: 12px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 width: 250px;
 height: 60px;
 border-color: navy;
+margin-bottom: 20px;
 }
 
 #readInCode {
@@ -48,7 +48,6 @@ border-color: navy;
     font-size: 20px;
     background-color: green;
     color: white;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     width: 250px;
     height: 60px;
@@ -60,7 +59,6 @@ border-color: navy;
     font-size: 20px;
     background-color:maroon;
     color: white;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     width: 250px;
     height: 60px;
@@ -74,8 +72,7 @@ background-color: green;
 color: white;
 
 width: 200px;
-height: 100px;
-border-radius: 12px;
+height: 50px;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 border-color: navy;
 }
@@ -89,7 +86,6 @@ border-color: navy;
     color: white;   
     width: 200px;
     height: 150px;
-    border-radius: 12px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     background-image: url("../assets/pacmanlogo.png");
     background-size: 60px 30px;
@@ -107,8 +103,7 @@ border-color: navy;
     color: white;
     
     width: 200px;
-    height: 100px;
-    border-radius: 12px;
+    height: 50px;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
     border-color: navy;
     }
@@ -133,13 +128,14 @@ margin-top: -20px;
 }
 
 #codeHeading {
-margin-bottom: -50px;
+margin-top: -38px;
 }
 
 #tutorials {
     border-style: solid;
     border-color:navy;
-
+    width: 90%;
+    height: 600px;
 }
 
 #tutorialLogoMenu {   
@@ -185,7 +181,6 @@ margin-bottom: -50px;
             color: white;   
             width: 400px;
             height: 150px;
-            border-radius: 12px;
             font-family: 'Nobile', Helvetica, Arial, sans-serif;
             background-size: 60px 30px;
             background-image: url("../assets/keyboardlogo.png");
@@ -245,13 +240,13 @@ margin-bottom: -50px;
             }
 
             #continueToPacman {
+                margin-top: 100px;
                 margin-left: 10%; 
                 font-size: 20px;
             background-color: green;
             color: white;
             width: 300px;
             height: 200px;
-            border-radius: 12px;
             font-family: 'Nobile', Helvetica, Arial, sans-serif; 
             border-style: solid;
                 border-color: navy;  
@@ -323,12 +318,11 @@ margin-bottom: -50px;
 
             #runCodeDev {
                 margin-top: 10px;    
-                Margin-left: 5%;    
+                Margin-left: -150px;    
                 margin-right: 5%;
                 font-size: 20px;
                 background-color: green;
                 color: white;
-                border-radius: 12px;
                 font-family: 'Nobile', Helvetica, Arial, sans-serif;
                 width: 250px;
                 height: 60px;
@@ -342,7 +336,6 @@ margin-bottom: -50px;
                     font-size: 20px;
                     background-color: green;
                     color: white;
-                    border-radius: 12px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 250px;
                     height: 60px;
@@ -354,7 +347,6 @@ margin-bottom: -50px;
                     font-size: 20px;
                     background-color:maroon;
                     color: white;
-                    border-radius: 12px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 250px;
                     height: 60px;
@@ -393,15 +385,41 @@ margin-bottom: -50px;
                     overflow: auto;   
                     margin-left: 50px;  
                     font-size: 20px;
-                    color: navy
-                    
+                    color: navy                  
                 }
 
+                #debugHeading {
+                    color: navy;  
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif;   
+                    font-size: 30px;
+                    color: white;  
+                    margin-left: 60px;  
+                }
 
-                  #onlineDiv li {
-                    padding: 5px 10px;
-                    margin-left: -40px;
-                  }
+                #debugDiv {
+                    background-color: white;
+                    border-style: solid;
+                    border-color: white;  
+                    width: 450px;
+                    height: 560px;
+                    overflow: auto;                      
+                    font-size: 20px;
+                    color: white;    
+                    float: right; 
+                    padding-left: 0px; 
+                    background-color: navy; 
+                    font-family: 'Nobile', Helvetica, Arial, sans-serif; 
+                    margin-top: 60px;
+                    margin-right: 650px;                             
+                }
+
+                #consoleOutput {
+                margin-left: 30px;
+                }
+                
+
+
+                
 
                   #onlineDiv li:nth-child(odd) {
                     background: #eee;
@@ -411,6 +429,9 @@ margin-bottom: -50px;
                   #onlineDiv {
                     list-style-type: none;
                   }
+
+                  
+               
 
                   #selectUser {
                     background-color: white;
@@ -437,7 +458,6 @@ margin-bottom: -50px;
                     font-size: 20px;
                     background-color: green;
                     color: white;
-                    border-radius: 12px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 170px;
                     height: 100px; 
@@ -485,7 +505,6 @@ margin-bottom: -50px;
                         font-size: 20px;
                         background-color: green;
                         color: white;
-                        border-radius: 12px;
                         font-family: 'Nobile', Helvetica, Arial, sans-serif;
                         width: 100px;
                         height: 60px; 
@@ -571,7 +590,6 @@ margin-bottom: -50px;
                         font-size: 20px;
                         background-color: green;
                         color: white;
-                        border-radius: 12px;
                         font-family: 'Nobile', Helvetica, Arial, sans-serif;
                         width: 200px;
                         height: 60px; 
@@ -579,6 +597,7 @@ margin-bottom: -50px;
                         border-color: navy;  
                         margin-top: 30px;  
                         margin-left: 270px;
+                        margin-bottom: 20px;
                     }
 
                     #learningPage {
@@ -586,14 +605,15 @@ margin-bottom: -50px;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     }
 
-                    #statusDiv {
+                    #statusDiv {    
                     background-color: white;
                     width: 700px;
                     height: 100px;
                     float: right;  
                     border-style: solid;
                     border-color: navy;
-                    margin-top:-80px;
+                    margin-bottom: 40px;
+                    margin-top: -50px;
                     }
 
                     #status {
@@ -630,9 +650,23 @@ margin-bottom: -50px;
                       font-size: 20px;
                       background-color: red;
                       color: white;
-                      border-radius: 12px;
                       font-family: 'Nobile', Helvetica, Arial, sans-serif;
                       width: 220px;
                       height: 60px; 
                       border-color: navy;  
                     }
+
+                    #nextButtons {
+                    margin-top: -35px;    
+                    margin-left: 120px;
+                    }
+
+                    #leftDiv {
+                    width: 50%; 
+                    float:left;  
+                    margin-top: -35px; 
+                    }
+
+                    
+
+

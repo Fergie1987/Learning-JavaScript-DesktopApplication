@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="/css/main.css"> 
+    <script src="/js/jquery.min.js"> </script>
+
+</head>
+
+<body id = "learningPage">
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 4: Task 1/2 </h2>
+
+     <label>
+     Before you created the two Arrays, the function below should added to your code. After the arrays are created, the addPellet function will loop through the Arrays and add pellets to the Maze. <br> <br>
+
+     A new method has been included within the function, isSensor = true. <br> This allows objects to pass through but collisions still occur. Perfect for ghosts objects passing through, but useful when we want a different action for Pac-Man and Pellet collisions. More on this later! <br> <br> 
+
+     After you include the method below, move on to the next task where you will be adding canvas co-ordinates to the two Arrays named pelletX and pelletY. <br><br>
+
+     Please familiarise yourself with the content of the method and understand how the X and Y positions are extracted from the two multidimensional Arrays. <br><br>
+
+     <code>
+
+     function addPellet(pelletX, pelletY) {<br>
+
+        for (var i = 0; i < pelletX.length; i++) {<br>
+
+            for (var j = 0; j < 1; j++) {<br>
+
+                if (pelletX[i] != null) { <br>
+
+                    var fixDefPellet = new b2FixtureDef;<br>
+                    fixDefPellet.density = 1.0;<br>
+                    fixDefPellet.friction = 0.5;<br>
+                    fixDefPellet.restitution = 0;<br>
+                    fixDefPellet.isSensor = true;<br>
+
+                    var bodyDefPellet = new b2BodyDef;<br>
+                    fixDefPellet.shape = new b2CircleShape(0.2);<br>
+                    bodyDefPellet.type = b2Body.b2_staticBody;<br>
+                    bodyDefPellet.position.x = (pelletX[i][j]) / SCALE;<br>
+                    bodyDefPellet.position.y = (pelletY[i][j]) / SCALE<br>
+
+                    pellet = world.CreateBody(bodyDefPellet).CreateFixture(fixDefPellet);<br>
+                    pellet.GetBody().SetFixedRotation(true);<br>
+                    pellet.GetBody().SetUserData({<br>
+                        id: "pellet" <br>
+                    });<br>
+                }<br>
+            }<br>
+            <br>
+        }<br>
+    };<br><br><br>
+
+</code>
+     </label> 
+
+
+    
+     </div>
+     </div>
+
+</body>
+
+
+<script src="/js/custom.js"></script>
+
+
+</html>

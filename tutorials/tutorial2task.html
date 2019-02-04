@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>   
+    <link rel="stylesheet" href="/css/main.css"> 
+    <script src="/js/jquery.min.js"> </script>
+
+</head>
+
+<body id = "learningPage">
+    
+    <div id = "learningArea">
+     <div id = "lessonArea">
+     <h2 class = "tutorialHeading">Tutorial 2: Task</h2>
+     <label>
+        In this task, you will be creating a box2D circle object to represent Pac-Man <br> <br>
+
+        The tasks to complete are: <br> <br>
+
+        1: Set the correct size of the circle object. Hint: 0.1 is too small. <br> <br>
+
+        2: Set the X and Y starting positions. Both are currently set to zero but should positive numbers. Position Pac-Man centrally within the maze. <br> <br>
+        
+        3: The SetUserData ID should be set to: "pacman". Add this ID. <br> <br>
+
+        The code required to create a box2D object is provided below. Update the relevant values to create pac-man then execute your code. <br> <br>
+
+            <code>
+            var bodyDefpacman = new b2BodyDef; <br>
+            bodyDefpacman.type = b2Body.b2_dynamicBody; <br>
+            var fixDefpacman = new b2FixtureDef; <br>
+            fixDefpacman.shape = new b2PolygonShape; <br>
+            fixDefpacman.shape = new b2CircleShape(0.1); <br>
+            fixDefpacman.density = 1.0; <br>
+            fixDefpacman.friction = 0; <br>
+            fixDefpacman.restitution = 0.001; <br>
+            bodyDefpacman.position.x = (0) / SCALE; <br>
+            bodyDefpacman.position.y = (0) / SCALE; <br>
+            pacman = world.CreateBody(bodyDefpacman).CreateFixture(fixDefpacman); <br>
+            pacman.GetBody().SetUserData({<br>
+                id: "dave"<br>
+            });<br>
+            pacman.GetBody().SetFixedRotation(true); <br>
+        </code>
+
+
+        
+     </label>   
+     </div>
+     </div>
+
+</body>
+
+
+<script src="/js/custom.js"></script>
+
+
+</html>

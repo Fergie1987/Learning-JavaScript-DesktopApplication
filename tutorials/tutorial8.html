@@ -1,106 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>  
     <link rel="stylesheet" href="/css/main.css"> 
-    <script
-    src="../public/js/jquery/dist/jquery.min.js"> </script>
-  </head>
+    <script src="/js/jquery.min.js"> </script>
+  
+</head>
 
 
   <body id = "learningPage">
     
     <div id = "learningArea">
      <div id = "lessonArea">
-     <h2 class = "tutorialHeading">Tutorial 8: Add Pellet Objects</h2>
+     <h2 class = "tutorialHeading">Tutorial 8: Moving Ghost Objects between Walls</h2>
      <label>
-     You now have a Pac-Man object and a maze, the game now requires pellets for Pac-Man to collect. </br> </br> 
-
-     As the pellet creation process is duplicated several times, a function can be used to create the pellet objects. The function should take in two parameters, the X and Y canvas position.  </br> </br> 
-
-     The code below contains a function named function addPellet(posX, posY), and 58 function calls to create 58 pellets. If you want to create an improved process for creating pellets, please challenge yourself. </br> </br>
-
-     <b>Code to Add: </br> </br>
-
-    Please add this code after the creation of the rect9 Box2D object.   </br> 
-    Please run your code after adding the code below, the 58 pellets should display within the canvas. </b>     
-    </br></br>
-
-    addPellet(160, 500); </br>
-    addPellet(160, 450); </br>
-    addPellet(160, 400);</br>
-    addPellet(160, 350);</br>
-    addPellet(160, 300);</br>
-    addPellet(160, 250);</br>
-    addPellet(160, 200);</br>
-    addPellet(160, 150);</br>
-    addPellet(160, 100);</br>
-    addPellet(840, 500);</br>
-    addPellet(840, 450);</br>
-    addPellet(840, 400);</br>
-    addPellet(840, 350);</br>
-    addPellet(840, 300);</br>
-    addPellet(840, 250);</br>
-    addPellet(840, 200);</br>
-    addPellet(840, 150);</br>
-    addPellet(840, 100);</br>
-    addPellet(220, 500);</br>
-    addPellet(280, 500);</br>
-    addPellet(340, 500);</br>
-    addPellet(400, 500);</br>
-    addPellet(460, 500);</br>
-    addPellet(520, 500);</br>
-    addPellet(580, 500);</br>
-    addPellet(640, 500);</br>
-    addPellet(700, 500);</br>
-    addPellet(770, 500);</br>
-    addPellet(220, 100);</br>
-    addPellet(280, 100);</br>
-    addPellet(340, 100);</br>
-    addPellet(400, 100);</br>
-    addPellet(580, 100);</br>
-    addPellet(640, 100);</br>
-    addPellet(700, 100);</br>
-    addPellet(770, 100);</br>
-    addPellet(220, 300);</br>
-    addPellet(280, 300);</br>
-    addPellet(340, 300);</br>
-    addPellet(400, 300);</br>
-    addPellet(600, 300);</br>
-    addPellet(660, 300);</br>
-    addPellet(720, 300);</br>
-    addPellet(780, 300);</br>
-    addPellet(340, 385);</br>
-    addPellet(400, 385);</br>
-    addPellet(460, 385);</br>
-    addPellet(530, 385);</br>
-    addPellet(600, 385);</br>
-    addPellet(660, 385);</br>
-    addPellet(340, 210);</br>
-    addPellet(400, 210);</br>
-    addPellet(460, 210);</br>
-    addPellet(530, 210);</br>
-    addPellet(600, 210);</br>
-    addPellet(660, 210);</br>
-    addPellet(500, 440);</br>
-    addPellet(500, 150);</br> </br> 
-
-    function addPellet(posX, posY) {</br> 
-        var fixDefPellet = new b2FixtureDef;</br> 
-        fixDefPellet.density = 1.0;</br> 
-        fixDefPellet.friction = 0.5;</br> 
-        fixDefPellet.restitution = 0;</br> 
-        fixDefPellet.shape = new b2CircleShape(0.4);</br> 
-        </br> 
-        var bodyDefPellet = new b2BodyDef;</br> 
-        bodyDefPellet.type = b2Body.b2_staticBody;</br> 
-        bodyDefPellet.position.x = (posX) / SCALE;</br> 
-        bodyDefPellet.position.y = (CANVAS_HEIGHT-posY)/SCALE;</br> 
-        </br> 
-        var pellet = world.CreateBody(bodyDefPellet).CreateFixture(fixDefPellet);</br> 
-        pellet.GetBody().SetUserData({id: "pellet"});</br> 
-        };
-
+     In this tutorial we will be adding the code to move Ghosts between two walls. <br><br>
      
+     The direction of the ghost will change after a collision is registered with a ghost and wall (for example, the walls named leftTurn or rightTurn can be used). <br><br>
+
+     The ghost object direction change cannot be handled within the contactListener, this is a known bug within Box2D but we can still update variables after collision. <br><br>
+
+     The solution is to create boolean variables and update these after collision. <br><br> 
+     
+     The update function can then be used to check the status of the variables, if there has been a change to the value, then the direction of the ghost should change.  <br><br>
+     
+     Your challenge is to now create this solution and change the direction of the Ghost objects you added. <br><br>
+
+     <video style = "margin-left: 140px" width="500" height="370" controls>
+           
+        <source src="assets/T8video.mp4" type="video/mp4">
+      
+      </video> <br><br><br>
+     
+     <h1 style = "margin-left: 60px; color: navy"> Click on next to continue on to your next task</h1>  <br><br>
+
+
      </label>   
      </div>
      </div>

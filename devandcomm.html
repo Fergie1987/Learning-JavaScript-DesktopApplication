@@ -5,6 +5,13 @@
 <script src="/js/main.js"></script>
 <script src="/jquery/jquery.js"></script>
 <script src="/js/jquery-1.11.1.js"></script>
+<link rel="stylesheet" href="/css/codemirror.css">
+<script src="/js/codemirror.js"></script>
+<script src="/js/javascript.js"></script>
+
+
+
+
 </head>
 
 <body id = "mainBody">
@@ -79,20 +86,27 @@
 
     <div id = devCodingArea>
         <img id="codeHeading" src="/assets/jscodeeditorlogo.png">
-        <textarea id="codingAreaText"></textarea>
         <button id="runCodeDev">Execute and Save Code</button>
         <button id="readInCodeDev">Read in Index.js File</button>
         <button id="clearEditorDev">Remove all code</button>
+        <textarea id="codingAreaText"></textarea>
     </div>
+    
   
 </body>
-
+<script>
+var editor = CodeMirror.fromTextArea(codingAreaText, {
+    lineNumbers: true,    
+    mode: "javascript"     
+  });
+  editor.setSize(null,750)
+</script>
 
 <script src="/js/custom.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script> 
 var socket = io();
-
 </script>
 <script src="/js/develop.js"></script>
+
 </html>
