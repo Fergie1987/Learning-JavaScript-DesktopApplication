@@ -49,6 +49,7 @@ socket.on('privateNewMessage', function(privMsg) {
     var message = privMsg.message;
     var from = privMsg.userPrivfrom;
     $('#messages').append($('<li>').text("Private Message from:" + from + "  Message: " + message));
+    $('#messageAlert')[0].play();
 });
 
 $('#codeSharingRequest').click(function() {

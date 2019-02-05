@@ -118,8 +118,8 @@ $("#nextTutorial").click(function() {
 
 
 $("#runCode").click(function() {
-    if (pacmanEditor.getValue() != "") {
-        writeToFile(pacmanEditor.getValue());
+    if (editor.getValue() != "") {
+        writeToFile(editor.getValue());
         window.open("/rungame", " ","width="+screen.availWidth+",height="+screen.availHeight);
     } else {
         alert("There is no code to Execute");
@@ -128,13 +128,13 @@ $("#runCode").click(function() {
 
 $("#readInCode").click(function() {
     var content = readFromFile();
-    pacmanEditor.setValue(" ");
-    pacmanEditor.setValue(content);
+    editor.setValue(" ");
+    editor.setValue(content);
 });
 
 $("#clearEditor").click(function() {
     if (confirm("Are you sure you wish to remove your code from the Editor?")) {
-        pacmanEditor.setValue(" ");
+        editor.setValue(" ");
     }
 
 });
