@@ -1,4 +1,5 @@
 $('#leftSide').hide();
+$('#rightSide').hide();
 
 var userName;
 var currentlySharing = false;
@@ -31,6 +32,7 @@ $('#nameButton').click(function() {
     socket.emit('userName', $('#name').val());
     $('#leftSideLogin').hide();
     $('#leftSide').show();
+    $('#rightSide').show();
     userName = $('#name').val();
     document.getElementById("loggedInName").innerHTML = "You are logged in as: " + userName;
 });

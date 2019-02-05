@@ -30,8 +30,11 @@
 
     </div>
 
+    <div >
+            <img style = "width: 170px; margin-left: 390px; margin-top: -160px" id="codeHeading" src="/assets/jscodeeditorlogo.png">
+    </div>    
     <div id = codingarea>
-        <img id="codeHeading" src="/assets/jscodeeditorlogo.png">
+        
         <button id="runCode">Execute and Save Code</button>
         <button id="readInCode">Read in Index.js File</button>
         <button id="clearEditor">Remove all code</button>
@@ -39,17 +42,78 @@
         
     </div>
 
+    <div style = "clear:left; margin-top: 40px; width: 800px; border: solid; border-color: gray; margin-left: 500px" id = "leftSideLogin">   
+        <div id="nkndiv">
+        <Label id ="loginHeader" style="margin-left: 80px">Please Enter Your Name to Connect With Other Users </Label>
+        <br>
+        <input type="text" name="name" id="name" style="margin-left: 200px">
+        <br>
+        <button id="nameButton" style="margin-left: 300px">Submit Name</button>
+        </div>   
+    
+        </div>        
+        
+    
+        <div id ="leftSide" style = "clear: right; float:right; margin-right: 80px; ">     
+        <div id = "sendMessage">
+                <form action="" id="private">
+                <label id="sendMessageHeader">Send Message to Selected User</label>
+                <img id="emailimage" src="/assets/emaillogo.png" width="50" height="50" style = "margin-left: 10px;" > 
+                <input id="privateMessage"/>
+                </form>
+                <button id="privButton">Submit Message</button>
+            </br>
+        </br>
+    
+        </div>
+    
+        <div id="messageArea">
+                <label id="messageAreaName">Message Area</label>
+                <img id="messageimage" src="/assets/messageareaimage.png" width="50" height="50" style = "margin-left: 10px;" > 
+                <ul id="messages"></ul>
+              </div>    
+    </div>  
+
+    <div id="rightSide" style ="float:left; clear: left; margin-top: 90px; margin-left: 110px">
+            <div id = loggedInNameDiv>   
+                    <Label id="loggedInName"></Label>  
+                    </div>  
+            <div id="onlineNames">
+                    <label id="onlineHeading"> Connected Users  </label>
+                    <img id="onlineimage" src="/assets/usersonlinesymbol.png" width="70" height="70" > 
+                    <ul id="onlineDiv"></ul>   
+                    <button id="codeSharingRequest">Submit Code Sharing Request</button>
+                    </div>
+                
+                    <label id="onlineHeading2">Online Users Select List</label>
+                    <img id="onlineclickimage" src="/assets/selectlistlogo.png" width="30" height="30" style = "margin-left: 10px;" > 
+                    <div id="selectUser">
+                              <select id='selectBox'>
+                              <option value="" selected disabled hidden>Choose here</option>    
+                              </select>
+                    </div>     
+    </div>
+
+   
+
 </body>
 
-<script src="/js/custom.js"></script>
-
 <script type="text/javascript">
-        var pacmanEditor = CodeMirror.fromTextArea(text, {
-            lineNumbers: true,  
-            mode: "javascript"      
-          });
-          pacmanEditor.setSize(null,860)
+    var editor = CodeMirror.fromTextArea(text, {
+         lineNumbers: true,  
+         mode: "javascript"      
+       });
+     editor.setSize(null,590)
 </script>
+
+<script src="/js/custom.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script> 
+var socket = io();
+</script>
+<script src="/js/develop.js"></script>
+
+
 
 
 
@@ -57,8 +121,8 @@
 $(function() {
     console.log("READY")
     var content = readBox2Dcode();
-    pacmanEditor.setValue(" ")
-    pacmanEditor.setValue(content);
+    editor.setValue(" ")
+    editor.setValue(content);
 });
 </script>
 

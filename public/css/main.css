@@ -15,7 +15,12 @@ border-color:blue;
 
 #learningArea {
 float:left;
-margin-left: 20px;   
+margin-left: 20px; 
+font-size: 17px;  
+}
+
+code {
+font-size: 14px;
 }
 
 #appHeading {
@@ -28,40 +33,39 @@ background-color: lightgray;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
-#runCode {
-margin-top: 10px;    
-Margin-left: -150px;    
+#runCode {   
+margin-left: 100px;    
 margin-right: 5%;
-font-size: 20px;
+font-size: 18px;
 background-color: green;
 color: white;
 font-family: 'Nobile', Helvetica, Arial, sans-serif;
-width: 250px;
-height: 60px;
+width: 220px;
+height: 40px;
 border-color: navy;
-margin-bottom: 20px;
+margin-bottom: 13px;
 }
 
 #readInCode {
     margin-top: 10px;   
     Margin-right: 5%;
-    font-size: 20px;
+    font-size: 16px;
     background-color: green;
     color: white;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
-    width: 250px;
-    height: 60px;
+    width: 220px;
+    height: 40px;
     border-color: navy;
     }
 
 #clearEditor {
     margin-top: 10px;   
-    font-size: 20px;
+    font-size: 16px;
     background-color:maroon;
     color: white;
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
-    width: 250px;
-    height: 60px;
+    width: 220px;
+    height: 40px;
     border-color: navy;
 }
 
@@ -134,7 +138,7 @@ margin-top: -38px;
 #tutorials {
     border-style: solid;
     border-color:navy;
-    width: 90%;
+    width: 97%;
     height: 600px;
 }
 
@@ -325,7 +329,7 @@ margin-top: -38px;
                 color: white;
                 font-family: 'Nobile', Helvetica, Arial, sans-serif;
                 width: 250px;
-                height: 60px;
+                height: 50px;
                 border-color: navy;
                 margin-bottom: 30px;
                 }
@@ -338,7 +342,7 @@ margin-top: -38px;
                     color: white;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 250px;
-                    height: 60px;
+                    height: 50px;
                     border-color: navy;
                     }
                 
@@ -349,7 +353,7 @@ margin-top: -38px;
                     color: white;
                     font-family: 'Nobile', Helvetica, Arial, sans-serif;
                     width: 250px;
-                    height: 60px;
+                    height: 50px;
                     border-color: navy;
                 }
 
