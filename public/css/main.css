@@ -43,7 +43,7 @@ font-family: 'Nobile', Helvetica, Arial, sans-serif;
 width: 220px;
 height: 40px;
 border-color: navy;
-margin-bottom: 13px;
+margin-bottom: 23px;
 }
 
 #readInCode {
@@ -141,6 +141,7 @@ margin-top: -38px;
     border-color:navy;
     width: 97%;
     height: 600px;
+    margin-top:-27px;
 }
 
 #tutorialLogoMenu {   
@@ -371,7 +372,7 @@ margin-top: -38px;
                 } */
 
                 #onlineNames {
-                 margin-top: -80px;  
+                 margin-top: -90px;  
                 }
 
                 #onlineHeading {
@@ -488,7 +489,7 @@ margin-top: -38px;
                       }    
 
                       #sendMessage {
-                      margin-top: 50px;    
+                      margin-top: 15px;    
                       margin-left: 50px;   
                       }
                 
@@ -644,13 +645,13 @@ margin-top: -38px;
                         font-size: 26px;
                         color: Navy;    
                         margin-bottom: 85px;
-                        margin-top: -65px;  
+                        margin-top: -45px 
                        
                     }
                     
                     #disconnectButton {
                       float: right;  
-                      margin-top: 90px;
+                      margin-top: -90px;
                       margin-right: 50px; 
                       font-size: 20px;
                       background-color: red;
