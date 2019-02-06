@@ -122,13 +122,13 @@ background-position-x: 48%;
 border-bottom: solid;
 border-color: navy;
 margin-top: -20px;
-background-color: beige
+background-color: #E6E6FA
 }
 
 .tutorialHeading {
     margin-top: 10px;
     color:white; 
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
     background-color: #000080
 }
 
