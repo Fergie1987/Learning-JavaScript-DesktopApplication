@@ -11,6 +11,7 @@ $('#privButton').click(function() {
         name: $('#selectBox').text(),
         message: $('#privateMessage').val()
     });
+    $('#privateMessage').val(" ");
 });
 
 $('#disconnectButton').click(function() {

@@ -108,5 +108,12 @@ var editor = CodeMirror.fromTextArea(codingAreaText, {
 var socket = io();
 </script>
 <script src="/js/develop.js"></script>
+<script>
+    $(function() {
+        var content = readBox2Dcode();
+        editor.setValue(" ")
+        editor.setValue(content);
+    });
+    </script>
 
 </html>
