@@ -198,6 +198,28 @@ margin-top: -38px;
             border-color: navy; 
             }
 
+            #applicationOverview {
+                float: right;
+                margin-top:30px;
+                margin-left: 300px; 
+                margin-bottom: 50px;  
+                font-size: 20px;
+                margin-right: 40px;
+                background-color: green;
+                color: white;   
+                width: 350px;
+                height: 150px;
+                font-family: 'Nobile', Helvetica, Arial, sans-serif;
+                border-style: solid;
+                border-color: navy;
+                background-size: 70px 50px;
+            background-image: url("../assets/information.png");
+            background-size: 60px 30px;
+            background-repeat: no-repeat;
+            background-position-x: 50%;
+            background-position-y: 10px; 
+                }
+
             #returnMainMenu {
             margin-left: 40%; 
             margin-bottom: 50px;   

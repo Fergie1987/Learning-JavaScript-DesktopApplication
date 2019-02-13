@@ -126,6 +126,11 @@ $("#runCode").click(function() {
     }
 });
 
+$("#applicationOverview").click(function() {
+    location.href = 'http://localhost:3000/applicationOverview'
+  
+});
+
 $("#readInCode").click(function() {
     var content = readFromFile();
     editor.setValue(" ");

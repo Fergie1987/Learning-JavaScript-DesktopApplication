@@ -112,6 +112,10 @@ app.get('/rungame', function (req, res) {
   res.sendFile(__dirname + '/rungame/index.html');
 });
 
+app.get('/applicationoverview', function (req, res) {
+  res.sendFile(__dirname + '/overview.html');
+});
+
 
 
 //socket connection
