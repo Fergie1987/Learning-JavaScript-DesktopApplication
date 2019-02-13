@@ -121,18 +121,17 @@ io.on('connection', function (socket) {
 
   console.log('a user connected')
 
-  //actions when a user disconnects from the chat room - refreshes or closes the page. 
   socket.on('disconnect', function () {
 
     var nameToRemove = users[socket.id]
-    if (nameToRemove != undefined) {
-      socket.broadcast.emit('chat message', nameToRemove + " has disconnected from the room");
-    }
-
+   
     var index = online.indexOf(nameToRemove);
     online.splice(index, 1);
     io.emit('online users', online);
-
+    delete users [socket.id];
+    delete sockets [nameToRemove];
+    console.log(users);
+    console.log(sockets);
   });
 
   socket.on('userName', function (nkn) {
