@@ -15,7 +15,9 @@ Note: Create more than 1 instance of the application to use the live code sharin
 
 # Learning JavaScript Application Description: 
 
-This application has been developed using the Electron JavaScript framework (Chromium and Node.js). The purpose of this application is to teach students new JavaScript coding skills. Tutorials are included for the students to follow with a code editor available for the students to practice their new learned coding skills. The students code can be run from within the application with the output showing within a new electron window. The console.log output text also shows within the new window to assist with debugging skills. 
+This application has been developed using the Electron JavaScript framework (Chromium and Node.js), version 1.4.13. 
+
+The application purpose is to teach students new JavaScript coding skills. Tutorials are included for the students to follow with a code editor available for the students to practice their new learned coding skills. The students code can be run from within the application with the output showing within a new electron window. The console.log output text also shows within the new window to assist with debugging skills. 
 
 The main benefit to the student and lecturer is the code sharing functionality. If the student requires tutorial or coding assistance, a lecturer can be sent a code sharing request. If the request is accepted, the student and lecturer can communicate through private instant messages and code together within their own code editors. The code sharing session can be disconnnected by either user at any time, with a message being sent to other user when this occurs.  
 
@@ -78,5 +80,5 @@ electron-packager --electron-version=1.4.13 --overwrite --asar --platform=win32 
 electron-packager --electron-version=1.4.13 --overwrite --asar --platform=linux --arch=x64 --icon=public/assets/logoicon.ico .
 
 ## MacOS
-electron-packager --electron-version=1.4.13 --overwrite --asar --platform=darwin --arch=x64 --icon=./public/assets/logoicon.ico .
+electron-packager --electron-version=1.4.13 --overwrite --asar --platform=darwin --arch=x64 --icon=public/assets/logoicon.ico .
  
