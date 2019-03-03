@@ -59,15 +59,15 @@ Application users can decline code sharing requests. Dialog confirm messages are
 If the users are in different sections of the application (For example: The student is in tutorials and the lecturer is in the Development and Communication area), the code sharing functionity will still continue work as expected. 
 
 
-## Packaging the Final Application:
+## Completing the Project, Packaging the Electron Application:
 
-The electron-packager module can be used to package the application files to create an .exe file with the application logo included (replaces the default electron logo). 
+The electron-packager module is used to package the application files to create an .exe file with the application logo included (replaces the default electron logo). 
 
-Once installing the module globally using the command: npm install -g electron-packager 
+The module should be installed globally using the command: npm install -g electron-packager 
 
 The commands for the target operating systems are below and should be run from the terminal and within the home directory of the application. 
 
-Once the application is packaged and the .exe file is created within a new directory, the application can be run by double clicking on the .exe file.
+Once the application is packaged and the .exe file is created within a new file, the application can be run by double clicking on the .exe file.
 
 The asar flag is included to hide the application files. A user can access the application files if this flag is not included. 
 
