@@ -23,7 +23,7 @@ The main benefit of the application to students and lecturers is the live code s
 
 The main menu has three options available: 
 
-1: Application Overview (introduction video hosted on YouTube)
+1: Introduction to the Application and Box2D Video (35 minute screen recording video - Hosted on YouTube)
 
 2: Tutorials 
 
@@ -37,7 +37,7 @@ I recorded this 35 minute screen recording video to provide users a full overvie
 The video is hosted on YouTube and has been embedded within the application.  
 
 ## Section 2: Tutorials:
-The video and text tutorials are included to teach the students how to code using JavaScript. The Box2D physics engine javaScript library is included because the student will be developing JavaScript games within the application. The application provides the option to launch the developed game within a new Electron window. If the student requires live coding assistance, they can check if a lecturer is online and then send a code sharing request. If the request is accepted, both users can communicate through instant messaging, code together through the code sharing functionality and run the JavaScript code within a new electron window. 
+The YouTube hosted videos and text tutorials are both included to teach the students how to code using JavaScript. The Box2D physics engine javaScript library is included because the student will be developing JavaScript games within the application. The application provides the option to launch the developed game within a new Electron window. If the student requires live coding assistance, they can check if a lecturer is online and then send a code sharing request. If the request is accepted, both users can communicate through instant messaging, code together through the code sharing functionality and run the JavaScript code within a new electron window. 
 
 The FS node module has been used to access the users file system, this provides access to update and read from the index.js file (the index.js file is required for the JavaScript and Box2D game logic). 
 
