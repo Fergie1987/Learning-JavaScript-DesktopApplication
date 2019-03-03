@@ -37,15 +37,16 @@ The video is hosted on YouTube and has been embedded within the application.
 ## Section 2. Tutorials:
 The video and text tutorials are included to teach the students how to code using JavaScript. The Box2D physics engine javaScript library is included because the student will be developing JavaScript games within the application. The application provides the option to launch the developed game within a new Electron window. If the student requires live coding assistance, they can check if a lecturer is online and then send a code sharing request. If the request is accepted, both users can communicate through instant messaging, code together through the code sharing functionality and run the JavaScript code within a new electron window. 
 
-The FS node module has been used to access the users file system, this provides access to update and read from the index.js file (contains the JavaScript and Box2D game logic). 
+The FS node module has been used to access the users file system, this provides access to update and read from the index.js file (the index.js file is required for the JavaScript and Box2D game logic). 
 
 ## Section 2. Development and Communication Area:
 
-This was included to provide users an area within the application to: 
+This was included within the application to provide users an area to: 
 1. Develop code for weekly assignments and assessments. 
 2. Contact other users and discuss JavaScript coding challenges. 
-3. Connect code editors and code at the same time to resolve coding issues. These issues could slow down learning and the students progress.  
+3. Connect code editors and code share to resolve coding issues. These issues could slow down learning and the students progress. 
 
+The code editor and code sharing functionality is the same as the tutorials area but the layout of the interface is different due to the iFrame for tutorials not being included within this window.   
 
 ## Code Sharing Functionality:
 
