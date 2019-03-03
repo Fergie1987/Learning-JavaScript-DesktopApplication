@@ -11,13 +11,13 @@ Open a command prompt window and start the server: node app.js
 Open new command prompt windows and cd in to Learning-JavaScript-DesktopApplication to run new instances of the desktop application. 
 The command to create each desktop application instance is: npm start
 
-Note: Create more than 1 instance of the application to make use of the code sharing functionality.  
+Note: Create more than 1 instance of the application to use the live code sharing functionality.  
 
 # Learning JavaScript Application Description: 
 
-This application was developed using the Electron JavaScript framework (Chromium and Node.js). The purpose of this application is to teach students new JavaScript coding skills. Tutorials are included for the students to follow with an available code editor available for the students to practice their new learned coding skills. The code can be run from within the application with the code output showing within a new electron window and their console logging showing within this window. 
+This application has been developed using the Electron JavaScript framework (Chromium and Node.js). The purpose of this application is to teach students new JavaScript coding skills. Tutorials are included for the students to follow with a code editor available for the students to practice their new learned coding skills. The students code can be run from within the application with the output showing within a new electron window. The console.log output text also shows within the new window to assist with debugging skills. 
 
-The application has code sharing functionality and this is the main benefit to the student. If the student requirements tutorial or coding assistance, a lecturer can be sent a code sharing request. If the request is accepted, the student and lecturer can communicate through private instant messages and code together within their own code editors. The code sharing session can be disconnnected by either user at any time, with a message being sent to other user when this occurs.  
+The main benefit to the student and lecturer is the code sharing functionality. If the student requires tutorial or coding assistance, a lecturer can be sent a code sharing request. If the request is accepted, the student and lecturer can communicate through private instant messages and code together within their own code editors. The code sharing session can be disconnnected by either user at any time, with a message being sent to other user when this occurs.  
 
 The application has three options within the main menu: 
 1: Application Overview (introduction video hosted on YouTube), 
