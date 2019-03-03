@@ -46,7 +46,6 @@ socket.on('user connected', function(userid) {
 socket.on('privateNewMessage', function(privMsg) {
     var dt = new Date();
     var utcDate = dt.toUTCString();
-    $('#userTyping').empty();
     var message = privMsg.message;
     var from = privMsg.userPrivfrom;
     $('#messages').append($('<li>').text("Private Message from:" + from + "  Message: " + message));

@@ -30,8 +30,6 @@ function createWindow() {
 
 app.on('ready', createWindow)
 
-
-
 function writeToFile(content) {
     fs.writeFile("./public/js/index.js", content, (err) => {
         if (err) {

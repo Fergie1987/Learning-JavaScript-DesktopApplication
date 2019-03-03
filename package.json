@@ -5,7 +5,10 @@
   "main": "./public/js/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --electron-version=1.4.13 --overwrite --icon=assets/logoicon.ico",
+    "package-linux": "electron-packager . learnjavascriptapp --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
   },
   "author": "David Ferguson",
   "license": "ISC",
@@ -16,5 +19,6 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.4.1",
     "socket.io": "^2.2.0"
-  }
+  },
+  "devDependencies": {}
 }
