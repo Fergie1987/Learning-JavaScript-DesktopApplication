@@ -58,7 +58,7 @@ To make use of the instant messaging and code sharing functionality, the user sh
 
 Application users can decline code sharing requests. Dialog confirm messages are provided to accept or decline requests. Messages are returned to the other user to inform if the code sharing invitation has been accepted or declined.
 
-If the users are in different sections of the application (For example: The student is in tutorials and the lecturer is in the Development and Communication area), the code sharing functionity will still continue work as expected. 
+If the users are in different sections of the application (for example: The student is working on a tutorial and the lecturer is using the Development and Communication area), the code sharing functionity will still continue work as expected. 
 
 
 ## Completing the Project, Packaging the Electron Application:
