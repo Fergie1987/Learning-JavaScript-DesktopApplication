@@ -31,17 +31,17 @@ The main menu has three options available:
 
 The application pages are all hosted on an Express Node.js Server. The JavaScript Library used within the application is JQuery. 
 
-## Section 1. Application Overview. 
+## Section 1: Application Overview. 
 I recorded this 35 minute screen recording video to provide users a full overview of the functionality available within the application. 
 
 The video is hosted on YouTube and has been embedded within the application.  
 
-## Section 2. Tutorials:
+## Section 2: Tutorials:
 The video and text tutorials are included to teach the students how to code using JavaScript. The Box2D physics engine javaScript library is included because the student will be developing JavaScript games within the application. The application provides the option to launch the developed game within a new Electron window. If the student requires live coding assistance, they can check if a lecturer is online and then send a code sharing request. If the request is accepted, both users can communicate through instant messaging, code together through the code sharing functionality and run the JavaScript code within a new electron window. 
 
 The FS node module has been used to access the users file system, this provides access to update and read from the index.js file (the index.js file is required for the JavaScript and Box2D game logic). 
 
-## Section 2. Development and Communication Area:
+## Section 3: Development and Communication Area:
 
 This was included within the application to provide users an area to: 
 1. Develop code for weekly assignments and assessments. 
