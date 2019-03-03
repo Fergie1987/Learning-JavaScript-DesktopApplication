@@ -48,7 +48,7 @@ This was included within the application to provide users an area to:
 2. Contact other users and discuss JavaScript coding challenges. 
 3. Connect code editors and code share to resolve coding issues. These issues could slow down learning and the students progress. 
 
-The code editor and code sharing functionality is the same as the tutorials area but the layout of the interface is different due to the iFrame for tutorials not being included within this window.   
+The code editor and code sharing functionality is the same as the tutorials area but the interface layout is different due to the tutorials iFrame not being included within this section of the application.   
 
 ## Code Sharing Functionality:
 
