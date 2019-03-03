@@ -20,8 +20,11 @@ This application has been developed using the Electron JavaScript framework (Chr
 The main benefit to the student and lecturer is the code sharing functionality. If the student requires tutorial or coding assistance, a lecturer can be sent a code sharing request. If the request is accepted, the student and lecturer can communicate through private instant messages and code together within their own code editors. The code sharing session can be disconnnected by either user at any time, with a message being sent to other user when this occurs.  
 
 The application has three options within the main menu: 
-1: Application Overview (introduction video hosted on YouTube), 
+
+1: Application Overview (introduction video hosted on YouTube)
+
 2: Tutorials 
+
 3: Development and Communication. 
 
 The application pages are all hosted on an Express Node.js Server. The JavaScript Library used within the application is JQuery. 
