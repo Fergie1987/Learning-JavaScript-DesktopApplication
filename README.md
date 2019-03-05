@@ -1,7 +1,7 @@
 # Learning-JavaScript-DesktopApplication
 
 ## Building the Application: 
-
+```
 git clone https://github.com/Fergie1987/Learning-JavaScript-DesktopApplication.git
 
 cd Learning-JavaScript-DesktopApplication
@@ -12,7 +12,7 @@ Open new command prompt windows and cd in to Learning-JavaScript-DesktopApplicat
 The command to create each desktop application instance is: npm start
 
 Note: Create more than 1 instance of the application to use the live code sharing functionality.  
-
+```
 # Learning JavaScript Application Description: 
 
 This application has been developed using the Electron JavaScript framework (Chromium and Node.js), version 1.4.13. 
@@ -74,11 +74,14 @@ Once the application is packaged and the .exe file is created within a new file,
 The asar flag is included to hide the application files. A user can access the application files if this flag is not included. 
 
 ## Windows Command: 
+```
 electron-packager --electron-version=1.4.13 --overwrite --asar --platform=win32 --arch=x64 --icon=public/assets/logoicon.ico .
-
+```
 ## Linux Command: 
+```
 electron-packager --electron-version=1.4.13 --overwrite --asar --platform=linux --arch=x64 --icon=public/assets/logoicon.ico .
-
+```
 ## MacOS
+```
 electron-packager --electron-version=1.4.13 --overwrite --asar --platform=darwin --arch=x64 --icon=public/assets/logoicon.ico .
- 
+``` 
