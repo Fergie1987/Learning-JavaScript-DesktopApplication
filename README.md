@@ -13,7 +13,7 @@ The command to create each desktop application instance is: npm start
 
 Note: Create more than 1 instance of the application to use the live code sharing functionality.  
 ```
-# Learning JavaScript Application Description: 
+# Learning JavaScript Desktop Application Description 
 
 This educational application has been developed using the Electron JavaScript framework (Chromium and Node.js), version 1.4.13. 
 
@@ -31,17 +31,17 @@ The main menu has three options available:
 
 The application pages are all hosted on an Express Node.js Server. The JavaScript Library used within the application is JQuery. 
 
-## Section 1: Application Overview. 
+## Section 1: Application Overview
 I recorded this 35 minute screen recording video to provide users a full overview of the functionality available within the application. 
 
 The video is hosted on YouTube and has been embedded within the application.  
 
-## Section 2: Tutorials:
+## Section 2: Tutorials
 YouTube hosted videos and text tutorials are included to teach the students how to code using JavaScript. The Box2D physics engine javaScript library is included because the student will be developing JavaScript games within the application. The application provides the option to launch the developed game within a new Electron window. If the student requires live coding assistance, they can check if a lecturer is online and then send a code sharing request. If the request is accepted, both users can communicate through instant messaging, code together through the code sharing functionality and run the JavaScript code within a new electron window. 
 
 The FS node module has been used to access the users file system, this provides access to update and read from the index.js file (the index.js file is required for the JavaScript and Box2D game logic). 
 
-## Section 3: Development and Communication Area:
+## Section 3: Development and Communication Area
 
 This was included within the application to provide users an area to: 
 1. Develop code for weekly assignments and assessments. 
@@ -50,7 +50,7 @@ This was included within the application to provide users an area to:
 
 The code editor and code sharing functionality is the same as the tutorials area but the interface layout is different due to the tutorials iFrame not being included within this section of the application.   
 
-## Code Sharing Functionality:
+## Code Sharing Functionality
 
 The event based node.js communication library socket.io has been used for server communication and for the sending of data between connected users. 
 
@@ -61,7 +61,7 @@ Application users can decline code sharing requests. Dialog confirm messages are
 If the users are in different sections of the application (for example: The student is working on a tutorial and the lecturer is using the Development and Communication area), the code sharing functionity will still continue work as expected. 
 
 
-## Completing the Project, Packaging the Electron Application:
+## Completing the Project, Packaging the Electron Application
 
 The electron-packager module is used to package the application files to create an .exe file with the application logo included (replaces the default electron logo). 
 
