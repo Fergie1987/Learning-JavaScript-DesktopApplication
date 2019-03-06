@@ -153,15 +153,6 @@ io.on('connection', function (socket) {
 
   });
  
-  socket.on('user typing', function (typmessage) {
-
-    name = users[socket.id];
-
-    if (name != undefined) {
-      socket.broadcast.emit('user typing', name + " " + typmessage);
-    }
-  })
- 
   socket.on('private Message', function (privateMessage) {
 
     userSocket = sockets[privateMessage.name];
@@ -222,3 +213,13 @@ io.on('connection', function (socket) {
 http.listen(port, function () {
   console.log('listening on *:' + port);
 });
+
+function closeHttp () {
+http.close()
+};
+
+exports.online = online;
+exports.users = users;
+exports.sockets = sockets;
+exports.closeHttp = closeHttp;
+exports.http = http;
