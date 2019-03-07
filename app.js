@@ -123,7 +123,7 @@ io.on('connection', function (socket) {
 
   id = socket.id
 
-  console.log('a user connected')
+  console.log('a user connected' + id)
 
   socket.on('disconnect', function () {
 
@@ -206,13 +206,23 @@ io.on('connection', function (socket) {
     userSocket = sockets[data.userToUpdate];
     io.to(userSocket).emit('Declined Sharing Update', {declinedBy: data.declinedName,  timeDeclined: utcDate}) 
   }); 
+
+  
+  //test function to send to all users. 
+  socket.on('message', function (data) {  
+  console.log(data.message)    
+  io.emit('message return', data) 
+  }); 
   
 });
 
 //port the server will open on, localhost:3000.
+
+
 http.listen(port, function () {
   console.log('listening on *:' + port);
 });
+
 
 function closeHttp () {
 http.close()
@@ -222,4 +232,3 @@ exports.online = online;
 exports.users = users;
 exports.sockets = sockets;
 exports.closeHttp = closeHttp;
-exports.http = http;
