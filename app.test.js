@@ -7,6 +7,7 @@ var socket2;
 
 //create two user instances to send and receive message. 
 beforeAll(() => {
+    
     socket1 = io.connect('http://localhost:3000/communicateanddevelop/', {
         'reconnection delay': 0,
         'reopen delay': 0,
@@ -25,6 +26,29 @@ afterAll(() => {
 server.closeHttp();
 });
 
+ //testing sending message to server and other user receiving the message.
+ //test.only to skip other testing only run individual tests.  
+ test('sending message and checking if the other user has received it', (done) => {
+    //sending message to server
+    socket1.emit('message', "test")   
+    console.log("Message Sent!") 
+   // console.log(socket2)
+    //other user receiving the message
+    socket2.on('message returned', (msg) => {  
+    console.log("message received")    
+    expect(msg).toEqual(msg)  
+    }) 
+    done();
+}) 
+
+test('User 1 to be created', () => {
+expect(socket1).toBeDefined;
+})
+
+test('User 2 to be created', () => {
+expect(socket2).toBeDefined;
+})
+     
 
 test('the Array is null', () => {
 expect(server.online).toBeNull;
@@ -52,6 +76,16 @@ server.online.push("MNO123")
 expect(server.online).toEqual(["ABC123", "DEF123", "GHI123", "JKL123", "MNO123"]);
 server.online.length = 0;
 })
+
+test('the Array to contain GHI123', () => {  
+    server.online.push("ABC123")  
+    server.online.push("DEF123")  
+    server.online.push("GHI123")  
+    server.online.push("JKL123")  
+    server.online.push("MNO123")  
+    expect(server.online).toContain("GHI123");
+    server.online.length = 0;
+    })
 
 test('the object to undefined', () => {
 expect(server.sockets).toBeUndefined;
@@ -94,18 +128,4 @@ delete server.users[name2];
 })
 
 
- //testing sending message to server and other user receiving the message.
- // 
- test('sending message and checking if the other user has received it', (done) => {
-socket1.emit('message', "test")   
-console.log("Message Sent!") 
-
-/* socket2.on('message returned', (msg) => {  
-console.log("message received")    
-expect(msg).toEqual(msg)  */ 
-done(); 
  
-     
-}) 
-
-// })  
