@@ -50,24 +50,24 @@ expect(socket2).toBeDefined;
 })
      
 
-test('the Array is null', () => {
+test('the Array is empty when the application is launched', () => {
 expect(server.online).toBeNull;
 })
 
-test('the Array is not null', () => {
+test('the Array is not null, ID included', () => {
 server.online.push("ABC123")    
 expect(server.online).toEqual(["ABC123"]);
 server.online.length = 0;
 })
 
-test('the Array has two two values', () => {  
+test('the Array has two ID values included', () => {  
 server.online.push("ABC123")  
 server.online.push("DEF123")  
 expect(server.online).toEqual(["ABC123", "DEF123"]);
 server.online.length = 0;
 })
 
-test('the Array has five values', () => {  
+test('the Array has five ID values included' , () => {  
 server.online.push("ABC123")  
 server.online.push("DEF123")  
 server.online.push("GHI123")  
@@ -77,7 +77,7 @@ expect(server.online).toEqual(["ABC123", "DEF123", "GHI123", "JKL123", "MNO123"]
 server.online.length = 0;
 })
 
-test('the Array to contain GHI123', () => {  
+test('the Array contains the ID GHI123', () => {  
     server.online.push("ABC123")  
     server.online.push("DEF123")  
     server.online.push("GHI123")  
@@ -85,13 +85,13 @@ test('the Array to contain GHI123', () => {
     server.online.push("MNO123")  
     expect(server.online).toContain("GHI123");
     server.online.length = 0;
-    })
+})
 
-test('the object to undefined', () => {
+test('the object to undefined when the application is launched', () => {
 expect(server.sockets).toBeUndefined;
 })
 
-test('the socket object to equal David', () => {
+test('the socket object is to equal David', () => {
 var id = "ABC123"
 server.sockets[id] = "David"  
 expect(server.sockets[id]).toEqual("David");
@@ -109,14 +109,14 @@ delete server.sockets[id1];
 delete server.sockets[id2];
 })
 
-test('the user object to equal TEST123', () => {
+test('the user object ID to equal TEST123', () => {
 var name = "Dave"
 server.users[name] = "TEST123"  
 expect(server.users[name]).toEqual("TEST123");
 delete server.users[name];
 })
 
-test('the user object to equal TEST123 and TEST456', () => {
+test('the user IDs are TEST123 and TEST456', () => {
 var name1 = "Dave"
 var name2 = "Kerry"
 server.users[name1] = "TEST123"  
