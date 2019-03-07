@@ -100,7 +100,7 @@ delete server.users[name2];
 socket1.emit('message', "test")   
 console.log("Message Sent!") 
 
-/* socket2.on('message return', (msg) => {  
+/* socket2.on('message returned', (msg) => {  
 console.log("message received")    
 expect(msg).toEqual(msg)  */ 
 done(); 

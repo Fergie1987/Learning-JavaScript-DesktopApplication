@@ -211,7 +211,7 @@ io.on('connection', function (socket) {
   //test function to send to all users. 
   socket.on('message', function (data) {  
   console.log(data.message)    
-  io.emit('message return', data) 
+  io.emit('message returned', data) 
   }); 
   
 });
