@@ -19,7 +19,13 @@ beforeAll(() => {
         'reopen delay': 0,
         'force new connection': true,
         transports: ['websocket'],
-      });    
+      });   
+    socket3 = io.connect("http://localhost:3000/communicateanddevelop/", {
+        'reconnection delay': 0,
+        'reopen delay': 0,
+        'force new connection': true,
+        transports: ['websocket'],
+      });   
 }); 
 
 afterAll(() => {       
@@ -126,6 +132,42 @@ expect(server.users[name2]).toEqual("TEST456");
 delete server.users[name1];
 delete server.users[name2];
 })
+
+test('Integration Test, sockets defined are available and the User IDs are INT123 and INT456', () => {
+    var name1 = "Peter"
+    var name2 = "Sharon"
+    server.users[name1] = "INT123"  
+    server.users[name2] = "INT456" 
+    expect(socket1).toBeDefined;
+    expect(socket2).toBeDefined;
+    expect(server.users[name1]).toEqual("INT123");
+    expect(server.users[name2]).toEqual("INT456");
+    delete server.users[name1];
+    delete server.users[name2];
+})
+
+test('Integration Test, three sockets defined are defined and the User IDs are INT123, INT456 and INT789', () => {
+    var name1 = "Peter";
+    var name2 = "Sharon";
+    var name3 = "Kevin";
+
+    server.users[name1] = "INT123"  
+    server.users[name2] = "INT456" 
+    server.users[name3] = "INT789"
+
+    expect(socket1).toBeDefined;
+    expect(socket2).toBeDefined;
+    expect(socket3).toBeDefined;
+
+    expect(server.users[name1]).toEqual("INT123");
+    expect(server.users[name2]).toEqual("INT456");
+    expect(server.users[name3]).toEqual("INT789");
+
+    delete server.users[name1];
+    delete server.users[name2];
+    delete server.users[name3];
+})
+
 
 
  

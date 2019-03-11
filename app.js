@@ -1,8 +1,12 @@
+var winston = require('./public/config/winston');
+var morgan = require('morgan');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
+
+app.use(morgan('combined', { stream: winston.stream }));
 
 var users = {};
 var sockets = {};
