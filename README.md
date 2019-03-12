@@ -70,7 +70,7 @@ Logs can also be output to the console with winston. This method is already avai
 
 ## Jest Automated Testing
 
-Automated tests have been created using the testing library Jest. The automated tests are saved within the file app.test.js. Unit and integration tests included within this test file. 
+Automated tests have been created using the Jest testing library. The automated tests are saved within the file app.test.js. Unit and integration tests included within this test file. 
 
 The created tests are run by using this command from the home directory: npm test
 
