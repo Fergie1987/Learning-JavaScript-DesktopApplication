@@ -14,6 +14,7 @@ var destroy_list = [];
 
 
 
+
 //Creating the box2D world with zero gravity
 world = new b2World( 
 new b2Vec2(0, 0) //zero gravity 
