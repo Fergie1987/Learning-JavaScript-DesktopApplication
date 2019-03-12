@@ -60,7 +60,7 @@ Application users can decline code sharing requests. Dialog confirm messages are
 
 If the users are in different sections of the application (for example: The student is working on a tutorial and the lecturer is using the Development and Communication area), the code sharing functionity will still continue work as expected. 
 
-##Winston Logger 
+## Winston Logger 
 
 Server logs including errors are held within the public/logs folder. The winston.js config file has been setup to save express server logs and error messages within the folder public/logs/app.logs. The data and time of the log is included with the log message. 
 
@@ -68,7 +68,7 @@ This provides an improved level of messages that are output from the running ser
 
 The logs can also be output to the command prompt console. This method can be included by removing the JavaScript comment tags within the winston config file. 
 
-##Jest Automated Testing
+## Jest Automated Testing
 
 Automated tests have been created using the testing library Jest. The automated tests are saved within the file app.test.js. Unit and integration tests included within this test file. 
 
