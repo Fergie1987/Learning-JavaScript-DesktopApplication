@@ -62,11 +62,11 @@ If the users are in different sections of the application (for example: The stud
 
 ## Winston Logger 
 
-Server logs including errors are held within the public/logs folder. The winston.js config file has been setup to save express server logs and error messages within the folder public/logs/app.logs. The data and time of the log is included with the log message. 
+Server logs including errors are held within the public/logs folder. The winston.js config file has been setup to save express server logs and error messages within the folder public/logs/app.logs. The data and time of the log is also added to the log/error message. 
 
-This provides an improved level of messages that are output from the running server and assists with debugging application errors. 
+This provides an improved level of logging from the running server and this assists with the debugging of application errors. 
 
-The logs can also be output to the command prompt console. This method can be included by removing the JavaScript comment tags within the winston config file. 
+Logs can also be output to the console with winston. This method is already available and can be turned on by removing the JavaScript comment tags within my winston config file. 
 
 ## Jest Automated Testing
 
