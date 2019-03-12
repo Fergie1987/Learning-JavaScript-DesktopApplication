@@ -14,16 +14,16 @@
      <h2 class = "tutorialHeading">Tutorial 7: Task</h2>
 
      <label>
-     In this task, you will be adding ghost objects to the Pac-Man maze. <br><br>
+     In this task, you will be adding ghost objects to the game. <br><br>
 
      The challenge is to add the objects into the correct positions within the maze. <br><br>
 
-     We discussed at the beginning why we included numbers up to 11 within the gameGrid Array. These numbers were added to create walls with different ID's for moving ghosts. Please keep this in mind during this task! <br><br>
+     We discussed at the beginning why we included numbers up to 11 within the gameGrid Array. These numbers were added to create walls with different ID's for moving ghosts after wall collision. Please keep this in mind during this task! <br><br>
 
      We have given you the code to start this task but you are responsible for: <br><br> 
      
      1: Setting the size of the Box object. <br><br> 
-     2: Adding the X and Y object starting position. <br><br> 
+     2: Adding the X and Y object starting position (gameGrid array and for loop containing ID's has been provided below the ghost object code to assist with positioning your ghosts appropriately). <br><br> 
 
      The code to get you started is provided below: <br><br> 
      
@@ -45,6 +45,76 @@
             });<br> 
             ghost1.GetBody().SetFixedRotation(true);   <br>   
     </code>
+
+    <br><br>
+    <b style ="color:navy">As mentioned above, the game grid array and required for Loop has been provided to assist with the positioning of your ghosts.</b>
+    <br><br>
+   
+        //Array of Numbers to create the GameGrid.  <br>
+        var gameGrid = [<br>
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],<br>
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],<br>
+        [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8],<br>
+        [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8],<br>
+        [0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],<br>
+        [0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 1, 1, 0, 0, 10, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 9, 0, 0, 1, 1, 1],<br>
+        [0, 1, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 1, 1, 10, 0, 0, 1, 0, 0, 1, 1, 4, 4, 4, 1, 1, 0, 0, 1, 0, 0, 9, 1, 1, 0, 0, 1],<br>
+        [0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3],<br>
+        [0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3],<br>
+        [0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],<br>
+        [0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], <br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],<br>
+        [0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],<br>
+        [0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],<br>
+        [0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],<br>
+        [0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],<br>
+        [0, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,11,11,11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5]<br>
+      ]<br><br>
+    
+    //for loops to create the gameGrid on the canvas  <br><br>
+  
+      for (var i = 0; i < (gameGrid.length); i++) {<br>
+                for (j = 0; j < (gameGrid[0].length); j++) {<br>
+                    if (gameGrid[i][j] == 1) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "ground", "ground", false);<br>
+                    } else if (gameGrid[i][j] == 2) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16) + '/SCALE', (i * 16 + 8) + '/SCALE', "left", "left", true);<br>
+                    } else if (gameGrid[i][j] == 3) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 16) + '/SCALE', (i * 16 + 8) + '/SCALE', "right", "right", true);<br>
+                    } else if (gameGrid[i][j] == 5) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "rightturn", "rightturn", false);<br>
+                    } else if (gameGrid[i][j] == 6) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "leftturn", "leftturn", false);<br>
+                    } else if (gameGrid[i][j] == 7) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "topLeft", "topLeft", false);<br>
+                    } else if (gameGrid[i][j] == 8) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "topRight", "topRight", false);<br>
+                    } else if (gameGrid[i][j] == 9) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "middleRight", "middleRight", false);<br>
+                    } else if (gameGrid[i][j] == 10) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "middleLeft", "middleLeft", false); <br>
+                    } else if (gameGrid[i][j] == 11) {<br>
+                        createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 16) + '/SCALE', "bottom", "bottom", false); <br>
+                    } <br>
+                } <br>
+            } <br><br>
+
      </label> 
 
      </div>

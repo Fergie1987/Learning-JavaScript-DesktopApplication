@@ -14,23 +14,25 @@
 
      <label>
    
-     Your challenge within this task is to make use of the collision listener to update boolean variables. <br><br>
+     Your challenge within this task is to use the collision listener to update boolean variables. <br><br>
      
-     Once a collision is registered, the boolean value should change. IF statements within the update function should change the direction of the ghost objects. <br><br>
+     Once a collision is registered, the boolean value should change. IF statements within the update function should then change the direction of the ghost. <br><br>
 
-     We will provide you with example code to change the direction of an object: <br><br>
+     We will provide starter code to change the direction of an object. <br><br>
+
+     Your challenges within this task are:  <br><br>
+     1: Create boolean variables for each of your ghosts.<br><br>
+     2: Create beginContact listener actions for your ghost and wall ID's. <br><br>
+     3: Add IF statements into the update function to evaluate the status of the boolean variables. <br><br>
      
-     Moving an object right: <br><br>
+     <b>Moving an object right:</b> <br><br>
      
      <code> ghost.GetBody().ApplyImpulse(new b2Vec2(5, 0), pacman.GetBody().GetWorldCenter()); </code> <br><br>
      
-     Moving an object left: <br><br>
+     <b>Moving an object left:</b> <br><br>
      <code> ghost.GetBody().ApplyImpulse(new b2Vec2(-5, 0), pacman.GetBody().GetWorldCenter()); </code> <br><br>
 
-     Your challenges within this task are:  <br><br>
-     1: Create boolean variables for each of your ghosts<br><br>
-     2: Create beginContact listener actions for your ghost and wall ID's. <br><br>
-     3: Add IF statements into the update function to keep checking the status of your boolean variables <br><br>
+   
 
      
      </label> 

@@ -13,17 +13,15 @@
      <div id = "lessonArea">
      <h2 class = "tutorialHeading">Tutorial 8: Moving Ghost Objects between Walls</h2>
      <label>
-     In this tutorial we will be adding the code to move Ghosts between two walls. <br><br>
+     In this tutorial we will be adding the code to move ghosts between two walls. <br><br>
      
-     The direction of the ghost will change after a collision is registered with a ghost and wall (for example, the walls named leftTurn or rightTurn can be used). <br><br>
+     The direction of the ghost will change after a collision is registered with a ghost and wall (for example, the walls named leftTurn or rightTurn should be used). <br><br>
 
-     The ghost object direction change cannot be handled within the contactListener, this is a known bug within Box2D but we can still update variables after collision. <br><br>
-
-     The solution is to create boolean variables and update these after collision. <br><br> 
+     Ghosts direction changes cannot be handled directly within the contactListener. This is a known bug within Box2D. We will update boolean variables using the contactListener instead to overcome this issue. <br><br> 
      
-     The update function can then be used to check the status of the variables, if there has been a change to the value, then the direction of the ghost should change.  <br><br>
+     The update function is then used to check the boolean variables. If there has been a value change, the direction of the ghost should change.  <br><br>
      
-     Your challenge is to now create this solution and change the direction of the Ghost objects you added. <br><br>
+     Your challenge within this task is to create this solution and change the direction of the ghost objects. <br><br>
 
 
      <iframe style="margin-left: 135px" width="560" height="315" src="https://www.youtube.com/embed/hI9YivqrStg?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
