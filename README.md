@@ -19,7 +19,7 @@ The command to create each desktop application instance is: npm start
 
 Note: Create more than 1 instance of the application to use the live code sharing functionality.  
 
-Note for Linux operating systems, if the application does not launch, within the package.json file on the "start" line, please add --disable-gpu after electron . ("start": "electron . --disable-gpu")    
+Note for Linux operating systems: If the page elements do not appear after launching the application, this is a known web browser issue. To resolve, within the package.json file on the "start" line, add: --disable-gpu after electron . ("start": "electron . --disable-gpu")    
 
 # Learning JavaScript Desktop Application Description 
 
