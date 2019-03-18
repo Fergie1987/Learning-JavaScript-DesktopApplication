@@ -6,12 +6,20 @@ git clone https://github.com/Fergie1987/Learning-JavaScript-DesktopApplication.g
 
 cd Learning-JavaScript-DesktopApplication
 
+To install the node packages use the command: npm install
+
+Global electron Installation: npm install -g electron-prebuilt
+
+Note: For global Linux installations, ensure the user has permission to update the node_modules folder, example command: sudo chown -R $USER "directory"  
+
 Open a command prompt window and start the server: node app.js
 
 Open new command prompt windows and cd in to Learning-JavaScript-DesktopApplication to run new instances of the desktop application. 
 The command to create each desktop application instance is: npm start
 
 Note: Create more than 1 instance of the application to use the live code sharing functionality.  
+
+Note for Linux operating systems, if the application does not launch, within the package.json file on the "start" line, please add --disable-gpu after electron . ("start": "electron . --disable-gpu")    
 ```
 # Learning JavaScript Desktop Application Description 
 

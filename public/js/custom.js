@@ -1,13 +1,14 @@
+//tutorial the user is currently on - starts at 1. 
 var lessonNumber = 1;
 
 
-
+//click method for previous button. User taken back to previous task. 
 $("#previousTutorial").click(function() {
-
+    //lessonNumber will not be below 1. 
     if (lessonNumber > 1) {
         lessonNumber = lessonNumber - 1;
     }
-
+    //page routings when lesson number variable is updated. 
     if(lessonNumber == 1) {
         document.getElementById('tutorials').src = "http://localhost:3000/starttutorial";   
     }
@@ -58,12 +59,13 @@ $("#previousTutorial").click(function() {
     }
 });
 
-
+//click method for next button. User will be moved on to the next task.  
 $("#nextTutorial").click(function() {
-
+    //lesson number variable will not move above 23
     if (lessonNumber < 23) {
         lessonNumber = lessonNumber + 1;
     }
+    //page routings using the lessonNumber variable. 
     if(lessonNumber == 1) {
         document.getElementById('tutorials').src = "http://localhost:3000/starttutorial";   
     }
@@ -116,7 +118,7 @@ $("#nextTutorial").click(function() {
 
 });
 
-
+//click method for running code within the editor. 
 $("#runCode").click(function() {
     if (editor.getValue() != "") {
         writeToFile(editor.getValue());
@@ -126,17 +128,19 @@ $("#runCode").click(function() {
     }
 });
 
+//on click routing for accessing the application overview. 
 $("#applicationOverview").click(function() {
     location.href = 'http://localhost:3000/applicationOverview'
   
 });
 
+//click function for reading in code from index.js
 $("#readInCode").click(function() {
     var content = readFromFile();
     editor.setValue(" ");
     editor.setValue(content);
 });
-
+//click function for removing code from the code editor 
 $("#clearEditor").click(function() {
     if (confirm("Are you sure you wish to remove your code from the Editor?")) {
         editor.setValue(" ");
@@ -144,33 +148,35 @@ $("#clearEditor").click(function() {
 
 });
 
-
-
+//click method for accessing the Pac-Man intro. 
 $("#pacmanMenu").click(function() {
     location.href = 'http://localhost:3000/pacmanintro'
 });
 
+//click method for returning to the application home. 
 $("#returnMainMenu").click(function() {
     if (confirm("Have you remembered to save a copy of your code? Do you wish to continue?")) {
         location.href = 'http://localhost:3000/'
     }
 });
-
+//click method for accessing the Pac-Man tutorial. 
 $("#continueToPacman").click(function() {
     location.href = 'http://localhost:3000/pacman'
 });
 
+//click method for returning to the main menu. 
 $("#returnMainMenuNoCode").click(function() {
     if (confirm("Are you sure? Click Ok to return to the Main Menu")) {
         location.href = 'http://localhost:3000/'
     }
 });
 
+//click method for accessing the communication and development area. 
 $("#developmentCommunicate").click(function() {
     location.href = 'http://localhost:3000/communicateanddevelop'
 });
 
-
+//click method for running the code within the editor. If no code available, alert message will display. 
 $("#runCodeDev").click(function() {
     if (editor.getValue() != "") {
         writeToFile(editor.getValue());
@@ -181,19 +187,18 @@ $("#runCodeDev").click(function() {
 
 });
 
+//click method for reading in code from the index.js file. 
 $("#readInCodeDev").click(function() {
     var content = readFromFile();
     editor.setValue(" ")
     editor.setValue(content);
 });
 
+//click method for removing code within the code editor. 
 $("#clearEditorDev").click(function() {
     if (confirm("Are you sure you wish to remove your code from the Editor?")) {
         editor.setValue(" ");
     }
-
-    
-    
 
 });
 

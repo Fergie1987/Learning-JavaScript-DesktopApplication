@@ -8,11 +8,14 @@ var port = process.env.PORT || 3000;
 
 app.use(morgan('combined', { stream: winston.stream }));
 
+//objects to hold the username and the socket ID. 
 var users = {};
 var sockets = {};
 
+//Array to hold the current online users. 
 var online = [];
 
+//Application page routings. 
 app.use(express.static('./public'));
 
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
@@ -122,49 +125,50 @@ app.get('/applicationoverview', function (req, res) {
 
 
 
-//socket connection
+//socket.io connection - actions to occur when connection is successful
 io.on('connection', function (socket) {
-
+  //socket id of connected user. 
   id = socket.id
 
   console.log('a user connected' + id)
-
+  //actions to occur when user disconnects connection
   socket.on('disconnect', function () {
-
+    //name of user retrived from the object using the socketID
     var nameToRemove = users[socket.id]
-   
+   //Position to remove from the online users array. 
     var index = online.indexOf(nameToRemove);
     online.splice(index, 1);
+    //send updated online users array to connected users
     io.emit('online users', online);
+    //deleted the username and socketid from both objects. 
     delete users [socket.id];
     delete sockets [nameToRemove];
     console.log(users);
     console.log(sockets);
   });
 
+  //socket event when user submits their username. 
   socket.on('userName', function (nkn) {
     console.log('userName:' + nkn);
     id = socket.id;
-
     users[id] = nkn;
     sockets[nkn] = id;
     console.log(users);
     console.log(sockets);
-
     online.push(nkn);
-
+    //send out updated users array when user submits username.  
     io.emit('online users', online);
-
   });
  
+  //socket event when user submits private message to other user. 
   socket.on('private Message', function (privateMessage) {
-
     userSocket = sockets[privateMessage.name];
     userMessage = privateMessage.message;
     userFrom = users[socket.id];
     io.to(userSocket).emit('privateNewMessage', { message: userMessage, userPrivfrom: userFrom })
   });
 
+  //socket event when user submits sharing request. 
   socket.on('sharing Request', function (sharingRequest) {  
     var dt = new Date();
     var utcDate = dt.toUTCString();
@@ -173,6 +177,7 @@ io.on('connection', function (socket) {
     io.to(userSocket).emit('newSharingRequest', {userShareFrom: userFrom, sentTo:sharingRequest.name, timeSent: utcDate }) 
   });
 
+  //socket event when user accepts sharing request. 
   socket.on('Request Accepted', function (sharingRequest) {   
     var dt = new Date();
     var utcDate = dt.toUTCString();
@@ -180,30 +185,34 @@ io.on('connection', function (socket) {
     io.to(userSocket).emit('acceptedRequest', {acceptedBy: sharingRequest.acceptedBy, timeSent: utcDate }) 
   });
 
+  //socket event for sending code when connection is made. 
   socket.on('Send Code', function (sendCode) {   
     userSocket = sockets[sendCode.sendCodeTo];
     io.to(userSocket).emit('updateCodeEditor', {codeToAdd: sendCode.code, nameToAddToVar: sendCode.nameToUpdate}) 
   });
 
+  //socket event for sending code after keypress.
   socket.on('Code Updated', function (send) {   
     userSocket = sockets[send.userToUpdate];
     io.to(userSocket).emit('sendCodeKeyPress', {codeToUpdate: send.codeNew}) 
   });
 
+  //socket event for disconnecting sharing connection.
   socket.on('disconnected', function (send) {   
     var dt = new Date();
     var utcDate = dt.toUTCString();
     userSocket = sockets[send.name];
     io.to(userSocket).emit('disconnectConnection', {timeDisconnected: utcDate}) 
   });
-
+  
+   //socket event when user declines sharing request.  
    socket.on('Request Declined', function (data) {   
     var dt = new Date();
     var utcDate = dt.toUTCString();
     userSocket = sockets[data.respondTo];
     io.to(userSocket).emit('Sharing Declined', {declinedBy: data.declinedBy,  timeDeclined: utcDate}) 
   });
-
+  //socket event when user decides to decline after initially accepting.  
   socket.on('Request Declined After Accept', function (data) {   
     var dt = new Date();
     var utcDate = dt.toUTCString();
@@ -221,17 +230,16 @@ io.on('connection', function (socket) {
 });
 
 //port the server will open on, localhost:3000.
-
-
 http.listen(port, function () {
   console.log('listening on *:' + port);
 });
 
-
+//function for JEST test, close connection to complete the tests. 
 function closeHttp () {
 http.close()
 };
 
+//make objects, arrays and functions available to other classes. 
 exports.online = online;
 exports.users = users;
 exports.sockets = sockets;

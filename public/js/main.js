@@ -8,7 +8,7 @@ var image = nativeImage.createFromPath(__dirname + '/../assets/logoicon.ico')
 let mainWindow
 let childWindow
 
-
+//configuration for creating the electron application window.
 function createWindow() {
     const {
         width,
@@ -30,6 +30,7 @@ function createWindow() {
 
 app.on('ready', createWindow)
 
+//fs module for writing code to the index.js file when executing code. 
 function writeToFile(content) {
     fs.writeFile("./public/js/index.js", content, (err) => {
         if (err) {
@@ -40,11 +41,13 @@ function writeToFile(content) {
     });
 }
 
+//fs module for reading in code from the index.js file. 
 function readFromFile() {
     var data = fs.readFileSync("./public/js/index.js", 'utf8');
     return data;
 }
 
+//starter box2D code when launching the tutorial - code loads into the code mirror editor.
 function readBox2Dcode() {
     var data = fs.readFileSync("./public/js/box2dstartingcode.js", 'utf8');
     return data;   
