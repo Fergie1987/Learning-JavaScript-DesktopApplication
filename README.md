@@ -23,9 +23,9 @@ Note for Linux operating systems: If the page elements do not appear after launc
 
 # Learning JavaScript Desktop Application Description 
 
-This educational application has been developed using the Electron JavaScript framework (Chromium and Node.js), version 1.4.13. 
+This educational application has been developed using the cross platform desktop application framework Electron (Chromium and Node.js), version 1.4.13. 
 
-The application purpose is to teach students new JavaScript coding skills. Tutorials are included for the students to follow with a code mirror embedded editor available for students to practice their new coding skills. The added code can be run within the application with the output being shown within a new electron window. The console.log output also displays within the new window to assist with code debugging.  
+The purpose of the application is to teach students new JavaScript coding skills. Tutorials are included for the students to follow with a code mirror embedded editor available for students to practice their new coding skills. The added code can be run within the application with the output being shown within a new electron window. The console.log output also displays within the new window to assist with code debugging.  
 
 The main benefit offered by using this application is the live code sharing functionality. If the student requires tutorial or coding assistance, a lecturer can be sent a code sharing request. If the request is accepted, the student and lecturer can communicate through private instant messages and code together within their own code editors. The code sharing session can be disconnnected by either user at any time with a message being sent to other user when this occurs.  
 
