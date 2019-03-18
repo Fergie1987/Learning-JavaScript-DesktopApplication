@@ -1,7 +1,7 @@
 # Learning-JavaScript-DesktopApplication
 
 ## Building the Application: 
-```
+
 git clone https://github.com/Fergie1987/Learning-JavaScript-DesktopApplication.git
 
 cd Learning-JavaScript-DesktopApplication
@@ -20,7 +20,7 @@ The command to create each desktop application instance is: npm start
 Note: Create more than 1 instance of the application to use the live code sharing functionality.  
 
 Note for Linux operating systems, if the application does not launch, within the package.json file on the "start" line, please add --disable-gpu after electron . ("start": "electron . --disable-gpu")    
-```
+
 # Learning JavaScript Desktop Application Description 
 
 This educational application has been developed using the Electron JavaScript framework (Chromium and Node.js), version 1.4.13. 
