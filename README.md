@@ -10,7 +10,7 @@ To install the node packages use the command: npm install
 
 Global electron Installation: npm install -g electron-prebuilt
 
-Note: For global Linux installations, ensure the user has permission to update the node_modules folder, example command: sudo chown -R $USER "directory"  
+Note: For global Linux installations, ensure the user has permission to update the node_modules folder, example command: sudo chown -R $USER "location_of_directory"  
 
 Open a command prompt window and start the server: node app.js
 
