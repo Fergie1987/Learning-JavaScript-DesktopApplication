@@ -13,11 +13,11 @@
      <div id = "lessonArea">
      <h2 class = "tutorialHeading">Tutorial 8: Moving Ghost Objects between Walls</h2>
      <label>
-     In this tutorial we will be adding the code to move ghosts between two walls. <br><br>
+     In this tutorial, code will be added to move ghosts between two walls. <br><br>
      
      The direction of the ghost will change after a collision is registered with a ghost and wall (for example, the walls named leftTurn or rightTurn should be used). <br><br>
 
-     Ghosts direction changes cannot be handled directly within the contactListener. This is a known bug within Box2D. We will update boolean variables using the contactListener instead to overcome this issue. <br><br> 
+     A known Box2D library bug that causes a game crash is that ghost direction changes cannot be handled directly within the contactListener. To resolve this, instead we will update boolean variables using the contactListener. <br><br> 
      
      The update function is then used to check the boolean variables. If there has been a value change, the direction of the ghost should change.  <br><br>
      

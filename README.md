@@ -7,6 +7,7 @@ git clone https://github.com/Fergie1987/Learning-JavaScript-DesktopApplication.g
 cd Learning-JavaScript-DesktopApplication
 
 To install the node packages use the command: npm install
+(Linux command to allow package download: npm config set strict-ssl false).
 
 Global electron Installation: npm install -g electron-prebuilt
 
