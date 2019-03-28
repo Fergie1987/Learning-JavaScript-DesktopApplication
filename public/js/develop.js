@@ -9,12 +9,14 @@ var communicatingName;
 
 //click method, send private message through the socket connections. 
 $('#privButton').click(function() {
+    if($('#privateMessage').val() != "" && $('#selectBox').text() != ""){
     $('#messages').append($('<li>').text($('#privateMessage').val() + " - " + 'Private Message Sent From Your Account to' + " " + $('#selectBox').text()));
     socket.emit('private Message', {
         name: $('#selectBox').text(),
         message: $('#privateMessage').val()
     });
     $('#privateMessage').val(" ");
+} else {alert("Error: Message not sent - no message or user not available");}
 });
 
 //click method for disconnecting the sharing connection and sending message to other user through the socket. 
@@ -59,10 +61,14 @@ socket.on('privateNewMessage', function(privMsg) {
 
 //click event for sending sharing request to other user. 
 $('#codeSharingRequest').click(function() {
+    if ($('#selectBox').text() != "") {
     $('#status').html("Sharing Request Sent To " + $('#selectBox').text());
     socket.emit('sharing Request', {
         name: $('#selectBox').text()
     });
+} else { alert("No Other Users Online");
+
+}
 });
 
 //socket event received from server for sharing request from other user, confirm box opens when event received. 

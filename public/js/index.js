@@ -11,6 +11,7 @@ var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
 
 
+
 //Creating the box2D world with zero gravity
 world = new b2World( 
 new b2Vec2(0, 0) //zero gravity 
