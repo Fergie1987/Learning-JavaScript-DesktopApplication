@@ -12,23 +12,31 @@
 </div>
 
 <style> canvas { background-color:black; } </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/bootstrap.min.css"> 
+<script src="/js/bootstrap.min.js"></script>
 </head>
 
 <body id = "mainBody">
-   
-        <div>
-                
+        <div class="container-fluid">     
+                        <div class="row">
+                                <div class="col-sm-6">
+                                                 <div> <H1>ScoreBoard:</H1> </div>
+                                                 <div> <H2 id="score"> </H2> </div>     
+                                                        <canvas id="can" width="500" height="560"> </canvas>
+                                                </div>
+                                        
+      
+                     
+                                        <div class="col-sm-6">
                 <ul id="debugDiv">
                 <label id = "debugHeading"><b>Console for Debugging</b></label>    
                 </ul>    
         </div>
-<div> <H1>ScoreBoard:</H1> </div>
-<div> <H2 id="score"> </H2> </div>
 
-<canvas id="can" width="500" height="560"> </canvas>
+</div>
 
-
-
+</div>
 
 <script>
   
