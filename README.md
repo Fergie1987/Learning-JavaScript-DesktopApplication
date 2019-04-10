@@ -18,7 +18,7 @@ Open a command prompt window and start the server: node app.js
 Open new command prompt windows and cd in to Learning-JavaScript-DesktopApplication to run new instances of the desktop application. 
 The command to create each desktop application instance is: npm start
 
-Create more than 1 instance of the application to use the applications live code sharing functionality.  
+Create more than 1 application instance to use the applications live code sharing functionality.  
 
 Running Linux operating systems within Virtual Box: If the page elements do not appear after launching the application, this is a known web browser issue. To resolve, within the package.json file on the "start" line, add: --disable-gpu after electron . ("start": "electron . --disable-gpu").    
 
