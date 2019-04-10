@@ -39,6 +39,7 @@ The main menu has three options available:
 3: Development and Communication. 
 
 The application pages are all hosted on an Express Node.js Server. The JavaScript Library used within the application is JQuery.
+
 The BootStrap CSS Library was included to enable responsive application pages. 
 
 ## Section 1: Application Overview
