@@ -38,7 +38,8 @@ The main menu has three options available:
 
 3: Development and Communication. 
 
-The application pages are all hosted on an Express Node.js Server. The JavaScript Library used within the application is JQuery. 
+The application pages are all hosted on an Express Node.js Server. The JavaScript Library used within the application is JQuery.
+The BootStrap CSS Library was included to enable responsive application pages. 
 
 ## Section 1: Application Overview
 35 minute screen recording video to provide users with an overview of the application functionality.  
@@ -57,7 +58,7 @@ This was included within the application to provide users an area to:
 2. Contact other users and discuss JavaScript coding challenges. 
 3. Connect code editors and code share to resolve coding issues. 
 
- ## Code Sharing Functionality
+## Code Sharing Functionality
 
 The event based node.js communication library socket.io was used for server communication and sending data between connected users. 
 
