@@ -28,7 +28,7 @@ This educational application was developed using the cross platform desktop appl
 
 The purpose of this desktop application is to teach students new problem solving and JavaScript programming skills. Tutorials are used by the students to learn. The code mirror embedded editor enables students to practice their new coding skills. JavaScript code can be run within the application and the output is displayed within a new electron window. Console.log outputs display within the new window to assist with code debugging.   
 
-A communication benefit provided within this application is the live code sharing functionality. A student can send a code sharing request if they require tutorial or coding assistance. If the request is accepted, the student and lecturer can communicate through private instant messages and code simultaneously within their own code editors. Code sharing sessions can be disconnnected by either user at any time with a message being sent to other user when this action occurs.  
+A communication benefit provided within this application is the live code sharing functionality. A student can send a code sharing request to a lecturer if they require tutorial or coding assistance. If the request is accepted, the student and lecturer can communicate through private instant messages and code simultaneously within their own code editors. Code sharing sessions can be disconnnected by either user at any time with a message being sent to the other user when this action occurs.  
 
 The main menu has three options available: 
 
