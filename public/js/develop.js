@@ -73,7 +73,7 @@ $('#codeSharingRequest').click(function() {
 
 //socket event received from server for sharing request from other user, confirm box opens when event received. 
 socket.on('newSharingRequest', function(receivedShare) {
-    if (confirm("You received a code sharing request from " + receivedShare.userShareFrom + "\n\nThe request was sent: " + receivedShare.timeSent + "\n\n Click Ok to Accept, or Cancel to Decline")) {
+    if (confirm("You have received a code sharing request from " + receivedShare.userShareFrom + "\n\nThe request was sent: " + receivedShare.timeSent + "\n\n Click Ok to Accept, or Cancel to Decline")) {
         $('#status').html("Code Sharing With: " + receivedShare.userShareFrom);
         socket.emit('Request Accepted', {
             acceptedBy: receivedShare.sentTo,
