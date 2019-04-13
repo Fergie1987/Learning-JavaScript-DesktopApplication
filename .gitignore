@@ -1,3 +1,4 @@
 node_modules/*
 learnjavascriptapp-linux-x64/*
 learnjavascriptapp-win32-x64/*
+public/logs/*
