@@ -4,6 +4,8 @@
 
 Node.js and npm (Node Package Manager) are required and should be installed before following the instructions below. Both can be downloaded and installed from: https://nodejs.org/en/
 
+Open a new command prompt/terminal window
+
 git clone https://github.com/Fergie1987/Learning-JavaScript-DesktopApplication.git
 
 cd Learning-JavaScript-DesktopApplication
@@ -15,10 +17,9 @@ Global electron Installation: npm install -g electron-prebuilt
 
 Note: For global Linux installations, ensure the user has permission to update the node_modules folder, example command: sudo chown -R $USER "location_of_directory"  
 
-Open a command prompt window and start the server: node app.js
+To start the server, open a new command prompt/terminal window, cd into the Learning-JavaScript-DesktopApplication folder and use the command: node app.js
 
-Open a second command prompt window and cd into Learning-JavaScript-DesktopApplication to run new instances of the desktop application. 
-The command to create each desktop application instance is: npm start
+To run new instances of the desktop application, open new command prompt/terminal windows, cd into the Learning-JavaScript-DesktopApplication folder and use the command: npm start 
 
 Create more than 1 application instance to use the applications live code sharing functionality.  
 
