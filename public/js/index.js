@@ -26,7 +26,95 @@ var CANVAS_WIDTH = 500;
 var CANVAS_HEIGHT = 560;
 var SCALE = 30; 
 
+//Array of Numbers to create the GameGrid. 
+var gameGrid = [
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+[0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8],
+[0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8],
+[0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],
+[0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 1, 1, 0, 0, 10, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 9, 0, 0, 1, 1, 1],
+[0, 1, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 1, 1, 10, 0, 0, 1, 0, 0, 1, 1, 4, 4, 4, 1, 1, 0, 0, 1, 0, 0, 9, 1, 1, 0, 0, 1],
+[0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3],
+[0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3],
+[0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+[0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+[0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+[0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1],
+[0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+[0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+[0, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,11,11,11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5]
+]
 
+console.log("Reached Here");
+
+//for loops to create the gameGrid on the canvas 
+
+for (var i = 0; i < (gameGrid.length); i++) {
+for (j = 0; j < (gameGrid[0].length); j++) {
+if (gameGrid[i][j] == 1) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "ground", "ground", false);
+} else if (gameGrid[i][j] == 2) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16) + '/SCALE', (i * 16 + 8) + '/SCALE', "left", "left", true);
+} else if (gameGrid[i][j] == 3) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 16) + '/SCALE', (i * 16 + 8) + '/SCALE', "right", "right", true);
+} else if (gameGrid[i][j] == 5) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "rightturn", "rightturn", false);
+} else if (gameGrid[i][j] == 6) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "leftturn", "leftturn", false);
+} else if (gameGrid[i][j] == 7) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "topLeft", "topLeft", false);
+} else if (gameGrid[i][j] == 8) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "topRight", "topRight", false);
+} else if (gameGrid[i][j] == 9) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "middleRight", "middleRight", false);
+} else if (gameGrid[i][j] == 10) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 8) + '/SCALE', "middleLeft", "middleLeft", false); 
+} else if (gameGrid[i][j] == 11) {
+createBodies(1, 0, 0, '8/SCALE', '8/SCALE', true, (j * 16 + 8) + '/SCALE', (i * 16 + 16) + '/SCALE', "bottom", "bottom", false); 
+} 
+} 
+} 
+
+//method to create the bodies within the box2D world - used within the for loop 
+
+function createBodies(density, friction, restitution, wi, hi, static, x, y, name, userdata, sensor) {
+var fixDef = new b2FixtureDef;
+fixDef.density = density;
+fixDef.friction = friction;
+fixDef.restitution = restitution;
+fixDef.shape = new b2PolygonShape;
+fixDef.shape.SetAsBox(eval(wi), eval(hi));
+fixDef.isSensor = sensor;
+
+var bodyDef = new b2BodyDef;
+bodyDef.type = b2Body.b2_staticBody;
+bodyDef.position.x = eval(x);
+bodyDef.position.y = eval(y);
+name = world.CreateBody(bodyDef).CreateFixture(fixDef);
+name.GetBody().SetUserData({
+id: userdata
+});
+};
+
+console.log("Message1");
 
 //Enables object drawing on the canvas.
 var debugDraw = new b2DebugDraw(); 

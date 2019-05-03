@@ -2,6 +2,8 @@
 
 ## Building the Application: 
 
+Node.js and npm (Node Package Manager) are required and should be installed before following the instructions below. Both can be downloaded and installed from: https://nodejs.org/en/
+
 git clone https://github.com/Fergie1987/Learning-JavaScript-DesktopApplication.git
 
 cd Learning-JavaScript-DesktopApplication
